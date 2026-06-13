@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 
 interface BeforeAfterSliderProps {
   beforeImage: string;
@@ -11,7 +11,7 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Comp
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const updatePosition = (clientX: number) => {
+  const updatePosition = useCallback((clientX: number) => {
     if (!containerRef.current) return;
 
     const rect = containerRef.current.getBoundingClientRect();
@@ -19,26 +19,26 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Comp
     const percentage = (x / rect.width) * 100;
     const bounded = Math.max(0, Math.min(100, percentage));
     setSliderPosition(bounded);
-  };
+  }, []);
 
   const handleMouseDown = () => {
     setIsDragging(true);
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
+  const handleMouseMove = useCallback((e: MouseEvent) => {
     if (!isDragging) return;
     updatePosition(e.clientX);
-  };
+  }, [isDragging, updatePosition]);
 
-  const handleMouseUp = () => {
+  const handleMouseUp = useCallback(() => {
     setIsDragging(false);
-  };
+  }, []);
 
-  const handleTouchMove = (e: TouchEvent) => {
+  const handleTouchMove = useCallback((e: TouchEvent) => {
     if (e.touches.length > 0) {
       updatePosition(e.touches[0].clientX);
     }
-  };
+  }, [updatePosition]);
 
   useEffect(() => {
     if (isDragging) {
@@ -49,7 +49,7 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Comp
         document.removeEventListener('mouseup', handleMouseUp);
       };
     }
-  }, [isDragging]);
+  }, [handleMouseMove, handleMouseUp, isDragging]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -59,7 +59,7 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Comp
     return () => {
       container.removeEventListener('touchmove', handleTouchMove);
     };
-  }, []);
+  }, [handleTouchMove]);
 
   return (
     <div
