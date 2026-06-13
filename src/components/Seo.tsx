@@ -123,6 +123,13 @@ const pageSeo: Record<string, PageSeo> = {
     title: 'Air Duct Cleaning in Bucks County, PA | Air Duct Priority',
     description: 'Full-system air duct cleaning with inspection and before-and-after proof in Bucks County and Montgomery County, PA.',
     service: 'Air Duct Cleaning',
+    faqs: [
+      { question: 'Does every home need air duct cleaning?', answer: 'No. Air duct cleaning is recommended when an inspection shows a real reason. If the ducts look clean, Air Duct Priority says so.' },
+      { question: 'Do you clean only the vent covers?', answer: 'No. When cleaning is needed, the goal is full-system cleaning of the accessible air-distribution system, not only visible registers.' },
+      { question: 'Do you provide before-and-after proof?', answer: 'Yes. Before-and-after video proof is provided when possible so the customer can understand the condition and result.' },
+      { question: 'How often should air ducts be cleaned?', answer: 'After a proper full-system cleaning, most homes under normal conditions may not need another cleaning for approximately 10 to 15 years, unless specific conditions change.' },
+      { question: 'What can make cleaning necessary sooner?', answer: 'Renovation dust, pest activity, smoke, water damage, unusual debris, odors, or specific contamination concerns may make cleaning appropriate sooner.' },
+    ],
   },
   '/services/air-duct-installation': {
     title: 'Air Duct Installation in Bucks County, PA | Air Duct Priority',
