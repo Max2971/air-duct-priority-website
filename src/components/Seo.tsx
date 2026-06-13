@@ -75,11 +75,25 @@ const pageSeo: Record<string, PageSeo> = {
     title: 'Dryer Vent Repair in Bucks County, PA | Air Duct Priority',
     description: 'Dryer vent repair for disconnected, crushed, damaged, or poorly routed vents in Bucks County and Montgomery County, PA.',
     service: 'Dryer Vent Repair',
+    faqs: [
+      { question: 'How do I know whether my dryer vent needs repair?', answer: 'Visible damage, a crushed connection, lint or moisture escaping indoors, poor airflow after cleaning, or a disconnected line can indicate repair is needed.' },
+      { question: 'Can you repair a dryer vent disconnected in an attic?', answer: 'Accessible disconnected dryer vent sections can be evaluated and repaired when conditions allow.' },
+      { question: 'Do you replace crushed flexible duct behind the dryer?', answer: 'Yes. A crushed or unsuitable connection can be replaced with an appropriate connection when needed.' },
+      { question: 'Can you repair a roof-exit dryer vent?', answer: 'Roof-exit vent concerns can be inspected and addressed depending on access, condition, and the exterior termination.' },
+      { question: 'Do you provide a free inspection?', answer: 'Yes. Air Duct Priority provides a free in-person inspection and clear recommendation before repair work begins.' },
+    ],
   },
   '/services/dryer-vent-installation': {
     title: 'Dryer Vent Installation in Bucks County, PA | Air Duct Priority',
     description: 'Airflow-focused dryer vent installation and replacement in Bucks County and Montgomery County, PA.',
     service: 'Dryer Vent Installation',
+    faqs: [
+      { question: 'When is a new dryer vent line needed?', answer: 'A new line may be needed when the existing vent is missing, damaged, unsafe, poorly routed, or cannot be repaired effectively.' },
+      { question: 'Can you reroute an existing dryer vent?', answer: 'Yes. Air Duct Priority provides dryer vent rerouting when a clearer or more practical route is available.' },
+      { question: 'What materials do you use?', answer: 'The recommended materials depend on the route and conditions. Smooth metal is used where appropriate, with secure connections and a proper exterior termination.' },
+      { question: 'Can you install a new exterior vent cover?', answer: 'Yes. Exterior termination and vent cover replacement can be included when appropriate.' },
+      { question: 'Do you provide a free inspection before installation?', answer: 'Yes. Air Duct Priority provides a free in-person inspection and explains the proposed route and scope before work begins.' },
+    ],
   },
   '/services/dryer-vent-rerouting': {
     title: 'Dryer Vent Rerouting in Bucks County, PA | Air Duct Priority',
