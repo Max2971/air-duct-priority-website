@@ -11,6 +11,7 @@ export default function HeroSection() {
           loop
           muted
           playsInline
+          poster="/hero-dryer-vent-cleaning.webp"
         >
           <source src="/hero-dryer-vent-cleaning.mp4" type="video/mp4" />
         </video>
@@ -27,7 +28,7 @@ export default function HeroSection() {
             {/* TOP: Headline + Subheadline */}
             <div>
               <h1 className="mb-6 text-3xl font-bold leading-tight text-gray-100 md:text-5xl lg:text-6xl">
-                Licensed &amp; Insured Dryer Vent Cleaning in Bucks County, PA
+                Air Duct Priority: Dryer Vent &amp; Air Duct Services in Bucks County, PA
               </h1>
 
               <p className="text-lg text-gray-200 md:text-xl lg:text-2xl">

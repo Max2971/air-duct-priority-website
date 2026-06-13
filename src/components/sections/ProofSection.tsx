@@ -41,7 +41,7 @@ export default function ProofSection() {
                 <div className="mb-3 h-14 w-14 md:h-20 md:w-20 md:mb-4 overflow-hidden rounded-full bg-gray-200">
                   <img
                     src="/review-lee-r.png"
-                    alt="Customer"
+                    alt="Lee R., verified Google reviewer"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -80,7 +80,7 @@ export default function ProofSection() {
                 <div className="mb-3 h-14 w-14 md:h-20 md:w-20 md:mb-4 overflow-hidden rounded-full bg-gray-200">
                   <img
                     src="/review-liora-zirkel.png"
-                    alt="Customer"
+                    alt="Liora Zirkel, verified Google reviewer"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -118,7 +118,7 @@ export default function ProofSection() {
                 <div className="mb-3 h-14 w-14 md:h-20 md:w-20 md:mb-4 overflow-hidden rounded-full bg-gray-200">
                   <img
                     src="/review-iryna.png"
-                    alt="Customer"
+                    alt="Iryna, verified Google reviewer"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -156,7 +156,7 @@ export default function ProofSection() {
                 <div className="mb-3 h-14 w-14 md:h-20 md:w-20 md:mb-4 overflow-hidden rounded-full bg-gray-200">
                   <img
                     src="/review-dmitrii-molchanov.png"
-                    alt="Customer"
+                    alt="Dmitrii Molchanov, verified Google reviewer"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -194,7 +194,7 @@ export default function ProofSection() {
                 <div className="mb-3 h-14 w-14 md:h-20 md:w-20 md:mb-4 overflow-hidden rounded-full bg-gray-200">
                   <img
                     src="/review-amelia-rorer.png"
-                    alt="Customer"
+                    alt="Amelia Rorer, verified Google reviewer"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -232,7 +232,7 @@ export default function ProofSection() {
                 <div className="mb-3 h-14 w-14 md:h-20 md:w-20 md:mb-4 overflow-hidden rounded-full bg-gray-200">
                   <img
                     src="/review-joe-dubyk.png"
-                    alt="Customer"
+                    alt="Joe Dubyk, verified Google reviewer"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -269,32 +269,32 @@ export default function ProofSection() {
             <BeforeAfterSlider
               beforeImage="/ba-01-before.webp"
               afterImage="/ba-01-after.webp"
-              alt="Work Example 1"
+              alt="Before and after duct or vent service example 1"
             />
 
             <BeforeAfterSlider
               beforeImage="/ba-02-before.webp"
               afterImage="/ba-02-after.webp"
-              alt="Work Example 2"
+              alt="Before and after duct or vent service example 2"
             />
 
             <BeforeAfterSlider
               beforeImage="/ba-03-before.webp"
               afterImage="/ba-03-after.webp"
-              alt="Work Example 3"
+              alt="Before and after duct or vent service example 3"
             />
 
             <BeforeAfterSlider
               beforeImage="/ba-04-before.webp"
               afterImage="/ba-04-after.webp"
-              alt="Work Example 4"
+              alt="Before and after duct or vent service example 4"
             />
 
             <div className="md:col-span-2 md:mx-auto md:max-w-md">
               <BeforeAfterSlider
                 beforeImage="/ba-05-before.webp"
                 afterImage="/ba-05-after.webp"
-                alt="Work Example 5"
+                alt="Before and after duct or vent service example 5"
               />
             </div>
           </div>

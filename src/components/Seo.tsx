@@ -204,6 +204,13 @@ const localBusinessSchema = {
     postalCode: '18929',
     addressCountry: 'US',
   },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    opens: '08:00',
+    closes: '18:00',
+  },
+  hasMap: 'https://maps.app.goo.gl/c8kKh1yKKoHy9qNu6',
   areaServed: [
     { '@type': 'AdministrativeArea', name: 'Bucks County, PA' },
     { '@type': 'AdministrativeArea', name: 'Montgomery County, PA' },
@@ -233,6 +240,7 @@ export default function Seo() {
 
     document.title = seo.title;
     setMeta('meta[name="description"]', 'name', 'description', seo.description);
+    setMeta('meta[name="robots"]', 'name', 'robots', 'index, follow, max-image-preview:large');
     setMeta('meta[property="og:title"]', 'property', 'og:title', seo.title);
     setMeta('meta[property="og:description"]', 'property', 'og:description', seo.description);
     setMeta('meta[property="og:url"]', 'property', 'og:url', canonicalUrl);
@@ -275,6 +283,17 @@ export default function Seo() {
         url: canonicalUrl,
         provider: { '@id': `${SITE_URL}/#business` },
         areaServed: ['Bucks County, PA', 'Montgomery County, PA'],
+      });
+    }
+
+    if (pathname === '/about') {
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Max G.A.',
+        jobTitle: 'Founder and Owner-Operator',
+        worksFor: { '@id': `${SITE_URL}/#business` },
+        url: `${SITE_URL}/about`,
       });
     }
 

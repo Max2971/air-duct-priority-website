@@ -15,7 +15,7 @@ export default function TrustSectionHome({ variant = 'reviews', compact = false 
           <div className="absolute inset-0">
             <img
               src="/air-duct-cleaning-block.webp"
-              alt="Air Duct Priority vehicles"
+              alt="Air Duct Priority service vehicles in Bucks County, Pennsylvania"
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-black/50" />
