@@ -59,6 +59,10 @@ const pageSeo: Record<string, PageSeo> = {
     description: 'Request a free in-person dryer vent or air duct inspection in Bucks County and Montgomery County. No pressure and clear pricing before work.',
     service: 'Free Dryer Vent and Air Duct Inspection',
   },
+  '/reviews': {
+    title: 'Air Duct Priority Reviews | 543 Verified Google Reviews',
+    description: 'Read review themes and verified Google reviews for Air Duct Priority, an owner-operated dryer vent and air duct company serving Bucks and Montgomery Counties.',
+  },
   '/services/dryer-vent-cleaning': {
     title: 'Dryer Vent Cleaning in Bucks County, PA | Air Duct Priority',
     description: 'Licensed and insured dryer vent cleaning in Bucks County and Montgomery County, PA with free inspection, airflow checks, and clear recommendations.',

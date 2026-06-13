@@ -119,6 +119,7 @@ export default function Header() {
               Service Areas
             </a>
             <Link to="/free-inspection" className="text-gray-300 hover:text-gray-100 font-medium">Free Inspection</Link>
+            <Link to="/reviews" className="text-gray-300 hover:text-gray-100 font-medium">Reviews</Link>
 
             <Link to="/gallery" className="text-gray-300 hover:text-gray-100 font-medium">
               Gallery
@@ -305,6 +306,7 @@ export default function Header() {
                 Service Areas
               </a>
               <Link to="/free-inspection" className="text-gray-300 hover:text-gray-100 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>Free Inspection</Link>
+              <Link to="/reviews" className="text-gray-300 hover:text-gray-100 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>Reviews</Link>
 
               <Link
                 to="/gallery"

@@ -18,6 +18,7 @@ import ServiceAreaPage from './pages/ServiceAreaPage';
 import ScrollToTop from './components/ScrollToTop';
 import Seo from './components/Seo';
 import FreeInspectionPage from './pages/FreeInspectionPage';
+import ReviewsPage from './pages/ReviewsPage';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/service-area" element={<ServiceAreaPage />} />
         <Route path="/free-inspection" element={<FreeInspectionPage />} />
+        <Route path="/reviews" element={<ReviewsPage />} />
         <Route path="/services/dryer-vent-cleaning" element={<DryerVentCleaningPage />} />
         <Route path="/services/dryer-vent-repair" element={<DryerVentRepairPage />} />
         <Route path="/services/dryer-vent-installation" element={<DryerVentInstallationPage />} />
