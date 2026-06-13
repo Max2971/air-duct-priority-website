@@ -9,6 +9,7 @@ type PageSeo = {
   description: string;
   service?: string;
   faqs?: Array<{ question: string; answer: string }>;
+  article?: { published: string; modified: string };
 };
 
 const pageSeo: Record<string, PageSeo> = {
@@ -62,6 +63,43 @@ const pageSeo: Record<string, PageSeo> = {
   '/reviews': {
     title: 'Air Duct Priority Reviews | 543 Verified Google Reviews',
     description: 'Read review themes and verified Google reviews for Air Duct Priority, an owner-operated dryer vent and air duct company serving Bucks and Montgomery Counties.',
+  },
+  '/resources': {
+    title: 'Dryer Vent & Air Duct Resources | Air Duct Priority',
+    description: 'Practical homeowner guides about dryer vent airflow, cleaning, repair, replacement, bird nests, and exterior vent concerns.',
+  },
+  '/resources/signs-dryer-vent-clogged': {
+    title: 'Signs Your Dryer Vent May Be Clogged | Air Duct Priority',
+    description: 'Learn the common signs of a clogged dryer vent, what homeowners can check safely, and when cleaning may not solve the problem.',
+    article: { published: '2026-06-13', modified: '2026-06-13' },
+    faqs: [
+      { question: 'How often should a dryer vent be cleaned?', answer: 'The right interval depends on vent length, route, dryer use, household size, and prior buildup. Inspection is more reliable than assuming one interval fits every home.' },
+      { question: 'Can a dryer vent be clogged even if the lint screen is clean?', answer: 'Yes. The lint screen does not capture every fiber, and restrictions can also come from nesting material, damaged duct, a stuck cover, or a poor route.' },
+      { question: 'Why is the dryer still slow after vent cleaning?', answer: 'The vent may have physical damage, an inefficient route, a blocked termination, or the dryer itself may need appliance service.' },
+      { question: 'Can I check airflow outside myself?', answer: 'You can observe an accessible exterior vent from a safe location while the dryer runs. Avoid roofs, moving parts, and reaching inside an operating vent.' },
+    ],
+  },
+  '/resources/dryer-vent-cleaning-repair-or-replacement': {
+    title: 'Dryer Vent Cleaning, Repair, or Replacement? | Air Duct Priority',
+    description: 'Understand when a dryer vent needs cleaning, repair, replacement, or rerouting and which problems each service actually solves.',
+    article: { published: '2026-06-13', modified: '2026-06-13' },
+    faqs: [
+      { question: 'Can a dryer vent be repaired instead of replaced?', answer: 'Often, yes. A localized damaged or disconnected section may be repairable when the remaining route is suitable and accessible.' },
+      { question: 'Does a long dryer vent always need rerouting?', answer: 'Not always. The route, turns, airflow, condition, and available alternatives should be evaluated before recommending rerouting.' },
+      { question: 'What material is appropriate for a dryer vent?', answer: 'The appropriate material depends on the location and route. Smooth metal is generally used where appropriate, with secure connections and a suitable exterior termination.' },
+      { question: 'What if the dryer still shows an error after vent work?', answer: 'The appliance itself may need service, or another route or termination problem may remain. The cause should be diagnosed rather than assuming more cleaning is needed.' },
+    ],
+  },
+  '/resources/bird-nest-in-exterior-vent': {
+    title: 'Bird Nest in an Exterior Vent: What to Know | Air Duct Priority',
+    description: 'Learn how bird nests affect dryer, bathroom, and kitchen exhaust vents, what to avoid, and when removal or cover replacement is needed.',
+    article: { published: '2026-06-13', modified: '2026-06-13' },
+    faqs: [
+      { question: 'Can a bird nest block a dryer vent?', answer: 'Yes. Nesting material can restrict dryer exhaust airflow and may be combined with lint buildup or damage at the exterior termination.' },
+      { question: 'Should a bird guard be installed immediately?', answer: 'A guard should not be installed over an active nest or before the vent is cleared and inspected. The guard must also be appropriate for the affected vent.' },
+      { question: 'Can birds enter bathroom exhaust vents?', answer: 'Yes. Bathroom exhaust terminations can be affected by birds, nesting material, damaged covers, or stuck flaps.' },
+      { question: 'Does removing the visible nest solve the problem?', answer: 'Not always. Material may remain deeper in the line, and the cover or vent route may be damaged. Airflow should be checked after removal.' },
+    ],
   },
   '/doylestown-pa': { title: 'Dryer Vent & Air Duct Services in Doylestown, PA', description: 'Owner-operated dryer vent cleaning, repair, installation, and air duct cleaning in Doylestown, PA.' },
   '/newtown-pa': { title: 'Dryer Vent & Air Duct Services in Newtown, PA', description: 'Owner-operated dryer vent cleaning, repair, installation, and air duct cleaning in Newtown, PA.' },
@@ -294,6 +332,21 @@ export default function Seo() {
         jobTitle: 'Founder and Owner-Operator',
         worksFor: { '@id': `${SITE_URL}/#business` },
         url: `${SITE_URL}/about`,
+      });
+    }
+
+    if (seo.article) {
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: seo.title,
+        description: seo.description,
+        datePublished: seo.article.published,
+        dateModified: seo.article.modified,
+        mainEntityOfPage: canonicalUrl,
+        author: { '@type': 'Person', name: 'Max G.A.', url: `${SITE_URL}/about` },
+        publisher: { '@id': `${SITE_URL}/#business` },
+        image: DEFAULT_IMAGE,
       });
     }
 

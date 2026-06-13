@@ -25,6 +25,10 @@ import BirdNestRemovalPage from './pages/BirdNestRemovalPage';
 import BathroomExhaustVentCleaningPage from './pages/BathroomExhaustVentCleaningPage';
 import KitchenExhaustVentCleaningPage from './pages/KitchenExhaustVentCleaningPage';
 import ExteriorVentCoverReplacementPage from './pages/ExteriorVentCoverReplacementPage';
+import ResourcesPage from './pages/ResourcesPage';
+import SignsDryerVentCloggedPage from './pages/SignsDryerVentCloggedPage';
+import DryerVentServiceChoicePage from './pages/DryerVentServiceChoicePage';
+import BirdNestExteriorVentPage from './pages/BirdNestExteriorVentPage';
 
 function App() {
   return (
@@ -39,6 +43,10 @@ function App() {
         <Route path="/service-area" element={<ServiceAreaPage />} />
         <Route path="/free-inspection" element={<FreeInspectionPage />} />
         <Route path="/reviews" element={<ReviewsPage />} />
+        <Route path="/resources" element={<ResourcesPage />} />
+        <Route path="/resources/signs-dryer-vent-clogged" element={<SignsDryerVentCloggedPage />} />
+        <Route path="/resources/dryer-vent-cleaning-repair-or-replacement" element={<DryerVentServiceChoicePage />} />
+        <Route path="/resources/bird-nest-in-exterior-vent" element={<BirdNestExteriorVentPage />} />
         <Route path="/doylestown-pa" element={<DoylestownPage />} /><Route path="/newtown-pa" element={<NewtownPage />} /><Route path="/richboro-pa" element={<RichboroPage />} /><Route path="/warrington-pa" element={<WarringtonPage />} />
         <Route path="/services/dryer-vent-cleaning" element={<DryerVentCleaningPage />} />
         <Route path="/services/dryer-vent-repair" element={<DryerVentRepairPage />} />
