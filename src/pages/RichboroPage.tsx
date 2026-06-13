@@ -1,0 +1,2 @@
+import LocalServicePage from './LocalServicePage';
+export default function RichboroPage(){return <LocalServicePage data={{city:'Richboro',nearby:'Churchville, Holland, Southampton, Newtown, Wrightstown, and Warminster.',context:'Air Duct Priority helps Richboro homeowners identify and solve dryer vent restrictions, damaged vent lines, and real air duct cleaning needs.',issues:['Crushed connections behind dryers','Exterior vent covers affected by birds or debris','Weak airflow after prior cleaning','Dust and debris after home improvement work']}}/>}

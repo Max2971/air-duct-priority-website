@@ -63,6 +63,10 @@ const pageSeo: Record<string, PageSeo> = {
     title: 'Air Duct Priority Reviews | 543 Verified Google Reviews',
     description: 'Read review themes and verified Google reviews for Air Duct Priority, an owner-operated dryer vent and air duct company serving Bucks and Montgomery Counties.',
   },
+  '/doylestown-pa': { title: 'Dryer Vent & Air Duct Services in Doylestown, PA', description: 'Owner-operated dryer vent cleaning, repair, installation, and air duct cleaning in Doylestown, PA.' },
+  '/newtown-pa': { title: 'Dryer Vent & Air Duct Services in Newtown, PA', description: 'Owner-operated dryer vent cleaning, repair, installation, and air duct cleaning in Newtown, PA.' },
+  '/richboro-pa': { title: 'Dryer Vent & Air Duct Services in Richboro, PA', description: 'Owner-operated dryer vent cleaning, repair, installation, and air duct cleaning in Richboro, PA.' },
+  '/warrington-pa': { title: 'Dryer Vent & Air Duct Services in Warrington, PA', description: 'Owner-operated dryer vent cleaning, repair, installation, and air duct cleaning in Warrington, PA.' },
   '/services/dryer-vent-cleaning': {
     title: 'Dryer Vent Cleaning in Bucks County, PA | Air Duct Priority',
     description: 'Licensed and insured dryer vent cleaning in Bucks County and Montgomery County, PA with free inspection, airflow checks, and clear recommendations.',

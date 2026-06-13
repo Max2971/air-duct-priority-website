@@ -1,0 +1,2 @@
+import LocalServicePage from './LocalServicePage';
+export default function WarringtonPage(){return <LocalServicePage data={{city:'Warrington',nearby:'Jamison, Doylestown, Warminster, Chalfont, New Britain, and Horsham.',context:'Air Duct Priority provides free in-person inspections and practical dryer vent and air duct solutions for Warrington-area homeowners.',issues:['Dryer vents with long or inefficient routing','Damaged or disconnected flexible duct','Exterior termination and bird nest concerns','Air duct cleaning after renovation or construction']}}/>}

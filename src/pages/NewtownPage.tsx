@@ -1,0 +1,2 @@
+import LocalServicePage from './LocalServicePage';
+export default function NewtownPage(){return <LocalServicePage data={{city:'Newtown',nearby:'Yardley, Washington Crossing, Wrightstown, Richboro, Holland, Langhorne, and Churchville.',context:'Air Duct Priority provides owner-operated dryer vent and air duct services for Newtown homes, townhomes, and nearby communities.',issues:['Roof-exit and long dryer vent runs','Dryer airflow errors and slow drying','Bird nesting material at exterior vents','Renovation dust and inspection-based duct cleaning']}}/>}

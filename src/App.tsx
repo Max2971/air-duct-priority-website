@@ -19,6 +19,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Seo from './components/Seo';
 import FreeInspectionPage from './pages/FreeInspectionPage';
 import ReviewsPage from './pages/ReviewsPage';
+import DoylestownPage from './pages/DoylestownPage'; import NewtownPage from './pages/NewtownPage'; import RichboroPage from './pages/RichboroPage'; import WarringtonPage from './pages/WarringtonPage';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/service-area" element={<ServiceAreaPage />} />
         <Route path="/free-inspection" element={<FreeInspectionPage />} />
         <Route path="/reviews" element={<ReviewsPage />} />
+        <Route path="/doylestown-pa" element={<DoylestownPage />} /><Route path="/newtown-pa" element={<NewtownPage />} /><Route path="/richboro-pa" element={<RichboroPage />} /><Route path="/warrington-pa" element={<WarringtonPage />} />
         <Route path="/services/dryer-vent-cleaning" element={<DryerVentCleaningPage />} />
         <Route path="/services/dryer-vent-repair" element={<DryerVentRepairPage />} />
         <Route path="/services/dryer-vent-installation" element={<DryerVentInstallationPage />} />
