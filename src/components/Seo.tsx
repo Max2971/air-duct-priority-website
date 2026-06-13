@@ -54,6 +54,11 @@ const pageSeo: Record<string, PageSeo> = {
     title: 'Dryer Vent & Air Duct Service Areas | Air Duct Priority',
     description: 'Air Duct Priority serves Jamison, Bucks County, Montgomery County, and nearby communities with dryer vent and air duct services.',
   },
+  '/free-inspection': {
+    title: 'Free Dryer Vent & Air Duct Inspection | Air Duct Priority',
+    description: 'Request a free in-person dryer vent or air duct inspection in Bucks County and Montgomery County. No pressure and clear pricing before work.',
+    service: 'Free Dryer Vent and Air Duct Inspection',
+  },
   '/services/dryer-vent-cleaning': {
     title: 'Dryer Vent Cleaning in Bucks County, PA | Air Duct Priority',
     description: 'Licensed and insured dryer vent cleaning in Bucks County and Montgomery County, PA with free inspection, airflow checks, and clear recommendations.',

@@ -1,4 +1,5 @@
 import { Camera, CheckCircle2, SearchCheck } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const inspectionPoints = [
   'We inspect accessible dryer vent and air duct conditions.',
@@ -38,6 +39,7 @@ export default function InspectionProofSection() {
                 </li>
               ))}
             </ul>
+            <Link to="/free-inspection" className="mt-7 inline-block font-semibold text-blue-400 underline hover:text-blue-300">Learn about the free inspection</Link>
           </div>
 
           <div className="rounded-lg border border-slate-700 bg-slate-800 p-8 lg:p-10">

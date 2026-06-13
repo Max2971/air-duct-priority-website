@@ -66,6 +66,7 @@ export default function Footer() {
                   Service Areas
                 </a>
               </li>
+              <li><a href="/free-inspection" className="text-gray-400 hover:text-white transition-colors">Free Inspection</a></li>
               <li>
                 <a href="/gallery" className="text-gray-400 hover:text-white transition-colors">
                   Gallery
