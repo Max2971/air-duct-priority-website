@@ -16,10 +16,12 @@ import AirDuctConstructionCleaningPage from './pages/AirDuctConstructionCleaning
 import GalleryPage from './pages/GalleryPage';
 import ServiceAreaPage from './pages/ServiceAreaPage';
 import ScrollToTop from './components/ScrollToTop';
+import Seo from './components/Seo';
 
 function App() {
   return (
     <>
+      <Seo />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />

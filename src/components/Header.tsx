@@ -123,10 +123,6 @@ export default function Header() {
               Gallery
             </Link>
 
-            <a href="/faq" className="text-gray-300 hover:text-gray-100 font-medium">
-              FAQ
-            </a>
-
             <Link to="/about" className="text-gray-300 hover:text-gray-100 font-medium">
               About
             </Link>
@@ -315,14 +311,6 @@ export default function Header() {
               >
                 Gallery
               </Link>
-
-              <a
-                href="/faq"
-                className="text-gray-300 hover:text-gray-100 font-medium px-2 py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                FAQ
-              </a>
 
               <Link
                 to="/about"

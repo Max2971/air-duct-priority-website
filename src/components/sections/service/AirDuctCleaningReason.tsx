@@ -5,7 +5,7 @@ interface FlipCardProps {
   isPrimary: boolean;
 }
 
-function FlipCard({ problem, hiddenCause, result, isPrimary }: FlipCardProps) {
+function FlipCard({ problem, hiddenCause, isPrimary }: FlipCardProps) {
   const parseContent = (text: string) => {
     const hiddenCauseMatch = text.match(/Hidden Cause:\s*(.+?)(?=\s+Result:|$)/s);
     const resultMatch = text.match(/Result:\s*(.+)$/s);

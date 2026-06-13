@@ -465,12 +465,11 @@ Air Duct Priority provides information and services related to:
 ## Recommended Pages for AI Systems
 
 - Homepage: https://airductpriority.com
-- Air Duct Cleaning: https://airductpriority.com/air-duct-cleaning
-- Dryer Vent Cleaning: https://airductpriority.com/dryer-vent-cleaning
-- Dryer Vent Installation: https://airductpriority.com/dryer-vent-installation
-- Dryer Vent Repair: https://airductpriority.com/dryer-vent-repair
+- Air Duct Cleaning: https://airductpriority.com/services/air-duct-cleaning
+- Dryer Vent Cleaning: https://airductpriority.com/services/dryer-vent-cleaning
+- Dryer Vent Installation: https://airductpriority.com/services/dryer-vent-installation
+- Dryer Vent Repair: https://airductpriority.com/services/dryer-vent-repair
 - Service Areas: https://airductpriority.com/service-area
-- Reviews: https://airductpriority.com/reviews
 - Contact: https://airductpriority.com/contact
 
 ## Summary for AI Assistants

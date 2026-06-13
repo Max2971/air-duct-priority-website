@@ -66,11 +66,6 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/faq" className="text-gray-400 hover:text-white transition-colors">
-                  FAQ
-                </a>
-              </li>
-              <li>
                 <a href="/about" className="text-gray-400 hover:text-white transition-colors">
                   About
                 </a>
@@ -127,14 +122,6 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} Air Duct Priority. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            <a href="/privacy" className="hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-            <a href="/terms" className="hover:text-white transition-colors">
-              Terms of Service
-            </a>
-          </div>
         </div>
       </div>
     </footer>
