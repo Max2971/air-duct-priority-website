@@ -155,6 +155,31 @@ const pageSeo: Record<string, PageSeo> = {
     description: 'Air duct cleaning for renovation and construction dust in Bucks County and Montgomery County, PA.',
     service: 'Post-Construction Air Duct Cleaning',
   },
+  '/services/flexible-duct-replacement': {
+    title: 'Flexible Duct Replacement in Bucks County, PA | Air Duct Priority',
+    description: 'Replacement of crushed, torn, disconnected, or damaged flexible ductwork in Bucks County and Montgomery County, PA.',
+    service: 'Flexible Duct Replacement',
+  },
+  '/services/bird-nest-removal': {
+    title: 'Bird Nest Removal from Vents | Air Duct Priority',
+    description: 'Bird nest removal from dryer, bathroom, and kitchen exhaust vents in Bucks County and Montgomery County, PA.',
+    service: 'Bird Nest Removal from Exterior Vents',
+  },
+  '/services/bathroom-exhaust-vent-cleaning': {
+    title: 'Bathroom Exhaust Vent Cleaning | Air Duct Priority',
+    description: 'Bathroom exhaust vent cleaning and blockage removal in Bucks County and Montgomery County, PA.',
+    service: 'Bathroom Exhaust Vent Cleaning',
+  },
+  '/services/kitchen-exhaust-vent-cleaning': {
+    title: 'Kitchen Exhaust Vent Cleaning | Air Duct Priority',
+    description: 'Residential kitchen exhaust vent cleaning and blockage removal in Bucks County and Montgomery County, PA.',
+    service: 'Kitchen Exhaust Vent Cleaning',
+  },
+  '/services/exterior-vent-cover-replacement': {
+    title: 'Exterior Vent Cover Replacement | Air Duct Priority',
+    description: 'Exterior dryer, bathroom, and kitchen exhaust vent cover replacement in Bucks County and Montgomery County, PA.',
+    service: 'Exterior Vent Cover Replacement',
+  },
 };
 
 const localBusinessSchema = {

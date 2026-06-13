@@ -20,6 +20,11 @@ import Seo from './components/Seo';
 import FreeInspectionPage from './pages/FreeInspectionPage';
 import ReviewsPage from './pages/ReviewsPage';
 import DoylestownPage from './pages/DoylestownPage'; import NewtownPage from './pages/NewtownPage'; import RichboroPage from './pages/RichboroPage'; import WarringtonPage from './pages/WarringtonPage';
+import FlexibleDuctReplacementPage from './pages/FlexibleDuctReplacementPage';
+import BirdNestRemovalPage from './pages/BirdNestRemovalPage';
+import BathroomExhaustVentCleaningPage from './pages/BathroomExhaustVentCleaningPage';
+import KitchenExhaustVentCleaningPage from './pages/KitchenExhaustVentCleaningPage';
+import ExteriorVentCoverReplacementPage from './pages/ExteriorVentCoverReplacementPage';
 
 function App() {
   return (
@@ -46,6 +51,11 @@ function App() {
         <Route path="/services/air-duct-repair" element={<AirDuctRepairPage />} />
         <Route path="/services/air-duct-sanitizing" element={<AirDuctSanitizingPage />} />
         <Route path="/services/air-duct-construction-cleaning" element={<AirDuctConstructionCleaningPage />} />
+        <Route path="/services/flexible-duct-replacement" element={<FlexibleDuctReplacementPage />} />
+        <Route path="/services/bird-nest-removal" element={<BirdNestRemovalPage />} />
+        <Route path="/services/bathroom-exhaust-vent-cleaning" element={<BathroomExhaustVentCleaningPage />} />
+        <Route path="/services/kitchen-exhaust-vent-cleaning" element={<KitchenExhaustVentCleaningPage />} />
+        <Route path="/services/exterior-vent-cover-replacement" element={<ExteriorVentCoverReplacementPage />} />
       </Routes>
     </>
   );

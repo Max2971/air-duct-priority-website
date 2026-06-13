@@ -51,6 +51,11 @@ export default function Footer() {
                   Air Duct Cleaning
                 </a>
               </li>
+              <li><a href="/services/flexible-duct-replacement" className="text-gray-400 hover:text-white transition-colors">Flexible Duct Replacement</a></li>
+              <li><a href="/services/bird-nest-removal" className="text-gray-400 hover:text-white transition-colors">Bird Nest Removal</a></li>
+              <li><a href="/services/bathroom-exhaust-vent-cleaning" className="text-gray-400 hover:text-white transition-colors">Bathroom Exhaust Vent Cleaning</a></li>
+              <li><a href="/services/kitchen-exhaust-vent-cleaning" className="text-gray-400 hover:text-white transition-colors">Kitchen Exhaust Vent Cleaning</a></li>
+              <li><a href="/services/exterior-vent-cover-replacement" className="text-gray-400 hover:text-white transition-colors">Exterior Vent Cover Replacement</a></li>
             </ul>
           </div>
 

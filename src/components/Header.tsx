@@ -73,6 +73,8 @@ export default function Header() {
                             HOA Inspection / Certification
                           </Link>
                         </li>
+                        <li><Link to="/services/bird-nest-removal" className="text-gray-300 hover:text-gray-100">Bird Nest Removal</Link></li>
+                        <li><Link to="/services/exterior-vent-cover-replacement" className="text-gray-300 hover:text-gray-100">Exterior Vent Cover Replacement</Link></li>
                       </ul>
                     </div>
 
@@ -107,6 +109,9 @@ export default function Header() {
                             Air Duct Construction Cleaning
                           </Link>
                         </li>
+                        <li><Link to="/services/flexible-duct-replacement" className="text-gray-300 hover:text-gray-100">Flexible Duct Replacement</Link></li>
+                        <li><Link to="/services/bathroom-exhaust-vent-cleaning" className="text-gray-300 hover:text-gray-100">Bathroom Exhaust Vent Cleaning</Link></li>
+                        <li><Link to="/services/kitchen-exhaust-vent-cleaning" className="text-gray-300 hover:text-gray-100">Kitchen Exhaust Vent Cleaning</Link></li>
                       </ul>
                     </div>
                   </div>
@@ -239,6 +244,8 @@ export default function Header() {
                             HOA Inspection / Certification
                           </Link>
                         </li>
+                        <li><Link to="/services/bird-nest-removal" className="block text-gray-300 hover:text-gray-100 px-2 py-1" onClick={() => setMobileMenuOpen(false)}>Bird Nest Removal</Link></li>
+                        <li><Link to="/services/exterior-vent-cover-replacement" className="block text-gray-300 hover:text-gray-100 px-2 py-1" onClick={() => setMobileMenuOpen(false)}>Exterior Vent Cover Replacement</Link></li>
                       </ul>
                     </div>
 
@@ -292,6 +299,9 @@ export default function Header() {
                             Air Duct Construction Cleaning
                           </Link>
                         </li>
+                        <li><Link to="/services/flexible-duct-replacement" className="block text-gray-300 hover:text-gray-100 px-2 py-1" onClick={() => setMobileMenuOpen(false)}>Flexible Duct Replacement</Link></li>
+                        <li><Link to="/services/bathroom-exhaust-vent-cleaning" className="block text-gray-300 hover:text-gray-100 px-2 py-1" onClick={() => setMobileMenuOpen(false)}>Bathroom Exhaust Vent Cleaning</Link></li>
+                        <li><Link to="/services/kitchen-exhaust-vent-cleaning" className="block text-gray-300 hover:text-gray-100 px-2 py-1" onClick={() => setMobileMenuOpen(false)}>Kitchen Exhaust Vent Cleaning</Link></li>
                       </ul>
                     </div>
                   </div>
