@@ -8,12 +8,35 @@ type PageSeo = {
   title: string;
   description: string;
   service?: string;
+  faqs?: Array<{ question: string; answer: string }>;
 };
 
 const pageSeo: Record<string, PageSeo> = {
   '/': {
     title: 'Air Duct Priority | Dryer Vent & Air Duct Services',
     description: 'Owner-operated dryer vent and air duct services in Bucks County and Montgomery County, PA. Licensed and insured with free in-person inspections.',
+    faqs: [
+      {
+        question: 'How do I know if my dryer vent may be clogged?',
+        answer: 'Common signs include clothes taking two cycles to dry, a hot dryer, weak airflow outside, lint around the exterior vent, an airflow error, or a burning smell.',
+      },
+      {
+        question: 'Do you repair and install dryer vents or only clean them?',
+        answer: 'Air Duct Priority provides dryer vent cleaning, repair, installation, rerouting, exterior vent cover replacement, bird nest removal, and bird guard installation.',
+      },
+      {
+        question: 'Will you tell me if air duct cleaning is not needed?',
+        answer: 'Yes. Air duct cleaning is recommended when an inspection shows a real reason, such as heavy debris, construction dust, pest activity, odors, or a specific airflow concern.',
+      },
+      {
+        question: 'Do you provide before-and-after proof?',
+        answer: 'Yes. Before-and-after video proof is provided when possible so customers can understand the condition of their own dryer vent or air duct system.',
+      },
+      {
+        question: 'What areas do you serve?',
+        answer: 'Air Duct Priority is based in Jamison, Pennsylvania and serves Bucks County, Montgomery County, and nearby communities.',
+      },
+    ],
   },
   '/about': {
     title: 'About Air Duct Priority | Owner-Operated Local Service',
@@ -181,6 +204,18 @@ export default function Seo() {
         url: canonicalUrl,
         provider: { '@id': `${SITE_URL}/#business` },
         areaServed: ['Bucks County, PA', 'Montgomery County, PA'],
+      });
+    }
+
+    if (seo.faqs) {
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: seo.faqs.map(({ question, answer }) => ({
+          '@type': 'Question',
+          name: question,
+          acceptedAnswer: { '@type': 'Answer', text: answer },
+        })),
       });
     }
 

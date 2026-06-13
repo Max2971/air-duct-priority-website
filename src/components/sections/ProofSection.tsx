@@ -19,7 +19,7 @@ export default function ProofSection() {
         <div className="mb-20">
           <div className="mb-12 text-center">
             <h2 className="mb-2 text-3xl font-bold text-slate-900 lg:text-4xl">
-          What homeowners say
+          What Homeowners Say in Verified Google Reviews
 
             </h2>
           </div>
@@ -261,7 +261,7 @@ export default function ProofSection() {
         <div className="w-full">
           <div className="mb-12 text-center">
             <h3 className="text-2xl font-bold text-slate-900 lg:text-3xl text-[#F97316]">
-              See the Difference Professional Cleaning Makes
+              Before-and-After Proof from Real Service Work
             </h3>
           </div>
 

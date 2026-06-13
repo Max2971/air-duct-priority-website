@@ -12,10 +12,16 @@ export default function Footer() {
               Air Duct Priority
             </h3>
             <p className="text-gray-400 text-sm mb-4">
-              Professional dryer vent & air duct services.
+              Owner-operated dryer vent & air duct services.
             </p>
             <p className="text-gray-400 text-sm">
-              Serving Bucks County + nearby areas
+              Jamison, PA
+            </p>
+            <p className="text-gray-400 text-sm mt-2">
+              Licensed & Insured · PA154999
+            </p>
+            <p className="text-gray-400 text-sm mt-2">
+              Serving Bucks County and Montgomery County
             </p>
           </div>
 
@@ -95,11 +101,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:max@airductpriority.com"
+                  href="mailto:airductpriority@gmail.com"
                   className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
                 >
                   <Mail className="h-4 w-4" />
-                  <span>max@airductpriority.com</span>
+                  <span>airductpriority@gmail.com</span>
                 </a>
               </li>
               <li className="pt-2">

@@ -13,7 +13,7 @@ export default function ActionSection() {
               Need help with your dryer vent or air duct system?
             </h2>
             <p className="mb-8 text-lg leading-relaxed text-slate-700">
-              Free inspection and clear recommendations from a local professional.
+              Free in-person inspection, clear pricing before work, and no-pressure recommendations from an owner-operated local company.
 
             </p>
 
@@ -32,13 +32,13 @@ export default function ActionSection() {
                 Phone Hours: 24/7
               </p>
               <p className="text-sm text-slate-600">
-                Service Hours: Monday–Saturday, 8am–6pm
+                Service Hours: Monday-Saturday, 8am-6pm
               </p>
             </a>
 
             {/* Service Area */}
             <p className="text-sm text-slate-600">
-              Servicing Bucks County, Montgomery County, and Philadelphia
+              Serving Bucks County and Montgomery County, Pennsylvania
             </p>
           </div>
 

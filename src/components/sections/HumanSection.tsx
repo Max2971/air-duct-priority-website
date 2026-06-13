@@ -14,17 +14,17 @@ export default function HumanSection() {
             <div className="space-y-4 text-slate-700 leading-relaxed text-sm md:text-base">
 
               <p>
-               <strong>I’m Max G.A, founder of Air Duct Priority — a local, family-run business proudly serving homeowners in Bucks County, PA for over 10 years.</strong>
+               <strong>I'm Max G.A., founder of Air Duct Priority, an owner-operated local company based in Jamison, PA with more than 9 years of field experience.</strong>
               </p>
               <p>
-               I started this company after seeing too many people misled by promises of “great service” that delivered poor, unsafe results. Homeowners deserve honest answers, fair recommendations, and work done right the first time.
+               I started this company after seeing too many homeowners receive unclear recommendations and surface-level work. Customers deserve honest answers, fair recommendations, and a clear explanation of what their system actually needs.
               </p>
               <p>
-               From day one, my approach has been clear: treat every home like my own. That’s why we focus on full system airflow inspections, explain exactly what we find, and always provide real before & after proof. No shortcuts. No pressure. Just transparent, professional work.
+               From day one, my approach has been clear: treat every home like my own. That's why we focus on full-system airflow inspections, explain exactly what we find, and provide real before-and-after proof when possible. No call center. No pressure. Just transparent, professional work.
               </p>
-              <p>Whether it’s <strong> dryer vent safety and cleaning, professional air duct cleaning,</strong> or restoring ventilation systems after construction or flooding, every job is handled carefully, safely, and with pride. That commitment has earned us over <strong>500 five-star reviews</strong> from homeowners who value trust, safety, and accountability.
+              <p>Whether it's <strong>dryer vent cleaning, repair and installation, professional air duct cleaning,</strong> or correcting an airflow problem, every job is handled carefully and with pride. That commitment has earned Air Duct Priority <strong>543 verified Google reviews</strong>.
               </p>
-              <p>Air Duct Priority isn’t a big faceless company. It’s a local business built on integrity, family values, and real responsibility — and I personally stand behind every inspection, cleaning, and repair we perform.
+              <p>Air Duct Priority isn't a big faceless company. It's a local business built on integrity and direct accountability, and I personally stand behind every inspection, cleaning, repair, and installation we perform.
               </p>
             </div>
           </div>
