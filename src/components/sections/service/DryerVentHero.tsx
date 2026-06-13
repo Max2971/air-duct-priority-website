@@ -18,11 +18,11 @@ export default function DryerVentHero() {
           <div className="max-w-2xl">
 
             <h1 className="mb-6 text-3xl md:text-5xl font-bold leading-tight text-white lg:text-6xl">
-              Professional Dryer Vent Cleaning in Bucks County, PA
+              Licensed &amp; Insured Dryer Vent Cleaning in Bucks County, PA
             </h1>
 
             <p className="mb-12 md:mb-8 text-lg md:text-xl text-white/90 lg:text-2xl">
-              Thorough dryer vent cleaning to improve airflow, reduce fire risk, and help your dryer operate safely and efficiently.
+              Owner-operated dryer vent cleaning with a free in-person inspection, no-pressure recommendations, airflow checks, and before-and-after proof.
             </p>
 
             <div className="mt-8 md:mt-0">
@@ -31,12 +31,12 @@ export default function DryerVentHero() {
                 className="inline-flex items-center gap-3 rounded-lg bg-white px-8 py-2 md:py-4 text-sm md:text-lg font-semibold text-slate-900 transition-all hover:bg-gray-100"
               >
                 <Phone className="h-5 w-5 md:h-6 md:w-6" />
-                Free Home Airflow & Safety Check
+                Call for Free Inspection
               </a>
             </div>
 
             <p className="mt-6 text-sm text-white/70">
-              Professional Dryer Vent Cleaning
+              No call center · Clear pricing before work
             </p>
 
           </div>
@@ -46,7 +46,7 @@ export default function DryerVentHero() {
       <div className="absolute bottom-8 right-8 z-10 hidden md:block">
         <div className="rounded-lg bg-white/10 px-4 py-2 backdrop-blur-sm">
           <p className="text-sm font-medium text-white">
-            Serving Bucks County, PA
+            Serving Bucks County &amp; Montgomery County, PA
           </p>
         </div>
       </div>

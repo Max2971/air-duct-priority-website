@@ -58,6 +58,18 @@ const pageSeo: Record<string, PageSeo> = {
     title: 'Dryer Vent Cleaning in Bucks County, PA | Air Duct Priority',
     description: 'Licensed and insured dryer vent cleaning in Bucks County and Montgomery County, PA with free inspection, airflow checks, and clear recommendations.',
     service: 'Dryer Vent Cleaning',
+    faqs: [
+      { question: 'How do I know if my dryer vent is clogged?', answer: 'Common signs include longer drying times, two drying cycles, a hot dryer, weak exterior airflow, lint around the exterior vent, an airflow error, or a burning smell.' },
+      { question: 'How often should a dryer vent be cleaned?', answer: 'The right interval depends on the vent length, route, dryer usage, household size, and prior buildup. An inspection can determine whether cleaning is currently needed.' },
+      { question: 'Do you clean roof-exit dryer vents?', answer: 'Yes, roof-exit dryer vents can be inspected and cleaned when access and conditions allow.' },
+      { question: 'Are you licensed and insured?', answer: 'Yes. Air Duct Priority is licensed and insured. Pennsylvania license PA154999.' },
+      { question: 'Do you repair dryer vents or only clean them?', answer: 'Air Duct Priority provides dryer vent cleaning, repair, installation, rerouting, bird nest removal, bird guard installation, and exterior vent cover replacement.' },
+      { question: 'Can you remove a bird nest from a dryer vent?', answer: 'Yes. Bird nesting material can be removed when present and accessible, and an appropriate exterior solution may be recommended to help prevent recurrence.' },
+      { question: 'What if the dryer still shows an airflow error after cleaning?', answer: 'The vent route, exterior termination, damaged vent sections, and dryer itself may need further evaluation. If the issue appears to be inside the appliance, we tell the customer.' },
+      { question: 'Do you provide before-and-after proof?', answer: 'Yes. Before-and-after proof is provided when possible so customers can understand the condition and result of their own dryer vent service.' },
+      { question: 'What areas do you serve?', answer: 'Air Duct Priority serves Bucks County and Montgomery County, including Jamison, Doylestown, Newtown, Richboro, Warrington, Yardley, New Hope, Lansdale, and Blue Bell.' },
+      { question: 'How much does dryer vent cleaning cost?', answer: 'Pricing depends on vent length, exit location, access, blockage level, bird nests, and whether repair is needed. Air Duct Priority provides clear pricing before work begins.' },
+    ],
   },
   '/services/dryer-vent-repair': {
     title: 'Dryer Vent Repair in Bucks County, PA | Air Duct Priority',

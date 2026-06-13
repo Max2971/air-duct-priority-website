@@ -5,6 +5,9 @@ import DryerVentProcessSection from '../components/sections/service/DryerVentPro
 import DryerVentReason from '../components/sections/service/DryerVentReason';
 import DryerVentActionSection from '../components/sections/service/DryerVentActionSection';
 import Footer from '../components/Footer';
+import DryerVentCleaningDetails from '../components/sections/service/DryerVentCleaningDetails';
+import DryerVentCleaningSolutions from '../components/sections/service/DryerVentCleaningSolutions';
+import DryerVentCleaningAreaFaq from '../components/sections/service/DryerVentCleaningAreaFaq';
 
 export default function DryerVentCleaningPage() {
   const processSteps = [
@@ -16,7 +19,7 @@ export default function DryerVentCleaningPage() {
     {
       number: '2',
       title: 'Dryer Vent Cleaning',
-      description: 'Using professional equipment, we remove lint and debris from the full length of the vent line — not just the visible areas.'
+      description: 'Using professional equipment, we remove lint and debris from the accessible dryer vent line, not just the visible areas.'
     },
     {
       number: '3',
@@ -25,8 +28,8 @@ export default function DryerVentCleaningPage() {
     },
     {
       number: '4',
-      title: 'Safety Check',
-      description: 'We check for code compliance and identify any issues that may require repair, rerouting, or upgrades.'
+      title: 'Clear Recommendation',
+      description: 'We explain what we find and recommend repair, rerouting, or installation only when needed.'
     }
   ];
 
@@ -38,9 +41,15 @@ export default function DryerVentCleaningPage() {
 
       <TrustSection variant="credentials" compact />
 
+      <DryerVentCleaningDetails />
+
       <DryerVentProcessSection steps={processSteps} />
 
       <DryerVentReason />
+
+      <DryerVentCleaningSolutions />
+
+      <DryerVentCleaningAreaFaq />
 
       <DryerVentActionSection />
 
