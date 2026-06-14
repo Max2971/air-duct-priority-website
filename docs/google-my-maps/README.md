@@ -25,6 +25,15 @@ The Service Area page displays the public Google My Maps completed-jobs map.
 7. If new ZIP codes were added or job counts changed significantly, refresh
    `src/data/completedJobsZipCenters.ts` so the website ZIP search stays current.
 
+## Keep Marker Cards Clean
+
+After importing by `Latitude` and `Longitude`, open the layer menu and select `Open data table`.
+Delete the `Latitude` and `Longitude` columns after confirming marker positions. The markers keep
+their imported positions, while visitors see only the service and address in the marker card.
+
+The Directions control is built into Google My Maps marker cards and cannot be hidden in the
+free embedded map.
+
 ## Data Rules
 
 - The public import sheet contains only `Address` and `Service`.

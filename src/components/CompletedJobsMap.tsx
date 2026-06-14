@@ -3,17 +3,15 @@ import { MapPin, RotateCcw, Search } from 'lucide-react';
 import { completedJobsZipCenters } from '../data/completedJobsZipCenters';
 
 const mapId = '17e2G6HyXf1vVVdsOuz11zj_Z-efqRBU';
-const defaultMapEmbedUrl =
+const baseMapEmbedUrl =
   import.meta.env.VITE_GOOGLE_MY_MAPS_EMBED_URL?.trim() ||
   `https://www.google.com/maps/d/embed?mid=${mapId}&ehbc=2E312F`;
+const defaultMapEmbedUrl = `${baseMapEmbedUrl}&ll=40.304788%2C-75.139213&z=11`;
 
 const mapLegend = [
   { label: 'Dryer Vent Cleaning', color: '#FABB05' },
   { label: 'Air Duct Cleaning', color: '#087F3D' },
   { label: 'Air Duct & Dryer Vent Cleaning', color: '#C2185B' },
-  { label: 'Commercial Air Duct Cleaning', color: '#558B2F' },
-  { label: 'Commercial Dryer Vent Cleaning', color: '#795548' },
-  { label: 'Combined Commercial Services', color: '#0288D1' },
   { label: 'Dryer Vent Installation', color: '#E65100' },
 ];
 
@@ -36,7 +34,7 @@ export default function CompletedJobsMap() {
 
     const [latitude, longitude, jobs] = center;
     setSelectedZip(zip);
-    setMapEmbedUrl(`${defaultMapEmbedUrl}&ll=${latitude}%2C${longitude}&z=13`);
+    setMapEmbedUrl(`${baseMapEmbedUrl}&ll=${latitude}%2C${longitude}&z=13`);
     setMessage(`Showing ${jobs} completed ${jobs === 1 ? 'job' : 'jobs'} mapped in ZIP code ${zip}.`);
   }
 
