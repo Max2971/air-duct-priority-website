@@ -32,6 +32,7 @@ import BirdNestExteriorVentPage from './pages/BirdNestExteriorVentPage';
 import AirDuctCleaningPricingPage from './pages/AirDuctCleaningPricingPage';
 import DryerVentCleaningFrequencyPage from './pages/DryerVentCleaningFrequencyPage';
 import DryerVentRigidVsFlexPage from './pages/DryerVentRigidVsFlexPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -70,6 +71,7 @@ function App() {
         <Route path="/services/bathroom-exhaust-vent-cleaning" element={<BathroomExhaustVentCleaningPage />} />
         <Route path="/services/kitchen-exhaust-vent-cleaning" element={<KitchenExhaustVentCleaningPage />} />
         <Route path="/services/exterior-vent-cover-replacement" element={<ExteriorVentCoverReplacementPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );

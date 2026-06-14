@@ -308,15 +308,16 @@ export default function Seo() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    const isKnownPage = Boolean(pageSeo[pathname]);
     const seo = pageSeo[pathname] ?? {
-      title: 'Air Duct Priority',
-      description: 'Owner-operated dryer vent and air duct services in Bucks County and Montgomery County, PA.',
+      title: 'Page Not Found | Air Duct Priority',
+      description: 'The requested page could not be found.',
     };
     const canonicalUrl = `${SITE_URL}${pathname === '/' ? '' : pathname}`;
 
     document.title = seo.title;
     setMeta('meta[name="description"]', 'name', 'description', seo.description);
-    setMeta('meta[name="robots"]', 'name', 'robots', 'index, follow, max-image-preview:large');
+    setMeta('meta[name="robots"]', 'name', 'robots', isKnownPage ? 'index, follow, max-image-preview:large' : 'noindex, follow');
     setMeta('meta[property="og:title"]', 'property', 'og:title', seo.title);
     setMeta('meta[property="og:description"]', 'property', 'og:description', seo.description);
     setMeta('meta[property="og:url"]', 'property', 'og:url', canonicalUrl);
