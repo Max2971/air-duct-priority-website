@@ -7,6 +7,16 @@ const defaultMapEmbedUrl =
   import.meta.env.VITE_GOOGLE_MY_MAPS_EMBED_URL?.trim() ||
   `https://www.google.com/maps/d/embed?mid=${mapId}&ehbc=2E312F`;
 
+const mapLegend = [
+  { label: 'Dryer Vent Cleaning', color: '#FABB05' },
+  { label: 'Air Duct Cleaning', color: '#087F3D' },
+  { label: 'Air Duct & Dryer Vent Cleaning', color: '#C2185B' },
+  { label: 'Commercial Air Duct Cleaning', color: '#558B2F' },
+  { label: 'Commercial Dryer Vent Cleaning', color: '#795548' },
+  { label: 'Combined Commercial Services', color: '#0288D1' },
+  { label: 'Dryer Vent Installation', color: '#E65100' },
+];
+
 export default function CompletedJobsMap() {
   const [zipInput, setZipInput] = useState('');
   const [selectedZip, setSelectedZip] = useState('');
@@ -94,16 +104,37 @@ export default function CompletedJobsMap() {
           </p>
         </form>
 
-        <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm">
-          <iframe
-            key={mapEmbedUrl}
-            className="h-[500px] w-full lg:h-[650px]"
-            src={mapEmbedUrl}
-            title="Air Duct Priority completed jobs map"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
+        <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">
+          <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm">
+            <iframe
+              key={mapEmbedUrl}
+              className="h-[500px] w-full lg:h-[650px]"
+              src={mapEmbedUrl}
+              title="Air Duct Priority completed jobs map"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
+
+          <aside className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm lg:sticky lg:top-6">
+            <h3 className="mb-2 text-xl font-bold text-slate-900">Map Legend</h3>
+            <p className="mb-5 text-sm leading-relaxed text-slate-600">
+              Marker colors show the service completed at each address.
+            </p>
+            <ul className="space-y-4">
+              {mapLegend.map(({ label, color }) => (
+                <li key={label} className="flex items-start gap-3">
+                  <span
+                    className="mt-0.5 h-5 w-5 flex-shrink-0 rounded-full border-2 border-white shadow ring-1 ring-slate-300"
+                    style={{ backgroundColor: color }}
+                    aria-hidden="true"
+                  />
+                  <span className="text-sm font-semibold leading-5 text-slate-700">{label}</span>
+                </li>
+              ))}
+            </ul>
+          </aside>
         </div>
 
       </div>
