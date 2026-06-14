@@ -1,4 +1,4 @@
-﻿import { Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { useState, FormEvent } from 'react';
 import { submitContactRequest } from '../../../lib/contactApi';
 
