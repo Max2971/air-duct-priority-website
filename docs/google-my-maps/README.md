@@ -34,6 +34,13 @@ their imported positions, while visitors see only the service and address in the
 The Directions control is built into Google My Maps marker cards and cannot be hidden in the
 free embedded map.
 
+## Custom Google Maps Upgrade
+
+The website switches from My Maps to the custom clustered map when
+`VITE_GOOGLE_MAPS_API_KEY` is configured. The custom map uses Map ID
+`ade5203658e70a1246d407bc`, displays clusters as `Jobs Nearby`, and shows only service and
+address in marker cards. Keep the API key in the deployment environment; never commit it.
+
 ## Data Rules
 
 - The public import sheet contains only `Address` and `Service`.

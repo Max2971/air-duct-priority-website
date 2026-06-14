@@ -1,12 +1,14 @@
 import { FormEvent, useState } from 'react';
 import { MapPin, RotateCcw, Search } from 'lucide-react';
 import { completedJobsZipCenters } from '../data/completedJobsZipCenters';
+import CustomCompletedJobsMap from './CustomCompletedJobsMap';
 
 const mapId = '17e2G6HyXf1vVVdsOuz11zj_Z-efqRBU';
 const baseMapEmbedUrl =
   import.meta.env.VITE_GOOGLE_MY_MAPS_EMBED_URL?.trim() ||
   `https://www.google.com/maps/d/embed?mid=${mapId}&ehbc=2E312F`;
 const defaultMapEmbedUrl = `${baseMapEmbedUrl}&ll=40.304788%2C-75.139213&z=11`;
+const customMapEnabled = Boolean(import.meta.env.VITE_GOOGLE_MAPS_API_KEY?.trim());
 
 const mapLegend = [
   { label: 'Dryer Vent Cleaning', color: '#FABB05' },
@@ -19,6 +21,7 @@ export default function CompletedJobsMap() {
   const [zipInput, setZipInput] = useState('');
   const [selectedZip, setSelectedZip] = useState('');
   const [mapEmbedUrl, setMapEmbedUrl] = useState(defaultMapEmbedUrl);
+  const [mapFocus, setMapFocus] = useState<{ latitude: number; longitude: number }>();
   const [message, setMessage] = useState('Enter a ZIP code to focus the map on completed jobs nearby.');
 
   function findZip(event: FormEvent<HTMLFormElement>) {
@@ -28,6 +31,8 @@ export default function CompletedJobsMap() {
 
     if (!center) {
       setSelectedZip('');
+      setMapEmbedUrl(defaultMapEmbedUrl);
+      setMapFocus(undefined);
       setMessage('No completed jobs are currently mapped for that ZIP code. Try a nearby ZIP code.');
       return;
     }
@@ -35,6 +40,7 @@ export default function CompletedJobsMap() {
     const [latitude, longitude, jobs] = center;
     setSelectedZip(zip);
     setMapEmbedUrl(`${baseMapEmbedUrl}&ll=${latitude}%2C${longitude}&z=13`);
+    setMapFocus({ latitude, longitude });
     setMessage(`Showing ${jobs} completed ${jobs === 1 ? 'job' : 'jobs'} mapped in ZIP code ${zip}.`);
   }
 
@@ -42,6 +48,7 @@ export default function CompletedJobsMap() {
     setZipInput('');
     setSelectedZip('');
     setMapEmbedUrl(defaultMapEmbedUrl);
+    setMapFocus(undefined);
     setMessage('Enter a ZIP code to focus the map on completed jobs nearby.');
   }
 
@@ -56,7 +63,7 @@ export default function CompletedJobsMap() {
           <p className="text-lg leading-relaxed text-slate-700">
             Explore locations where Air Duct Priority has completed dryer vent, air duct,
             cleaning, repair, and installation services. Select a marker to view the address
-            and service performed.
+            and service performed. The map shows selected completed jobs, not every project.
           </p>
         </div>
 
@@ -103,17 +110,21 @@ export default function CompletedJobsMap() {
         </form>
 
         <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">
-          <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm">
-            <iframe
-              key={mapEmbedUrl}
-              className="h-[500px] w-full lg:h-[650px]"
-              src={mapEmbedUrl}
-              title="Air Duct Priority completed jobs map"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
-          </div>
+          {customMapEnabled ? (
+            <CustomCompletedJobsMap focus={mapFocus} />
+          ) : (
+            <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm">
+              <iframe
+                key={mapEmbedUrl}
+                className="h-[500px] w-full lg:h-[650px]"
+                src={mapEmbedUrl}
+                title="Air Duct Priority completed jobs map"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+          )}
 
           <aside className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm lg:sticky lg:top-6">
             <h3 className="mb-2 text-xl font-bold text-slate-900">Map Legend</h3>
