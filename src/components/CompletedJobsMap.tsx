@@ -3,10 +3,10 @@ import { ExternalLink, MapPin } from 'lucide-react';
 const mapId = '17e2G6HyXf1vVVdsOuz11zj_Z-efqRBU';
 const mapEmbedUrl =
   import.meta.env.VITE_GOOGLE_MY_MAPS_EMBED_URL?.trim() ||
-  `https://www.google.com/maps/d/embed?mid=${mapId}&ehbc=2E312F`;
+  `https://www.google.com/maps/d/u/1/embed?mid=${mapId}&ehbc=2E312F`;
 const mapViewUrl =
   import.meta.env.VITE_GOOGLE_MY_MAPS_VIEW_URL?.trim() ||
-  `https://www.google.com/maps/d/viewer?mid=${mapId}`;
+  `https://www.google.com/maps/d/u/1/viewer?mid=${mapId}`;
 
 export default function CompletedJobsMap() {
   return (
