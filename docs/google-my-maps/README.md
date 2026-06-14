@@ -51,3 +51,9 @@ The test addresses are public municipal locations verified from official local-g
 - Dryer Vent Installation: green
 - Air Duct Installation: purple
 - Other services: gray
+
+## Recommended Base Map
+
+Use `Simple Atlas` to reduce unrelated business and attraction labels. If that style removes too
+much geographic context, use `Light Political`. Google My Maps does not allow individual
+third-party points of interest to be hidden.
