@@ -14,6 +14,8 @@ export default function TrustSectionHome({ variant = 'reviews', compact = false 
         {!compact && (
           <div className="absolute inset-0">
             <img
+              loading="lazy"
+              decoding="async"
               src="/air-duct-cleaning-block.webp"
               alt="Air Duct Priority service vehicles in Bucks County, Pennsylvania"
               className="h-full w-full object-cover"

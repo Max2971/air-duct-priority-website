@@ -374,6 +374,26 @@ export default function Seo() {
       });
     }
 
+    if (pathname === '/resources') {
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: 'Dryer Vent & Air Duct Resources',
+        itemListElement: [
+          '/resources/signs-dryer-vent-clogged',
+          '/resources/dryer-vent-cleaning-repair-or-replacement',
+          '/resources/bird-nest-in-exterior-vent',
+          '/resources/air-duct-cleaning-price-inspection',
+          '/resources/how-often-clean-dryer-vent',
+          '/resources/rigid-vs-flexible-dryer-vent',
+        ].map((path, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          url: `${SITE_URL}${path}`,
+        })),
+      });
+    }
+
     if (seo.article) {
       schemas.push({
         '@context': 'https://schema.org',

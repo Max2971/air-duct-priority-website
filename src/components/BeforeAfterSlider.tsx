@@ -72,6 +72,8 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Comp
       <img
         src={afterImage}
         alt={`${alt} - After`}
+        loading="lazy"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover"
         draggable={false}
       />
@@ -83,6 +85,8 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Comp
         <img
           src={beforeImage}
           alt={`${alt} - Before`}
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover"
           style={{ width: containerRef.current ? `${(containerRef.current.offsetWidth / sliderPosition) * 100}%` : '100%' }}
           draggable={false}

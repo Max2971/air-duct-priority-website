@@ -33,6 +33,8 @@ export default function HumanSection() {
         {/* Right column: Family photo */}
         <div className="relative order-1 lg:order-2 lg:h-auto">
           <img
+            loading="lazy"
+            decoding="async"
             src="/owner-family-air-duct-priority.webp"
             alt="Max G.A., founder of Air Duct Priority, with his family"
             className="w-full h-auto lg:h-full lg:object-cover"

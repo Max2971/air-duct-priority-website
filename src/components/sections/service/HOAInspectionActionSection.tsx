@@ -1,5 +1,6 @@
-import { Phone } from 'lucide-react';
+﻿import { Phone } from 'lucide-react';
 import { useState, FormEvent } from 'react';
+import { submitContactRequest } from '../../../lib/contactApi';
 
 export default function HOAInspectionActionSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -21,23 +22,17 @@ export default function HOAInspectionActionSection() {
       honeypot: formData.get('website') as string,
     };
 
-    const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/contact`;
-    fetch(apiUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-      },
-      body: JSON.stringify(data),
-    }).catch(() => {
-      // Silently handle any errors
-    });
-
-    setTimeout(() => {
-      setConfirmationMessage('Thanks — we received your request and will contact you shortly.');
-      e.currentTarget.reset();
+    const form = e.currentTarget;
+    try {
+      await submitContactRequest(data);
+      setConfirmationMessage('Thanks - we received your request and will contact you shortly.');
+      form.reset();
+    } catch (error) {
+      console.error('Contact form submission failed:', error);
+      setConfirmationMessage('Your request could not be sent. Please call or text (215) 710-8781.');
+    } finally {
       setIsSubmitting(false);
-    }, 1200);
+    }
   };
 
   return (
@@ -69,7 +64,7 @@ export default function HOAInspectionActionSection() {
                 Phone Hours: 24/7
               </p>
               <p className="text-sm text-slate-600">
-                Service Hours: Monday–Saturday, 8am–6pm
+                Service Hours: Mondayâ€“Saturday, 8amâ€“6pm
               </p>
             </a>
 

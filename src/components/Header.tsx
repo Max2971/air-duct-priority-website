@@ -20,7 +20,7 @@ export default function Header() {
           </div>
 
           {/* Center: Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden xl:flex items-center gap-5">
             {/* Services Dropdown */}
             <div
               className="relative"
@@ -152,7 +152,7 @@ export default function Header() {
             {/* Hamburger Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-gray-100 hover:text-gray-300"
+              className="xl:hidden p-2 text-gray-100 hover:text-gray-300"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
@@ -169,10 +169,10 @@ export default function Header() {
         {mobileMenuOpen && (
           <>
             <div
-              className="lg:hidden fixed inset-0 z-40"
+              className="xl:hidden fixed inset-0 z-40"
               onClick={() => setMobileMenuOpen(false)}
             />
-            <div className="lg:hidden absolute right-6 top-full mt-2 w-80 max-w-[calc(100vw-3rem)] bg-slate-800 border border-slate-700 rounded-lg shadow-lg py-4 z-50">
+            <div className="xl:hidden absolute right-6 top-full mt-2 w-80 max-w-[calc(100vw-3rem)] bg-slate-800 border border-slate-700 rounded-lg shadow-lg py-4 z-50">
               <nav className="flex flex-col space-y-4 max-h-[80vh] overflow-y-auto px-2">
               {/* Mobile Services Dropdown */}
               <div>

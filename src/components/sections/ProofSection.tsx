@@ -42,6 +42,8 @@ export default function ProofSection() {
                   <img
                     src="/review-lee-r.png"
                     alt="Lee R., verified Google reviewer"
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -81,6 +83,8 @@ export default function ProofSection() {
                   <img
                     src="/review-liora-zirkel.png"
                     alt="Liora Zirkel, verified Google reviewer"
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -119,6 +123,8 @@ export default function ProofSection() {
                   <img
                     src="/review-iryna.png"
                     alt="Iryna, verified Google reviewer"
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -157,6 +163,8 @@ export default function ProofSection() {
                   <img
                     src="/review-dmitrii-molchanov.png"
                     alt="Dmitrii Molchanov, verified Google reviewer"
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -195,6 +203,8 @@ export default function ProofSection() {
                   <img
                     src="/review-amelia-rorer.png"
                     alt="Amelia Rorer, verified Google reviewer"
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -233,6 +243,8 @@ export default function ProofSection() {
                   <img
                     src="/review-joe-dubyk.png"
                     alt="Joe Dubyk, verified Google reviewer"
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -265,7 +277,7 @@ export default function ProofSection() {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 auto-rows-max">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             <BeforeAfterSlider
               beforeImage="/ba-01-before.webp"
               afterImage="/ba-01-after.webp"
@@ -278,25 +290,6 @@ export default function ProofSection() {
               alt="Before and after duct or vent service example 2"
             />
 
-            <BeforeAfterSlider
-              beforeImage="/ba-03-before.webp"
-              afterImage="/ba-03-after.webp"
-              alt="Before and after duct or vent service example 3"
-            />
-
-            <BeforeAfterSlider
-              beforeImage="/ba-04-before.webp"
-              afterImage="/ba-04-after.webp"
-              alt="Before and after duct or vent service example 4"
-            />
-
-            <div className="md:col-span-2 md:mx-auto md:max-w-md">
-              <BeforeAfterSlider
-                beforeImage="/ba-05-before.webp"
-                afterImage="/ba-05-after.webp"
-                alt="Before and after duct or vent service example 5"
-              />
-            </div>
           </div>
         </div>
 

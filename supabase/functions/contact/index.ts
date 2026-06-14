@@ -1,5 +1,4 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
-import { createClient } from "npm:@supabase/supabase-js@2.57.4";
 import nodemailer from "npm:nodemailer@6.9.7";
 
 const corsHeaders = {
@@ -65,46 +64,11 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    // Get IP address for rate limiting
-    const ip = req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip") || "unknown";
-
-    // Initialize Supabase client with service role
-    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
-
-    // Rate limiting check - max 1 submission per email per 15 minutes
-    const fifteenMinutesAgo = new Date(Date.now() - 15 * 60 * 1000).toISOString();
-
-    const { data: recentByEmail } = await supabase
-      .from("contact_submissions")
-      .select("id")
-      .eq("email", email)
-      .gte("submitted_at", fifteenMinutesAgo)
-      .maybeSingle();
-
-    if (recentByEmail) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return new Response(
-        JSON.stringify({ ok: false, error: "Please wait before submitting again" }),
+        JSON.stringify({ ok: false, error: "Invalid email address" }),
         {
-          status: 429,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        }
-      );
-    }
-
-    // Rate limiting check - max 3 submissions per IP per 15 minutes
-    const { data: recentByIp, error: ipCheckError } = await supabase
-      .from("contact_submissions")
-      .select("id")
-      .eq("ip_address", ip)
-      .gte("submitted_at", fifteenMinutesAgo);
-
-    if (!ipCheckError && recentByIp && recentByIp.length >= 3) {
-      return new Response(
-        JSON.stringify({ ok: false, error: "Too many requests. Please try again later." }),
-        {
-          status: 429,
+          status: 400,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
         }
       );
@@ -122,7 +86,7 @@ Deno.serve(async (req: Request) => {
     });
 
     const mailFrom = Deno.env.get("MAIL_FROM") || Deno.env.get("SMTP_USER");
-    const mailTo = Deno.env.get("MAIL_TO") || "max@airductpriority.com";
+    const mailTo = "max@airductpriority.com";
 
     // Send email to business owner
     const businessEmailContent = `
@@ -167,18 +131,6 @@ Air Duct Priority
       to: email,
       subject: "Thank you for contacting Air Duct Priority",
       text: customerEmailContent,
-    });
-
-    // Record submission in database
-    await supabase.from("contact_submissions").insert({
-      name,
-      phone,
-      email,
-      zip_code: zip,
-      message: message || null,
-      source: source || null,
-      ip_address: ip,
-      submitted_at: new Date().toISOString(),
     });
 
     return new Response(

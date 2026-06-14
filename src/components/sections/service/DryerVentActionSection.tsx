@@ -1,5 +1,6 @@
-import { Phone } from 'lucide-react';
+﻿import { Phone } from 'lucide-react';
 import { useState, FormEvent } from 'react';
+import { submitContactRequest } from '../../../lib/contactApi';
 
 export default function DryerVentActionSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -21,23 +22,17 @@ export default function DryerVentActionSection() {
       honeypot: formData.get('website') as string,
     };
 
-    const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/contact`;
-    fetch(apiUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-      },
-      body: JSON.stringify(data),
-    }).catch(() => {
-      // Silently handle any errors
-    });
-
-    setTimeout(() => {
+    const form = e.currentTarget;
+    try {
+      await submitContactRequest(data);
       setConfirmationMessage('Thanks - we received your request and will contact you shortly.');
-      e.currentTarget.reset();
+      form.reset();
+    } catch (error) {
+      console.error('Contact form submission failed:', error);
+      setConfirmationMessage('Your request could not be sent. Please call or text (215) 710-8781.');
+    } finally {
       setIsSubmitting(false);
-    }, 1200);
+    }
   };
 
   return (

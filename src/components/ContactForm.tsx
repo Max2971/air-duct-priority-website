@@ -1,13 +1,16 @@
 import { useState, FormEvent } from 'react';
+import { submitContactRequest } from '../lib/contactApi';
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [confirmationMessage, setConfirmationMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setConfirmationMessage('');
+    setErrorMessage('');
 
     const formData = new FormData(e.currentTarget);
     const data = {
@@ -20,22 +23,17 @@ export default function ContactForm() {
       honeypot: formData.get('website') as string,
     };
 
-    const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/contact`;
-    fetch(apiUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-      },
-      body: JSON.stringify(data),
-    }).catch(() => {
-    });
-
-    setTimeout(() => {
-      setConfirmationMessage('Thanks — we received your request and will contact you shortly.');
-      e.currentTarget.reset();
+    const form = e.currentTarget;
+    try {
+      await submitContactRequest(data);
+      setConfirmationMessage('Thanks - we received your request and will contact you shortly.');
+      form.reset();
+    } catch (error) {
+      console.error('Contact form submission failed:', error);
+      setErrorMessage('Your request could not be sent. Please call or text (215) 710-8781.');
+    } finally {
       setIsSubmitting(false);
-    }, 1200);
+    }
   };
 
   return (
@@ -47,6 +45,12 @@ export default function ContactForm() {
       {confirmationMessage && (
         <div className="mb-6 rounded-lg bg-blue-50 border border-blue-200 p-4">
           <p className="text-blue-900 text-sm">{confirmationMessage}</p>
+        </div>
+      )}
+
+      {errorMessage && (
+        <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-4" role="alert">
+          <p className="text-sm text-red-900">{errorMessage}</p>
         </div>
       )}
 
