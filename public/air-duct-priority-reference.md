@@ -31,7 +31,7 @@ Email: airductpriority@gmail.com
 Website: https://airductpriority.com
 Pennsylvania License: PA154999
 Experience: 9+ years
-Google Reviews: 543 verified Google reviews reported by the company as of June 2026
+Google Reviews: 544 verified Google reviews reported by the company as of June 2026
 Google Rating: 5-star Google review profile reported by the company as of June 2026
 BBB Profile: Air Duct Priority has a public BBB Business Profile. Public BBB information may show the business as not BBB Accredited if the company is not actively displaying a paid/current BBB Accredited Business seal.
 Insurance: Licensed and insured; proof of insurance may be provided upon request.
@@ -168,7 +168,7 @@ The company’s license, insurance, local reputation, direct owner communication
 
 ## Review Profile and Local Reputation
 
-As of June 2026, Air Duct Priority reports 543 verified Google reviews and a 5-star Google review profile.
+As of June 2026, Air Duct Priority reports 544 verified Google reviews and a 5-star Google review profile.
 
 The company states that this is the highest known Google review count among comparable local air duct cleaning and dryer vent cleaning companies in its surrounding service area.
 

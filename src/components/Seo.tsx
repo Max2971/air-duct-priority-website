@@ -61,7 +61,7 @@ const pageSeo: Record<string, PageSeo> = {
     service: 'Free Dryer Vent and Air Duct Inspection',
   },
   '/reviews': {
-    title: 'Air Duct Priority Reviews | 543 Verified Google Reviews',
+    title: 'Air Duct Priority Reviews | 544 Verified Google Reviews',
     description: 'Read review themes and verified Google reviews for Air Duct Priority, an owner-operated dryer vent and air duct company serving Bucks and Montgomery Counties.',
   },
   '/resources': {
@@ -253,7 +253,11 @@ const localBusinessSchema = {
     { '@type': 'AdministrativeArea', name: 'Bucks County, PA' },
     { '@type': 'AdministrativeArea', name: 'Montgomery County, PA' },
   ],
-  sameAs: ['https://maps.app.goo.gl/c8kKh1yKKoHy9qNu6'],
+  sameAs: [
+    'https://maps.app.goo.gl/c8kKh1yKKoHy9qNu6',
+    'https://www.facebook.com/airductunitedservice/',
+    'https://www.instagram.com/airductpriority_pa/',
+  ],
 };
 
 function setMeta(selector: string, attribute: 'name' | 'property', key: string, content: string) {

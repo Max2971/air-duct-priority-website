@@ -22,7 +22,7 @@ export default function HumanSection() {
               <p>
                From day one, my approach has been clear: treat every home like my own. That's why we focus on full-system airflow inspections, explain exactly what we find, and provide real before-and-after proof when possible. No call center. No pressure. Just transparent, professional work.
               </p>
-              <p>Whether it's <strong>dryer vent cleaning, repair and installation, professional air duct cleaning,</strong> or correcting an airflow problem, every job is handled carefully and with pride. That commitment has earned Air Duct Priority <strong>543 verified Google reviews</strong>.
+              <p>Whether it's <strong>dryer vent cleaning, repair and installation, professional air duct cleaning,</strong> or correcting an airflow problem, every job is handled carefully and with pride. That commitment has earned Air Duct Priority <strong>544 verified Google reviews</strong>.
               </p>
               <p>Air Duct Priority isn't a big faceless company. It's a local business built on integrity and direct accountability, and I personally stand behind every inspection, cleaning, repair, and installation we perform.
               </p>

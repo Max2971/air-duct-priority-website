@@ -34,7 +34,7 @@ export default function TrustSectionHome({ variant = 'reviews', compact = false 
                     rel="noopener noreferrer"
                     className="text-xl font-semibold text-slate-900 lg:text-2xl hover:text-[#F97316] transition-colors"
                   >
-                    <span className="text-[#F97316]">543</span> Verified Google Reviews · Trusted by Local Homeowners
+                    <span className="text-[#F97316]">544</span> Verified Google Reviews · Trusted by Local Homeowners
                   </a>
                 ) : (
                   <div className="flex flex-col items-center gap-4 lg:gap-6">
@@ -68,7 +68,7 @@ export default function TrustSectionHome({ variant = 'reviews', compact = false 
                       <Star className="h-10 w-10 fill-yellow-400 text-yellow-400 lg:h-12 lg:w-12" />
                     </div>
                     <p className="mb-4 text-5xl font-bold text-white lg:text-7xl [text-shadow:_0_2px_12px_rgb(0_0_0_/_0.8)]">
-                      <span className="text-[#F97316]">543</span> Verified Google Reviews
+                      <span className="text-[#F97316]">544</span> Verified Google Reviews
                     </p>
                     <p className="mb-3 text-lg text-white/90 lg:text-xl">
                       Owner-operated service for Bucks County and Montgomery County

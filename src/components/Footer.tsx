@@ -1,4 +1,4 @@
-import { Phone, Mail, Star } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone, Star } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -125,6 +125,28 @@ export default function Footer() {
                 >
                   <Star className="h-4 w-4 fill-current" />
                   <span>Google Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/airductunitedservice/"
+                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Facebook className="h-4 w-4" />
+                  <span>Facebook</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/airductpriority_pa/"
+                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Instagram className="h-4 w-4" />
+                  <span>Instagram</span>
                 </a>
               </li>
             </ul>

@@ -1,7 +1,7 @@
 import { BadgeCheck, Camera, MapPin, PhoneOff, SearchCheck, ShieldCheck, Star } from 'lucide-react';
 
 const trustItems = [
-  { icon: Star, text: '543 Verified Google Reviews' },
+  { icon: Star, text: '544 Verified Google Reviews' },
   { icon: ShieldCheck, text: 'Licensed & Insured' },
   { icon: BadgeCheck, text: 'PA154999' },
   { icon: MapPin, text: 'Owner-Operated Local Company' },
