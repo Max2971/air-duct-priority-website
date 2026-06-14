@@ -97,6 +97,23 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <section className="bg-slate-900 py-16 lg:py-20">
+        <div className="container mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+          <img
+            src="/air-duct-priority-van-at-local-home.webp"
+            alt="Air Duct Priority service van outside a local Pennsylvania home"
+            width="1680"
+            height="945"
+            className="w-full rounded-lg object-cover shadow-lg"
+          />
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-widest text-[#F97316]">Local Service</p>
+            <h2 className="mb-5 text-3xl font-bold text-white lg:text-4xl">Serving Homes Across Bucks and Montgomery Counties</h2>
+            <p className="text-lg leading-relaxed text-slate-300">Call, text, or submit the form below to describe the concern. We will confirm the service area and schedule an in-person inspection when appropriate.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Request Service Form */}
       <section id="contact" className="bg-slate-50 py-16 lg:py-24">
         <div className="container mx-auto max-w-3xl px-6">

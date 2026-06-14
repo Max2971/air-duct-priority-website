@@ -20,7 +20,25 @@ export default function FreeInspectionPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-28"><div className="container mx-auto max-w-7xl px-6"><div className="grid gap-12 lg:grid-cols-2">
+      <section className="bg-white py-16 lg:py-20">
+        <div className="container mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:items-center">
+          <img
+            src="/max-air-duct-priority-service-van.webp"
+            alt="Max G.A., founder of Air Duct Priority, standing beside the company service van"
+            width="1536"
+            height="1024"
+            className="w-full rounded-lg object-cover shadow-lg"
+          />
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-widest text-[#F97316]">Owner-Operated Service</p>
+            <h2 className="mb-5 text-3xl font-bold text-slate-900 lg:text-4xl">A Direct Recommendation From the Person Responsible for the Work</h2>
+            <p className="mb-4 text-lg leading-relaxed text-slate-700">Air Duct Priority is not a call-center operation. Max personally stands behind the inspection, recommendation, and work performed in your home.</p>
+            <p className="text-lg leading-relaxed text-slate-700">The purpose of the inspection is to identify the real issue and explain whether cleaning, repair, installation, appliance service, or no work at all is the right next step.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-50 py-20 lg:py-28"><div className="container mx-auto max-w-7xl px-6"><div className="grid gap-12 lg:grid-cols-2">
         <div><p className="mb-3 text-sm font-bold uppercase tracking-widest text-[#F97316]">What Is Included</p><h2 className="mb-5 text-3xl font-bold text-slate-900 lg:text-4xl">A Clear Look at the Real Problem</h2><p className="mb-8 text-lg text-slate-700">The inspection helps determine whether the right next step is cleaning, repair, installation, appliance service, or no work at all.</p><ul className="grid gap-4 sm:grid-cols-2">{checkedItems.map(item => <li key={item} className="flex gap-3 rounded-lg bg-slate-50 p-4 text-slate-800"><CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#F97316]" />{item}</li>)}</ul></div>
         <div className="rounded-lg border border-slate-200 bg-slate-50 p-8 lg:p-10"><h2 className="mb-6 text-2xl font-bold text-slate-900">When to Schedule an Inspection</h2><ul className="space-y-4">{usefulWhen.map(item => <li key={item} className="flex gap-3 text-slate-700"><CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-green-600" />{item}</li>)}</ul></div>
       </div></div></section>
