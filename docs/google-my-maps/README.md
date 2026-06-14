@@ -22,6 +22,8 @@ The Service Area page displays the public Google My Maps completed-jobs map.
 4. In My Maps, open the layer menu and choose `Reimport and merge`.
 5. Replace all items using the updated `Map Import` sheet.
 6. Confirm that the new markers appear in the correct locations.
+7. If new ZIP codes were added or job counts changed significantly, refresh
+   `src/data/completedJobsZipCenters.ts` so the website ZIP search stays current.
 
 ## Data Rules
 
