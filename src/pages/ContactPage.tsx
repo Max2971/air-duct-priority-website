@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ContactForm from '../components/ContactForm';
-import { Phone, MessageSquare, ClipboardCheck, CheckCircle2, Calendar, FileText } from 'lucide-react';
+import { Phone, MessageSquare, ClipboardCheck, Calendar, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function ContactPage() {
@@ -93,6 +93,23 @@ export default function ContactPage() {
                 Fill Out Form
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-900 py-16 lg:py-20">
+        <div className="container mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+          <img
+            src="/air-duct-priority-van-at-local-home.webp"
+            alt="Air Duct Priority service van outside a local Pennsylvania home"
+            width="1680"
+            height="945"
+            className="w-full rounded-lg object-cover shadow-lg"
+          />
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-widest text-[#F97316]">Local Service</p>
+            <h2 className="mb-5 text-3xl font-bold text-white lg:text-4xl">Serving Homes Across Bucks and Montgomery Counties</h2>
+            <p className="text-lg leading-relaxed text-slate-300">Call, text, or submit the form below to describe the concern. We will confirm the service area and schedule an in-person inspection when appropriate.</p>
           </div>
         </div>
       </section>
@@ -192,31 +209,6 @@ export default function ContactPage() {
               View Full Service Area
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* Map Placeholder Section */}
-      <section className="bg-white py-16 lg:py-24">
-        <div className="container mx-auto max-w-6xl px-6">
-          <h2 className="mb-8 text-center text-3xl font-bold text-slate-900 lg:text-4xl">
-            Our Service Coverage Area
-          </h2>
-
-          <div className="relative overflow-hidden rounded-xl shadow-lg">
-            <div className="aspect-video bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
-              <div className="text-center">
-                <div className="mb-4 flex justify-center">
-                  <CheckCircle2 className="h-16 w-16 text-slate-400" />
-                </div>
-                <p className="text-lg font-semibold text-slate-600">Service Area Map</p>
-                <p className="text-sm text-slate-500">Bucks & Montgomery Counties, PA</p>
-              </div>
-            </div>
-          </div>
-
-          <p className="mt-6 text-center text-slate-700">
-            Professional dryer vent and air duct services throughout southeastern Pennsylvania
-          </p>
         </div>
       </section>
 

@@ -5,6 +5,7 @@ import ProcessSection from '../components/sections/ProcessSection';
 import AirDuctCleaningReason from '../components/sections/service/AirDuctCleaningReason';
 import AirDuctCleaningActionSection from '../components/sections/service/AirDuctCleaningActionSection';
 import Footer from '../components/Footer';
+import AirDuctCleaningDetails from '../components/sections/service/AirDuctCleaningDetails';
 
 export default function AirDuctCleaningPage() {
   const processSteps = [
@@ -37,6 +38,7 @@ export default function AirDuctCleaningPage() {
       <AirDuctCleaningHero />
 
       <TrustSection variant="credentials" compact />
+      <AirDuctCleaningDetails />
 
       <ProcessSection
         steps={processSteps}

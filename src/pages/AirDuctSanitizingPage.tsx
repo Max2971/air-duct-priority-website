@@ -16,7 +16,7 @@ export default function AirDuctSanitizingPage() {
     {
       number: '2',
       title: 'Professional Sanitizing',
-      description: 'We apply EPA-approved sanitizing agents throughout the duct system to eliminate bacteria, mold, and odors.'
+      description: 'When appropriate, we apply a product labeled for the intended HVAC use and follow its application instructions.'
     },
     {
       number: '3',
@@ -26,7 +26,7 @@ export default function AirDuctSanitizingPage() {
     {
       number: '4',
       title: 'Air Quality Check',
-      description: 'We perform a final check to ensure the system is sanitized and ready for healthy air circulation.'
+      description: 'We perform a final check and explain the completed scope, limitations, and any remaining concerns.'
     }
   ];
 

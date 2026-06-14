@@ -6,6 +6,10 @@ import HumanSection from '../components/sections/HumanSection';
 import ProofSection from '../components/sections/ProofSection';
 import ActionSection from '../components/sections/ActionSection';
 import Footer from '../components/Footer';
+import HomeTrustBar from '../components/sections/HomeTrustBar';
+import HomeServicesSection from '../components/sections/HomeServicesSection';
+import InspectionProofSection from '../components/sections/InspectionProofSection';
+import HomeFaqSection from '../components/sections/HomeFaqSection';
 
 export default function HomePage() {
   return (
@@ -14,13 +18,21 @@ export default function HomePage() {
 
       <HeroSection />
 
-      <TrustSectionHome />
+      <HomeTrustBar />
 
       <ReasonSectionHome />
+
+      <HomeServicesSection />
+
+      <InspectionProofSection />
+
+      <TrustSectionHome />
 
       <HumanSection />
 
       <ProofSection />
+
+      <HomeFaqSection />
 
       <ActionSection />
 

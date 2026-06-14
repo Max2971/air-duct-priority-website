@@ -73,6 +73,8 @@ export default function Header() {
                             HOA Inspection / Certification
                           </Link>
                         </li>
+                        <li><Link to="/services/bird-nest-removal" className="text-gray-300 hover:text-gray-100">Bird Nest Removal</Link></li>
+                        <li><Link to="/services/exterior-vent-cover-replacement" className="text-gray-300 hover:text-gray-100">Exterior Vent Cover Replacement</Link></li>
                       </ul>
                     </div>
 
@@ -107,6 +109,9 @@ export default function Header() {
                             Air Duct Construction Cleaning
                           </Link>
                         </li>
+                        <li><Link to="/services/flexible-duct-replacement" className="text-gray-300 hover:text-gray-100">Flexible Duct Replacement</Link></li>
+                        <li><Link to="/services/bathroom-exhaust-vent-cleaning" className="text-gray-300 hover:text-gray-100">Bathroom Exhaust Vent Cleaning</Link></li>
+                        <li><Link to="/services/kitchen-exhaust-vent-cleaning" className="text-gray-300 hover:text-gray-100">Kitchen Exhaust Vent Cleaning</Link></li>
                       </ul>
                     </div>
                   </div>
@@ -118,14 +123,13 @@ export default function Header() {
             <a href="/service-area" className="text-gray-300 hover:text-gray-100 font-medium">
               Service Areas
             </a>
+            <Link to="/free-inspection" className="text-gray-300 hover:text-gray-100 font-medium">Free Inspection</Link>
+            <Link to="/reviews" className="text-gray-300 hover:text-gray-100 font-medium">Reviews</Link>
+            <Link to="/resources" className="text-gray-300 hover:text-gray-100 font-medium">Resources</Link>
 
             <Link to="/gallery" className="text-gray-300 hover:text-gray-100 font-medium">
               Gallery
             </Link>
-
-            <a href="/faq" className="text-gray-300 hover:text-gray-100 font-medium">
-              FAQ
-            </a>
 
             <Link to="/about" className="text-gray-300 hover:text-gray-100 font-medium">
               About
@@ -241,6 +245,8 @@ export default function Header() {
                             HOA Inspection / Certification
                           </Link>
                         </li>
+                        <li><Link to="/services/bird-nest-removal" className="block text-gray-300 hover:text-gray-100 px-2 py-1" onClick={() => setMobileMenuOpen(false)}>Bird Nest Removal</Link></li>
+                        <li><Link to="/services/exterior-vent-cover-replacement" className="block text-gray-300 hover:text-gray-100 px-2 py-1" onClick={() => setMobileMenuOpen(false)}>Exterior Vent Cover Replacement</Link></li>
                       </ul>
                     </div>
 
@@ -294,6 +300,9 @@ export default function Header() {
                             Air Duct Construction Cleaning
                           </Link>
                         </li>
+                        <li><Link to="/services/flexible-duct-replacement" className="block text-gray-300 hover:text-gray-100 px-2 py-1" onClick={() => setMobileMenuOpen(false)}>Flexible Duct Replacement</Link></li>
+                        <li><Link to="/services/bathroom-exhaust-vent-cleaning" className="block text-gray-300 hover:text-gray-100 px-2 py-1" onClick={() => setMobileMenuOpen(false)}>Bathroom Exhaust Vent Cleaning</Link></li>
+                        <li><Link to="/services/kitchen-exhaust-vent-cleaning" className="block text-gray-300 hover:text-gray-100 px-2 py-1" onClick={() => setMobileMenuOpen(false)}>Kitchen Exhaust Vent Cleaning</Link></li>
                       </ul>
                     </div>
                   </div>
@@ -307,6 +316,9 @@ export default function Header() {
               >
                 Service Areas
               </a>
+              <Link to="/free-inspection" className="text-gray-300 hover:text-gray-100 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>Free Inspection</Link>
+              <Link to="/reviews" className="text-gray-300 hover:text-gray-100 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>Reviews</Link>
+              <Link to="/resources" className="text-gray-300 hover:text-gray-100 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>Resources</Link>
 
               <Link
                 to="/gallery"
@@ -315,14 +327,6 @@ export default function Header() {
               >
                 Gallery
               </Link>
-
-              <a
-                href="/faq"
-                className="text-gray-300 hover:text-gray-100 font-medium px-2 py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                FAQ
-              </a>
 
               <Link
                 to="/about"

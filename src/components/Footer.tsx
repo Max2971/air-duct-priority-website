@@ -1,4 +1,4 @@
-import { Phone, Mail, Star } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone, Star } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -12,10 +12,16 @@ export default function Footer() {
               Air Duct Priority
             </h3>
             <p className="text-gray-400 text-sm mb-4">
-              Professional dryer vent & air duct services.
+              Owner-operated dryer vent & air duct services.
             </p>
             <p className="text-gray-400 text-sm">
-              Serving Bucks County + nearby areas
+              Jamison, PA
+            </p>
+            <p className="text-gray-400 text-sm mt-2">
+              Licensed & Insured · PA154999
+            </p>
+            <p className="text-gray-400 text-sm mt-2">
+              Serving Bucks County and Montgomery County
             </p>
           </div>
 
@@ -45,6 +51,11 @@ export default function Footer() {
                   Air Duct Cleaning
                 </a>
               </li>
+              <li><a href="/services/flexible-duct-replacement" className="text-gray-400 hover:text-white transition-colors">Flexible Duct Replacement</a></li>
+              <li><a href="/services/bird-nest-removal" className="text-gray-400 hover:text-white transition-colors">Bird Nest Removal</a></li>
+              <li><a href="/services/bathroom-exhaust-vent-cleaning" className="text-gray-400 hover:text-white transition-colors">Bathroom Exhaust Vent Cleaning</a></li>
+              <li><a href="/services/kitchen-exhaust-vent-cleaning" className="text-gray-400 hover:text-white transition-colors">Kitchen Exhaust Vent Cleaning</a></li>
+              <li><a href="/services/exterior-vent-cover-replacement" className="text-gray-400 hover:text-white transition-colors">Exterior Vent Cover Replacement</a></li>
             </ul>
           </div>
 
@@ -60,14 +71,12 @@ export default function Footer() {
                   Service Areas
                 </a>
               </li>
+              <li><a href="/free-inspection" className="text-gray-400 hover:text-white transition-colors">Free Inspection</a></li>
+              <li><a href="/reviews" className="text-gray-400 hover:text-white transition-colors">Reviews</a></li>
+              <li><a href="/resources" className="text-gray-400 hover:text-white transition-colors">Resources</a></li>
               <li>
                 <a href="/gallery" className="text-gray-400 hover:text-white transition-colors">
                   Gallery
-                </a>
-              </li>
-              <li>
-                <a href="/faq" className="text-gray-400 hover:text-white transition-colors">
-                  FAQ
                 </a>
               </li>
               <li>
@@ -100,11 +109,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:max@airductpriority.com"
+                  href="mailto:airductpriority@gmail.com"
                   className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
                 >
                   <Mail className="h-4 w-4" />
-                  <span>max@airductpriority.com</span>
+                  <span>airductpriority@gmail.com</span>
                 </a>
               </li>
               <li className="pt-2">
@@ -118,6 +127,28 @@ export default function Footer() {
                   <span>Google Reviews</span>
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/airductunitedservice/"
+                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Facebook className="h-4 w-4" />
+                  <span>Facebook</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/airductpriority_pa/"
+                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Instagram className="h-4 w-4" />
+                  <span>Instagram</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -127,14 +158,6 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} Air Duct Priority. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            <a href="/privacy" className="hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-            <a href="/terms" className="hover:text-white transition-colors">
-              Terms of Service
-            </a>
-          </div>
         </div>
       </div>
     </footer>

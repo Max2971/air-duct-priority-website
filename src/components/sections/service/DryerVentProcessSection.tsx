@@ -19,7 +19,7 @@ export default function DryerVentProcessSection({ steps }: DryerVentProcessSecti
             Our Professional Dryer Vent Cleaning Process
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-slate-600">
-            Every service follows our proven 4-step process to ensure your dryer vent system is safe and efficient
+            We inspect first, explain what we find, clean the accessible vent line, check airflow, and recommend repair only when needed.
           </p>
         </div>
 
@@ -49,7 +49,7 @@ export default function DryerVentProcessSection({ steps }: DryerVentProcessSecti
 
         <div className="mt-12 rounded-lg border border-gray-200 bg-white p-6 text-center lg:p-8">
           <p className="text-base text-slate-700 lg:text-lg">
-            After service, you'll enjoy improved dryer efficiency, reduced energy costs, and most importantly, peace of mind knowing your home is protected from fire hazards.
+            No call center. No pressure. No hidden fees. If the issue appears to be inside the dryer instead of the vent, we tell the customer.
           </p>
         </div>
 

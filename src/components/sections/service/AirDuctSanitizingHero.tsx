@@ -22,7 +22,7 @@ export default function AirDuctSanitizingHero() {
             </h1>
 
             <p className="mb-12 md:mb-8 text-lg md:text-xl text-white/90 lg:text-2xl">
-              Expert air duct sanitizing to eliminate bacteria, mold, and odors for a healthier home environment.
+              Inspection-based air duct sanitizing for appropriate situations, with a clear scope and no unsupported health promises.
             </p>
 
             <div className="mt-8 md:mt-0">

@@ -9,10 +9,12 @@ export default function AboutPage() {
 
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(/owner-family-air-duct-priority.webp)' }}
-        >
+        <div className="absolute inset-0">
+          <img
+            src="/owner-family-air-duct-priority.webp"
+            alt="Max G.A., founder of Air Duct Priority, with his family"
+            className="h-full w-full object-cover object-center"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 to-slate-800/80"></div>
         </div>
         <div className="container relative mx-auto max-w-4xl px-6 text-center">

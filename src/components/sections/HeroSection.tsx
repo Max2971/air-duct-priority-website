@@ -11,6 +11,7 @@ export default function HeroSection() {
           loop
           muted
           playsInline
+          poster="/hero-dryer-vent-cleaning.webp"
         >
           <source src="/hero-dryer-vent-cleaning.mp4" type="video/mp4" />
         </video>
@@ -27,11 +28,11 @@ export default function HeroSection() {
             {/* TOP: Headline + Subheadline */}
             <div>
               <h1 className="mb-6 text-3xl font-bold leading-tight text-gray-100 md:text-5xl lg:text-6xl">
-                Protect Your Home from Dryer Vent Fires
+                Air Duct Priority: Dryer Vent &amp; Air Duct Services in Bucks County, PA
               </h1>
 
               <p className="text-lg text-gray-200 md:text-xl lg:text-2xl">
-                Full system airflow inspection focused on dryer vent safety and fire prevention.
+                Owner-operated dryer vent and air duct service for Bucks County and Montgomery County, with free in-person inspections, no-pressure recommendations, and before-and-after video proof.
               </p>
             </div>
 
@@ -42,11 +43,11 @@ export default function HeroSection() {
                 className="inline-flex items-center gap-3 rounded-lg bg-blue-600 px-8 py-3 text-sm font-semibold text-gray-100 transition-all hover:bg-blue-700 md:py-4 md:text-lg"
               >
                 <Phone className="h-5 w-5 md:h-6 md:w-6" />
-                Free Home Airflow &amp; Safety Check
+                Call for Free Inspection
               </a>
 
               <p className="mt-6 text-sm text-gray-300">
-                Full system airflow inspection and cleaning services available - from dryer vents to complete air duct systems.
+                Dryer vent cleaning, repair, installation, rerouting, and full-system air duct cleaning.
               </p>
             </div>
           </div>

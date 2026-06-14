@@ -5,7 +5,7 @@ interface FlipCardProps {
   isPrimary: boolean;
 }
 
-function FlipCard({ problem, hiddenCause, result, isPrimary }: FlipCardProps) {
+function FlipCard({ problem, hiddenCause, isPrimary }: FlipCardProps) {
   const parseContent = (text: string) => {
     const hiddenCauseMatch = text.match(/Hidden Cause:\s*(.+?)(?=\s+Result:|$)/s);
     const resultMatch = text.match(/Result:\s*(.+)$/s);
@@ -58,13 +58,13 @@ export default function AirDuctSanitizingReason() {
   const cards = [
     {
       problem: 'Persistent Bacteria Growth',
-      hiddenCause: 'Hidden Cause: Bacteria and microorganisms accumulate in air ducts over time, especially in humid conditions. Result: Potential health risks and unpleasant odors circulating through the home.',
+      hiddenCause: 'Possible Cause: Moisture, residue, or contamination concerns may require closer inspection. Result: The source should be identified before any treatment is recommended.',
       result: '',
       isPrimary: false
     },
     {
       problem: 'Mold and Mildew',
-      hiddenCause: 'Hidden Cause: Moisture in ductwork creates ideal conditions for mold growth that regular cleaning cannot eliminate. Result: Persistent odors and respiratory concerns for occupants.',
+      hiddenCause: 'Possible Cause: Moisture inside ductwork can contribute to recurring odor or contamination concerns. Result: The moisture source should be addressed before treatment is considered.',
       result: '',
       isPrimary: false
     },
@@ -85,7 +85,7 @@ export default function AirDuctSanitizingReason() {
             Why Air Duct Sanitizing Is Needed
           </h2>
           <p className="mx-auto max-w-2xl text-base text-slate-600">
-            Even after cleaning, bacteria and mold can remain in air ducts. Sanitizing eliminates these contaminants for healthier indoor air.
+            Sanitizing is not automatically needed after cleaning. We inspect the situation first and explain whether a labeled treatment is appropriate for the specific concern.
           </p>
         </div>
 

@@ -34,7 +34,7 @@ export default function DryerVentActionSection() {
     });
 
     setTimeout(() => {
-      setConfirmationMessage('Thanks — we received your request and will contact you shortly.');
+      setConfirmationMessage('Thanks - we received your request and will contact you shortly.');
       e.currentTarget.reset();
       setIsSubmitting(false);
     }, 1200);
@@ -48,10 +48,10 @@ export default function DryerVentActionSection() {
           {/* Left Side - Context & Phone */}
           <div className="flex flex-col justify-center">
             <h2 className="mb-6 text-3xl font-bold text-slate-900 lg:text-4xl">
-              Schedule Dryer Vent Cleaning Service
+              Request a Free Dryer Vent Inspection
             </h2>
             <p className="mb-8 text-lg leading-relaxed text-slate-700">
-              Request professional dryer vent cleaning and a safety check for your home in Bucks County.
+              Get a clear explanation, pricing before work, and no-pressure recommendations for your home in Bucks County or Montgomery County.
             </p>
 
             {/* Primary Action - Phone */}
@@ -69,13 +69,13 @@ export default function DryerVentActionSection() {
                 Phone Hours: 24/7
               </p>
               <p className="text-sm text-slate-600">
-                Service Hours: Monday–Saturday, 8am–6pm
+                Service Hours: Monday-Saturday, 8am-6pm
               </p>
             </a>
 
             {/* Service Area */}
             <p className="text-sm text-slate-600">
-              Servicing Bucks County, Montgomery County, and Philadelphia
+              Serving Bucks County and Montgomery County, Pennsylvania
             </p>
           </div>
 
