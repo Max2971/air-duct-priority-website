@@ -29,6 +29,9 @@ import ResourcesPage from './pages/ResourcesPage';
 import SignsDryerVentCloggedPage from './pages/SignsDryerVentCloggedPage';
 import DryerVentServiceChoicePage from './pages/DryerVentServiceChoicePage';
 import BirdNestExteriorVentPage from './pages/BirdNestExteriorVentPage';
+import AirDuctCleaningPricingPage from './pages/AirDuctCleaningPricingPage';
+import DryerVentCleaningFrequencyPage from './pages/DryerVentCleaningFrequencyPage';
+import DryerVentRigidVsFlexPage from './pages/DryerVentRigidVsFlexPage';
 
 function App() {
   return (
@@ -47,6 +50,9 @@ function App() {
         <Route path="/resources/signs-dryer-vent-clogged" element={<SignsDryerVentCloggedPage />} />
         <Route path="/resources/dryer-vent-cleaning-repair-or-replacement" element={<DryerVentServiceChoicePage />} />
         <Route path="/resources/bird-nest-in-exterior-vent" element={<BirdNestExteriorVentPage />} />
+        <Route path="/resources/air-duct-cleaning-price-inspection" element={<AirDuctCleaningPricingPage />} />
+        <Route path="/resources/how-often-clean-dryer-vent" element={<DryerVentCleaningFrequencyPage />} />
+        <Route path="/resources/rigid-vs-flexible-dryer-vent" element={<DryerVentRigidVsFlexPage />} />
         <Route path="/doylestown-pa" element={<DoylestownPage />} /><Route path="/newtown-pa" element={<NewtownPage />} /><Route path="/richboro-pa" element={<RichboroPage />} /><Route path="/warrington-pa" element={<WarringtonPage />} />
         <Route path="/services/dryer-vent-cleaning" element={<DryerVentCleaningPage />} />
         <Route path="/services/dryer-vent-repair" element={<DryerVentRepairPage />} />

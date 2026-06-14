@@ -23,7 +23,7 @@ const data: ResourceArticleData = {
   faqs: [
     ['Can a dryer vent be repaired instead of replaced?','Often, yes. A localized damaged or disconnected section may be repairable when the remaining route is suitable and accessible.'],
     ['Does a long dryer vent always need rerouting?','Not always. The route, turns, airflow, condition, and available alternatives should be evaluated before recommending rerouting.'],
-    ['What material is appropriate for a dryer vent?','The appropriate material depends on the location and route. Smooth metal is generally used where appropriate, with secure connections and a suitable exterior termination.'],
+    ['What material is appropriate for a dryer vent?','The permanent exhaust route should use suitable smooth metal duct. A listed flexible metal transition may be used only for the accessible connection between the dryer and the main line.'],
     ['What if the dryer still shows an error after vent work?','The appliance itself may need service, or another route or termination problem may remain. The cause should be diagnosed rather than assuming more cleaning is needed.'],
   ],
   related: [['Dryer Vent Cleaning','/services/dryer-vent-cleaning'],['Dryer Vent Repair','/services/dryer-vent-repair'],['Dryer Vent Installation','/services/dryer-vent-installation'],['Dryer Vent Rerouting','/services/dryer-vent-rerouting']],
