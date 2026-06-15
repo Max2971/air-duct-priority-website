@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { importLibrary, setOptions } from '@googlemaps/js-api-loader';
-import { MarkerClusterer, Renderer } from '@googlemaps/markerclusterer';
+import { MarkerClusterer, Renderer, SuperClusterAlgorithm } from '@googlemaps/markerclusterer';
 import { completedJobs, CompletedJobService } from '../data/completedJobs';
 
 const mapId = 'ade5203658e70a1246d407bc';
@@ -22,30 +22,36 @@ interface CustomCompletedJobsMapProps {
 
 const clusterRenderer: Renderer = {
   render({ count, position }) {
+    const roundedCount =
+      count >= 100
+        ? `${Math.floor(count / 100) * 100}+`
+        : count >= 10
+          ? `${Math.floor(count / 10) * 10}+`
+          : `${count}+`;
+    const size = count >= 100 ? 42 : count >= 50 ? 38 : count >= 20 ? 34 : 30;
     const element = document.createElement('div');
-    element.textContent = 'Jobs Nearby';
+    element.textContent = roundedCount;
     Object.assign(element.style, {
       alignItems: 'center',
       background: '#2563EB',
-      border: '3px solid white',
+      border: '2px solid white',
       borderRadius: '9999px',
-      boxShadow: '0 2px 8px rgba(15, 23, 42, 0.35)',
+      boxShadow: '0 1px 5px rgba(15, 23, 42, 0.3)',
       color: 'white',
       display: 'flex',
-      fontSize: '11px',
+      fontSize: count >= 100 ? '12px' : '11px',
       fontWeight: '700',
-      height: '54px',
+      height: `${size}px`,
       justifyContent: 'center',
-      lineHeight: '12px',
-      padding: '0 7px',
+      lineHeight: '1',
       textAlign: 'center',
-      width: '54px',
+      width: `${size}px`,
     });
 
     return new google.maps.marker.AdvancedMarkerElement({
       position,
       content: element,
-      title: 'Completed jobs nearby',
+      title: `${roundedCount} completed jobs nearby`,
       zIndex: 1000 + count,
     });
   },
@@ -115,6 +121,10 @@ export default function CustomCompletedJobsMap({ focus }: CustomCompletedJobsMap
         new MarkerClusterer({
           map,
           markers,
+          algorithm: new SuperClusterAlgorithm({
+            radius: 90,
+            maxZoom: 15,
+          }),
           renderer: clusterRenderer,
           onClusterClick: (_event, cluster, clusterMap) => {
             const bounds = cluster.bounds;
