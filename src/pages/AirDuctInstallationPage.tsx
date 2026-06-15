@@ -3,7 +3,7 @@ import AirDuctInstallationHero from '../components/sections/service/AirDuctInsta
 import TrustSection from '../components/sections/TrustSection';
 import ProcessSection from '../components/sections/ProcessSection';
 import AirDuctInstallationReason from '../components/sections/service/AirDuctInstallationReason';
-import AirDuctInstallationActionSection from '../components/sections/service/AirDuctInstallationActionSection';
+import ConversionCta from '../components/ConversionCta';
 import Footer from '../components/Footer';
 
 export default function AirDuctInstallationPage() {
@@ -45,7 +45,7 @@ export default function AirDuctInstallationPage() {
 
       <AirDuctInstallationReason />
 
-      <AirDuctInstallationActionSection />
+      <ConversionCta title="Planning Air Duct Installation or Replacement?" description="Request an inspection to discuss the actual scope, access, and airflow concerns." onlineLabel="Request Installation Inspection" />
 
       <Footer />
     </div>

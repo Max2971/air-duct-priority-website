@@ -3,7 +3,7 @@ import DryerVentHero from '../components/sections/service/DryerVentHero';
 import TrustSection from '../components/sections/TrustSection';
 import DryerVentProcessSection from '../components/sections/service/DryerVentProcessSection';
 import DryerVentReason from '../components/sections/service/DryerVentReason';
-import DryerVentActionSection from '../components/sections/service/DryerVentActionSection';
+import ConversionCta from '../components/ConversionCta';
 import Footer from '../components/Footer';
 import DryerVentCleaningDetails from '../components/sections/service/DryerVentCleaningDetails';
 import DryerVentCleaningSolutions from '../components/sections/service/DryerVentCleaningSolutions';
@@ -51,7 +51,7 @@ export default function DryerVentCleaningPage() {
 
       <DryerVentCleaningAreaFaq />
 
-      <DryerVentActionSection />
+      <ConversionCta title="Concerned About Your Dryer Vent?" description="Request a free in-person dryer vent inspection with a clear recommendation and price before work." onlineLabel="Request Dryer Vent Inspection" />
 
       <Footer />
     </div>

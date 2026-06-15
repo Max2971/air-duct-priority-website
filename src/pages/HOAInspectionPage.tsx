@@ -3,7 +3,7 @@ import HOAInspectionHero from '../components/sections/service/HOAInspectionHero'
 import TrustSection from '../components/sections/TrustSection';
 import ProcessSection from '../components/sections/ProcessSection';
 import HOAInspectionReason from '../components/sections/service/HOAInspectionReason';
-import HOAInspectionActionSection from '../components/sections/service/HOAInspectionActionSection';
+import ConversionCta from '../components/ConversionCta';
 import Footer from '../components/Footer';
 
 export default function HOAInspectionPage() {
@@ -42,7 +42,7 @@ export default function HOAInspectionPage() {
 
       <HOAInspectionReason />
 
-      <HOAInspectionActionSection />
+      <ConversionCta title="Need Dryer Vent Inspection for an HOA or Property?" description="Contact Air Duct Priority to discuss the property, inspection scope, and documentation needs." onlineLabel="Request HOA Inspection" />
 
       <Footer />
     </div>

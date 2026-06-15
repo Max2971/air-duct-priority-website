@@ -50,7 +50,7 @@ export default function FreeInspectionPage() {
 
       <section className="bg-white py-20 lg:py-24"><div className="container mx-auto max-w-4xl px-6 text-center"><h2 className="mb-5 text-3xl font-bold text-slate-900 lg:text-4xl">How Pricing Works</h2><p className="mb-5 text-lg text-slate-700">Pricing depends on the actual condition, access, vent length, blockage, number of duct systems, and whether repair or installation is needed.</p><p className="font-semibold text-slate-900">You receive the price and scope before work begins. No hidden fees.</p></div></section>
 
-      <section id="request-inspection" className="bg-slate-50 py-20 lg:py-24"><div className="container mx-auto max-w-3xl px-6"><div className="mb-10 text-center"><h2 className="mb-4 text-3xl font-bold text-slate-900 lg:text-4xl">Request Your Free Inspection</h2><p className="text-lg text-slate-700">Serving Bucks County and Montgomery County, Pennsylvania.</p></div><ContactForm /></div></section>
+      <section id="request-inspection" className="scroll-mt-24 bg-slate-50 py-20 lg:py-24"><div className="container mx-auto max-w-3xl px-6"><div className="mb-10 text-center"><h2 className="mb-4 text-3xl font-bold text-slate-900 lg:text-4xl">Request Your Free Inspection</h2><p className="text-lg text-slate-700">Serving Bucks County and Montgomery County, Pennsylvania.</p></div><ContactForm /></div></section>
       <Footer />
     </div>
   );

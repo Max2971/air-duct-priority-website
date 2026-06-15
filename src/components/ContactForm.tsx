@@ -1,7 +1,9 @@
 import { useState, FormEvent } from 'react';
 import { submitContactRequest } from '../lib/contactApi';
+import { useLocation } from 'react-router-dom';
 
 export default function ContactForm() {
+  const { pathname } = useLocation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [confirmationMessage, setConfirmationMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -18,8 +20,11 @@ export default function ContactForm() {
       phone: formData.get('phone') as string,
       email: formData.get('email') as string,
       zip: formData.get('zip') as string,
+      service: formData.get('service') as string,
       message: formData.get('message') as string,
-      source: formData.get('source') as string,
+      page: window.location.href,
+      landingPage: sessionStorage.getItem('landingPage') || window.location.href,
+      referrer: document.referrer,
       honeypot: formData.get('website') as string,
     };
 
@@ -39,8 +44,11 @@ export default function ContactForm() {
   return (
     <div className="rounded-lg bg-white p-8 shadow-md lg:p-10">
       <h3 className="mb-6 text-2xl font-bold text-slate-900">
-        Request Service
+        Request a Free Inspection
       </h3>
+      <p className="mb-6 text-sm text-slate-600">
+        Phone and ZIP are enough to get started. Name, email, and details are optional.
+      </p>
 
       {confirmationMessage && (
         <div className="mb-6 rounded-lg bg-blue-50 border border-blue-200 p-4">
@@ -66,13 +74,12 @@ export default function ContactForm() {
 
         <div>
           <label htmlFor="name" className="mb-2 block text-sm font-semibold text-slate-700">
-            Name <span className="text-red-600">*</span>
+            Name <span className="font-normal text-slate-500">(optional)</span>
           </label>
           <input
             type="text"
             id="name"
             name="name"
-            required
             disabled={isSubmitting}
             className="w-full rounded-lg border border-gray-300 px-4 py-3 text-slate-900 transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 disabled:bg-gray-100 disabled:cursor-not-allowed"
             placeholder="Your name"
@@ -96,13 +103,12 @@ export default function ContactForm() {
 
         <div>
           <label htmlFor="email" className="mb-2 block text-sm font-semibold text-slate-700">
-            Email <span className="text-red-600">*</span>
+            Email <span className="font-normal text-slate-500">(optional)</span>
           </label>
           <input
             type="email"
             id="email"
             name="email"
-            required
             disabled={isSubmitting}
             className="w-full rounded-lg border border-gray-300 px-4 py-3 text-slate-900 transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 disabled:bg-gray-100 disabled:cursor-not-allowed"
             placeholder="Your email"
@@ -125,8 +131,30 @@ export default function ContactForm() {
         </div>
 
         <div>
+          <label htmlFor="service" className="mb-2 block text-sm font-semibold text-slate-700">
+            What do you need help with? <span className="text-red-600">*</span>
+          </label>
+          <select
+            id="service"
+            name="service"
+            required
+            disabled={isSubmitting}
+            defaultValue={pathname.includes('dryer-vent') ? 'dryer-vent' : pathname.includes('air-duct') ? 'air-duct' : ''}
+            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-slate-900 transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 disabled:bg-gray-100 disabled:cursor-not-allowed"
+          >
+            <option value="">Select a service or problem</option>
+            <option value="dryer-vent">Dryer vent cleaning or airflow problem</option>
+            <option value="dryer-vent-repair">Dryer vent repair, installation, or rerouting</option>
+            <option value="air-duct">Air duct cleaning or inspection</option>
+            <option value="air-duct-repair">Air duct repair or installation</option>
+            <option value="bird-nest">Bird nest or exterior vent cover</option>
+            <option value="other">Other / not sure</option>
+          </select>
+        </div>
+
+        <div>
           <label htmlFor="message" className="mb-2 block text-sm font-semibold text-slate-700">
-            Message
+            Details <span className="font-normal text-slate-500">(optional)</span>
           </label>
           <textarea
             id="message"
@@ -138,35 +166,12 @@ export default function ContactForm() {
           ></textarea>
         </div>
 
-        <div>
-          <label htmlFor="source" className="mb-2 block text-sm font-semibold text-slate-700">
-            How did you find us?
-          </label>
-          <select
-            id="source"
-            name="source"
-            disabled={isSubmitting}
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-slate-900 transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 disabled:bg-gray-100 disabled:cursor-not-allowed"
-          >
-            <option value="">Select one (optional)</option>
-            <option value="google">Google</option>
-            <option value="facebook">Facebook</option>
-            <option value="referral">Referral</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
         <button
           type="submit"
           disabled={isSubmitting}
           className="w-full rounded-lg bg-blue-600 px-8 py-3 text-base font-bold text-white transition hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed md:py-4 md:text-lg md:leading-normal leading-tight"
         >
-          {isSubmitting ? 'Submitting...' : (
-            <>
-              <span className="md:hidden">Free Home Safety Check</span>
-              <span className="hidden md:inline">Free Home Airflow & Safety Check</span>
-            </>
-          )}
+          {isSubmitting ? 'Submitting...' : 'Request Free Inspection'}
         </button>
       </form>
     </div>

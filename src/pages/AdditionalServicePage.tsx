@@ -1,6 +1,7 @@
 import { CheckCircle2, Phone, Wrench } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import ConversionCta from '../components/ConversionCta';
 
 type Props = {
   eyebrow: string; title: string; intro: string; problems: string[];
@@ -18,6 +19,6 @@ export default function AdditionalServicePage({ eyebrow, title, intro, problems,
       <div className="rounded-lg border border-slate-200 bg-slate-50 p-8 lg:p-10"><Wrench className="mb-5 h-10 w-10 text-[#F97316]" /><h2 className="mb-5 text-2xl font-bold text-slate-900">{detailsTitle}</h2><ul className="space-y-4">{details.map(x => <li key={x} className="flex gap-3 text-slate-700"><CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-green-600" />{x}</li>)}</ul></div>
     </div></div></section>
     <section className="bg-slate-900 py-20 lg:py-24"><div className="container mx-auto max-w-7xl px-6"><div className="mb-12 text-center"><p className="mb-3 text-sm font-bold uppercase tracking-widest text-[#F97316]">Our Process</p><h2 className="text-3xl font-bold !text-white lg:text-4xl">Inspection First, Clear Solution Second</h2></div><div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">{process.map((step, i) => <div key={step.title} className="rounded-lg border border-slate-700 bg-slate-800 p-6"><span className="mb-4 block text-3xl font-bold text-[#F97316]">{i + 1}</span><h3 className="mb-3 text-xl font-bold !text-white">{step.title}</h3><p className="text-slate-300">{step.description}</p></div>)}</div></div></section>
-    <section className="bg-white py-20 text-center lg:py-24"><div className="container mx-auto max-w-4xl px-6"><h2 className="mb-5 text-3xl font-bold text-slate-900 lg:text-4xl">Get a Clear Recommendation Before Work Begins</h2><p className="mb-8 text-lg text-slate-700">Owner-operated service, clear pricing, and no-pressure recommendations across Bucks County and Montgomery County.</p><a href="tel:+12157108781" className="inline-flex items-center gap-3 rounded-lg bg-blue-600 px-8 py-4 text-lg font-semibold text-white hover:bg-blue-700"><Phone className="h-5 w-5" />Call (215) 710-8781</a></div></section>
+    <ConversionCta title={`Need Help With ${title}?`} description="Request a free in-person inspection with owner-operated service, clear pricing, and no-pressure recommendations." />
     <Footer /></div>;
 }

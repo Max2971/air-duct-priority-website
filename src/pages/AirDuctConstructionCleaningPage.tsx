@@ -3,7 +3,7 @@ import AirDuctConstructionCleaningHero from '../components/sections/service/AirD
 import TrustSection from '../components/sections/TrustSection';
 import ProcessSection from '../components/sections/ProcessSection';
 import AirDuctConstructionCleaningReason from '../components/sections/service/AirDuctConstructionCleaningReason';
-import AirDuctConstructionCleaningActionSection from '../components/sections/service/AirDuctConstructionCleaningActionSection';
+import ConversionCta from '../components/ConversionCta';
 import Footer from '../components/Footer';
 
 export default function AirDuctConstructionCleaningPage() {
@@ -45,7 +45,7 @@ export default function AirDuctConstructionCleaningPage() {
 
       <AirDuctConstructionCleaningReason />
 
-      <AirDuctConstructionCleaningActionSection />
+      <ConversionCta title="Concerned About Construction Dust in Your Ducts?" description="Request an inspection to confirm whether cleaning is needed and understand the full-system scope." onlineLabel="Request Construction Dust Inspection" />
 
       <Footer />
     </div>

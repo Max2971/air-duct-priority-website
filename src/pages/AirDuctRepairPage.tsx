@@ -3,7 +3,7 @@ import AirDuctRepairHero from '../components/sections/service/AirDuctRepairHero'
 import TrustSection from '../components/sections/TrustSection';
 import ProcessSection from '../components/sections/ProcessSection';
 import AirDuctRepairReason from '../components/sections/service/AirDuctRepairReason';
-import AirDuctRepairActionSection from '../components/sections/service/AirDuctRepairActionSection';
+import ConversionCta from '../components/ConversionCta';
 import Footer from '../components/Footer';
 
 export default function AirDuctRepairPage() {
@@ -45,7 +45,7 @@ export default function AirDuctRepairPage() {
 
       <AirDuctRepairReason />
 
-      <AirDuctRepairActionSection />
+      <ConversionCta title="Concerned About Damaged Ductwork?" description="We inspect accessible duct conditions and explain the practical repair options before work begins." onlineLabel="Request Duct Inspection" />
 
       <Footer />
     </div>

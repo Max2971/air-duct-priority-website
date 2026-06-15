@@ -3,7 +3,7 @@ import DryerVentRepairHero from '../components/sections/service/DryerVentRepairH
 import TrustSection from '../components/sections/TrustSection';
 import ProcessSection from '../components/sections/ProcessSection';
 import DryerVentRepairReason from '../components/sections/service/DryerVentRepairReason';
-import DryerVentRepairActionSection from '../components/sections/service/DryerVentRepairActionSection';
+import ConversionCta from '../components/ConversionCta';
 import Footer from '../components/Footer';
 import DryerVentServiceDetails from '../components/sections/service/DryerVentServiceDetails';
 
@@ -57,7 +57,7 @@ export default function DryerVentRepairPage() {
         faqs={repairFaqs}
       />
 
-      <DryerVentRepairActionSection />
+      <ConversionCta title="Need a Dryer Vent Repair Recommendation?" description="We inspect the actual problem before recommending repair, replacement, or rerouting." onlineLabel="Request Repair Inspection" />
 
       <Footer />
     </div>

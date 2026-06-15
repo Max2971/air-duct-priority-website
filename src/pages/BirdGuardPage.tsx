@@ -3,7 +3,7 @@ import BirdGuardHero from '../components/sections/service/BirdGuardHero';
 import TrustSection from '../components/sections/TrustSection';
 import ProcessSection from '../components/sections/ProcessSection';
 import BirdGuardReason from '../components/sections/service/BirdGuardReason';
-import BirdGuardActionSection from '../components/sections/service/BirdGuardActionSection';
+import ConversionCta from '../components/ConversionCta';
 import Footer from '../components/Footer';
 
 export default function BirdGuardPage() {
@@ -45,7 +45,7 @@ export default function BirdGuardPage() {
 
       <BirdGuardReason />
 
-      <BirdGuardActionSection />
+      <ConversionCta title="Birds or Nesting Material Near a Vent?" description="We can inspect the vent, remove accessible nesting material, and explain the appropriate exterior solution." onlineLabel="Request Vent Inspection" />
 
       <Footer />
     </div>

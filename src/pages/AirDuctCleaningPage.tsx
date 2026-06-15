@@ -3,7 +3,7 @@ import AirDuctCleaningHero from '../components/sections/service/AirDuctCleaningH
 import TrustSection from '../components/sections/TrustSection';
 import ProcessSection from '../components/sections/ProcessSection';
 import AirDuctCleaningReason from '../components/sections/service/AirDuctCleaningReason';
-import AirDuctCleaningActionSection from '../components/sections/service/AirDuctCleaningActionSection';
+import ConversionCta from '../components/ConversionCta';
 import Footer from '../components/Footer';
 import AirDuctCleaningDetails from '../components/sections/service/AirDuctCleaningDetails';
 
@@ -47,7 +47,7 @@ export default function AirDuctCleaningPage() {
 
       <AirDuctCleaningReason />
 
-      <AirDuctCleaningActionSection />
+      <ConversionCta title="Not Sure Whether Air Duct Cleaning Is Needed?" description="Request a free inspection. If the ducts look clean or another issue is more likely, we say so." onlineLabel="Request Air Duct Inspection" />
 
       <Footer />
     </div>

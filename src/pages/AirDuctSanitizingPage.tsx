@@ -3,7 +3,7 @@ import AirDuctSanitizingHero from '../components/sections/service/AirDuctSanitiz
 import TrustSection from '../components/sections/TrustSection';
 import ProcessSection from '../components/sections/ProcessSection';
 import AirDuctSanitizingReason from '../components/sections/service/AirDuctSanitizingReason';
-import AirDuctSanitizingActionSection from '../components/sections/service/AirDuctSanitizingActionSection';
+import ConversionCta from '../components/ConversionCta';
 import Footer from '../components/Footer';
 
 export default function AirDuctSanitizingPage() {
@@ -45,7 +45,7 @@ export default function AirDuctSanitizingPage() {
 
       <AirDuctSanitizingReason />
 
-      <AirDuctSanitizingActionSection />
+      <ConversionCta title="Have a Specific Duct Contamination Concern?" description="Request an inspection so the recommendation matches the actual condition and scope." onlineLabel="Request an Inspection" />
 
       <Footer />
     </div>

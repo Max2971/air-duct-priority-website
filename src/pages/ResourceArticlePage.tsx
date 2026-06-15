@@ -2,6 +2,7 @@ import { AlertTriangle, CheckCircle2, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import ConversionCta from '../components/ConversionCta';
 
 export type ResourceSection = {
   id: string;
@@ -51,7 +52,9 @@ export default function ResourceArticlePage({ data }: { data: ResourceArticleDat
 
         <section className="rounded-lg border border-slate-200 bg-white p-8"><p className="mb-2 text-sm font-bold uppercase tracking-widest text-[#F97316]">About the Author</p><h2 className="mb-3 text-2xl font-bold text-slate-900">Max G.A., Founder of Air Duct Priority</h2><p className="mb-5 text-slate-700">Max is the owner-operator of Air Duct Priority, based in Jamison, Pennsylvania, with more than nine years of field experience in dryer vent and air duct services.</p><a href="tel:+12157108781" className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white"><Phone className="h-5 w-5" />Request a Free Inspection</a></section>
       </article>
-    </div></main><Footer /></div>;
+    </div></main>
+    <ConversionCta title="Want a Clear Answer for Your Own Home?" description="Request a free in-person inspection to separate a cleaning issue from repair, routing, or an appliance problem." />
+    <Footer /></div>;
 }
 
 function ComparisonTable({ table }: { table: NonNullable<ResourceArticleData['table']> }) {

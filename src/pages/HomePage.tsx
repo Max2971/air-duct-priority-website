@@ -10,6 +10,7 @@ import HomeTrustBar from '../components/sections/HomeTrustBar';
 import HomeServicesSection from '../components/sections/HomeServicesSection';
 import InspectionProofSection from '../components/sections/InspectionProofSection';
 import HomeFaqSection from '../components/sections/HomeFaqSection';
+import ConversionCta from '../components/ConversionCta';
 
 export default function HomePage() {
   return (
@@ -23,6 +24,8 @@ export default function HomePage() {
       <ReasonSectionHome />
 
       <HomeServicesSection />
+
+      <ConversionCta />
 
       <InspectionProofSection />
 

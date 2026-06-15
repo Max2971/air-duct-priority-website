@@ -3,7 +3,7 @@ import DryerVentReroutingHero from '../components/sections/service/DryerVentRero
 import TrustSection from '../components/sections/TrustSection';
 import ProcessSection from '../components/sections/ProcessSection';
 import DryerVentReroutingReason from '../components/sections/service/DryerVentReroutingReason';
-import DryerVentReroutingActionSection from '../components/sections/service/DryerVentReroutingActionSection';
+import ConversionCta from '../components/ConversionCta';
 import Footer from '../components/Footer';
 
 export default function DryerVentReroutingPage() {
@@ -45,7 +45,7 @@ export default function DryerVentReroutingPage() {
 
       <DryerVentReroutingReason />
 
-      <DryerVentReroutingActionSection />
+      <ConversionCta title="Could Your Dryer Vent Route Be Improved?" description="We inspect the existing route and explain whether cleaning, repair, or rerouting is the practical next step." onlineLabel="Request Route Inspection" />
 
       <Footer />
     </div>

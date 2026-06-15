@@ -3,7 +3,7 @@ import DryerVentInstallationHero from '../components/sections/service/DryerVentI
 import TrustSection from '../components/sections/TrustSection';
 import ProcessSection from '../components/sections/ProcessSection';
 import DryerVentInstallationReason from '../components/sections/service/DryerVentInstallationReason';
-import DryerVentInstallationActionSection from '../components/sections/service/DryerVentInstallationActionSection';
+import ConversionCta from '../components/ConversionCta';
 import Footer from '../components/Footer';
 import DryerVentServiceDetails from '../components/sections/service/DryerVentServiceDetails';
 
@@ -57,7 +57,7 @@ export default function DryerVentInstallationPage() {
         faqs={installationFaqs}
       />
 
-      <DryerVentInstallationActionSection />
+      <ConversionCta title="Planning a Dryer Vent Installation?" description="Request an in-person inspection to discuss the route, access, airflow, and practical options." onlineLabel="Discuss My Vent Route" />
 
       <Footer />
     </div>

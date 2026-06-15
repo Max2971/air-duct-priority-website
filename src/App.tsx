@@ -33,6 +33,7 @@ import AirDuctCleaningPricingPage from './pages/AirDuctCleaningPricingPage';
 import DryerVentCleaningFrequencyPage from './pages/DryerVentCleaningFrequencyPage';
 import DryerVentRigidVsFlexPage from './pages/DryerVentRigidVsFlexPage';
 import NotFoundPage from './pages/NotFoundPage';
+import MobileContactBar from './components/MobileContactBar';
 
 function App() {
   return (
@@ -73,6 +74,7 @@ function App() {
         <Route path="/services/exterior-vent-cover-replacement" element={<ExteriorVentCoverReplacementPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <MobileContactBar />
     </>
   );
 }

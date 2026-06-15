@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Mail, Phone, Star } from 'lucide-react';
+import { Facebook, Instagram, Mail, MessageSquareText, Phone, Star } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -105,6 +105,15 @@ export default function Footer() {
                 >
                   <Phone className="h-4 w-4" />
                   <span>(215) 710-8781</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="sms:+12157108781"
+                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                >
+                  <MessageSquareText className="h-4 w-4" />
+                  <span>Text (215) 710-8781</span>
                 </a>
               </li>
               <li>
