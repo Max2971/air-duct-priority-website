@@ -25,9 +25,7 @@ const clusterRenderer: Renderer = {
     const roundedCount =
       count >= 100
         ? `${Math.floor(count / 100) * 100}+`
-        : count >= 10
-          ? `${Math.floor(count / 10) * 10}+`
-          : `${count}+`;
+        : `${Math.max(10, Math.floor(count / 10) * 10)}+`;
     const size = count >= 100 ? 42 : count >= 50 ? 38 : count >= 20 ? 34 : 30;
     const element = document.createElement('div');
     element.textContent = roundedCount;
