@@ -13,7 +13,7 @@ export default function AboutPage() {
           <img
             src="/owner-family-air-duct-priority.webp"
             alt="Max G.A., founder of Air Duct Priority, with his family"
-            className="h-full w-full object-cover object-center"
+            className="h-full w-full object-cover object-[38%_32%]"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 to-slate-800/80"></div>
         </div>
@@ -32,7 +32,7 @@ export default function AboutPage() {
             className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-xl"
           >
             <Phone className="h-5 w-5" />
-            Free Inspection – Call (215) 710-8781
+            Call Air Duct Priority – (215) 710-8781
           </a>
         </div>
       </section>
@@ -191,7 +191,7 @@ export default function AboutPage() {
             className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-xl"
           >
             <Phone className="h-5 w-5" />
-            Free Inspection – Call (215) 710-8781
+            Call Air Duct Priority – (215) 710-8781
           </a>
         </div>
       </section>

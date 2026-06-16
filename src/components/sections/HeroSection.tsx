@@ -24,15 +24,21 @@ export default function HeroSection() {
       <div className="relative z-10 h-full">
         <div className="container mx-auto h-full px-6 lg:px-12">
           {/* This wrapper controls TOP vs BOTTOM layout */}
-          <div className="flex h-full max-w-2xl flex-col pt-24 pb-16">
+          <div className="flex h-full max-w-3xl flex-col pb-16 pt-20 lg:pt-28">
             {/* TOP: Headline + Subheadline */}
-            <div>
-              <h1 className="mb-6 text-3xl font-bold leading-tight text-gray-100 md:text-5xl lg:text-6xl">
-                Air Duct Priority: Dryer Vent &amp; Air Duct Services in Bucks County, PA
+            <div className="rounded-2xl border border-white/15 bg-slate-950/35 p-6 shadow-2xl backdrop-blur-[2px] md:p-8 lg:p-10">
+              <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-[#FDBA74] md:text-base">
+                Air Duct Priority
+              </p>
+              <h1 className="mb-6 text-4xl font-bold leading-[1.08] text-gray-100 md:text-5xl lg:text-6xl">
+                Dryer Vent &amp; Air Duct Services
+                <span className="mt-2 block text-2xl font-semibold text-slate-200 md:text-3xl lg:text-4xl">
+                  Bucks &amp; Montgomery Counties, PA
+                </span>
               </h1>
 
-              <p className="text-lg text-gray-200 md:text-xl lg:text-2xl">
-                Owner-operated dryer vent and air duct service for Bucks County and Montgomery County, with free in-person inspections, no-pressure recommendations, and before-and-after video proof.
+              <p className="max-w-2xl text-lg leading-relaxed text-gray-200 md:text-xl">
+                Owner-operated service with complimentary air duct inspections, no-pressure recommendations, and before-and-after video proof.
               </p>
             </div>
 
@@ -43,7 +49,7 @@ export default function HeroSection() {
                 className="inline-flex items-center gap-3 rounded-lg bg-blue-600 px-8 py-3 text-sm font-semibold text-gray-100 transition-all hover:bg-blue-700 md:py-4 md:text-lg"
               >
                 <Phone className="h-5 w-5 md:h-6 md:w-6" />
-                Call for Free Inspection
+                Call Air Duct Priority
               </a>
 
               <p className="mt-6 text-sm text-gray-300">

@@ -71,7 +71,7 @@ export default function Footer() {
                   Service Areas
                 </a>
               </li>
-              <li><a href="/free-inspection" className="text-gray-400 hover:text-white transition-colors">Free Inspection</a></li>
+              <li><a href="/free-inspection" className="text-gray-400 hover:text-white transition-colors">Air Duct Inspection</a></li>
               <li><a href="/reviews" className="text-gray-400 hover:text-white transition-colors">Reviews</a></li>
               <li><a href="/resources" className="text-gray-400 hover:text-white transition-colors">Resources</a></li>
               <li>

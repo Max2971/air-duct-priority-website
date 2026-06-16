@@ -51,7 +51,7 @@ export default function DryerVentCleaningPage() {
 
       <DryerVentCleaningAreaFaq />
 
-      <ConversionCta title="Concerned About Your Dryer Vent?" description="Request a free in-person dryer vent inspection with a clear recommendation and price before work." onlineLabel="Request Dryer Vent Inspection" />
+      <ConversionCta title="Concerned About Your Dryer Vent?" description="Call or text to discuss the symptoms and schedule the appropriate dryer vent service with a clear price before work." onlineLabel="Request Air Duct Inspection" />
 
       <Footer />
     </div>

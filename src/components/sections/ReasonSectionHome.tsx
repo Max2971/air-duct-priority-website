@@ -10,8 +10,8 @@ interface FlipCardProps {
 
 function FlipCard({ problem, hiddenCause, result, isPrimary, icon }: FlipCardProps) {
   return (
-    <div className="group h-40 md:h-52 w-full" style={{ perspective: '1000px' }}>
-      <div className="relative h-full w-full transition-transform duration-500 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+    <div className="group h-40 w-full cursor-pointer focus:outline-none md:h-52" style={{ perspective: '1000px' }} tabIndex={0} role="button" aria-label={`${problem}. Hover, focus, or tap to see the explanation.`}>
+      <div className="relative h-full w-full transition-transform duration-500 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus:[transform:rotateY(180deg)]">
 
         {/* Front Side - Problem */}
         <div className={`absolute inset-0 flex items-center justify-center gap-3 rounded-md border-l-4 p-4 md:p-6 shadow-sm [backface-visibility:hidden] ${
@@ -87,6 +87,9 @@ export default function ReasonSectionHome() {
             Here's why this usually happens
           </h2>
           <div className="mx-auto mt-4 h-1 w-24 bg-[#F97316] rounded-full"></div>
+          <p className="mt-4 text-sm font-medium text-slate-500">
+            Hover over or tap a card to see what may be happening.
+          </p>
         </div>
 
         {/* Flip Cards Grid */}

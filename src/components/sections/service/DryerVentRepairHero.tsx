@@ -22,7 +22,7 @@ export default function DryerVentRepairHero() {
             </h1>
 
             <p className="mb-12 md:mb-8 text-lg md:text-xl text-white/90 lg:text-2xl">
-              Licensed and insured dryer vent repair with a free in-person inspection, clear explanations, and no-pressure recommendations.
+              Licensed and insured dryer vent repair with clear explanations and no-pressure recommendations.
             </p>
 
             <div className="mt-8 md:mt-0">
@@ -31,7 +31,7 @@ export default function DryerVentRepairHero() {
                 className="inline-flex items-center gap-3 rounded-lg bg-white px-8 py-2 md:py-4 text-sm md:text-lg font-semibold text-slate-900 transition-all hover:bg-gray-100"
               >
                 <Phone className="h-5 w-5 md:h-6 md:w-6" />
-                Call for Free Inspection
+                Call About Dryer Vent Repair
               </a>
             </div>
 

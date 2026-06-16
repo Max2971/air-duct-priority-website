@@ -31,7 +31,7 @@ export default function DryerVentInstallationHero() {
                 className="inline-flex items-center gap-3 rounded-lg bg-white px-8 py-2 md:py-4 text-sm md:text-lg font-semibold text-slate-900 transition-all hover:bg-gray-100"
               >
                 <Phone className="h-5 w-5 md:h-6 md:w-6" />
-                Call for Free Inspection
+                Call About Dryer Vent Installation
               </a>
             </div>
 

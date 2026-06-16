@@ -123,7 +123,7 @@ export default function Header() {
             <a href="/service-area" className="text-gray-300 hover:text-gray-100 font-medium">
               Service Areas
             </a>
-            <Link to="/free-inspection" className="text-gray-300 hover:text-gray-100 font-medium">Free Inspection</Link>
+            <Link to="/free-inspection" className="text-gray-300 hover:text-gray-100 font-medium">Air Duct Inspection</Link>
             <Link to="/reviews" className="text-gray-300 hover:text-gray-100 font-medium">Reviews</Link>
             <Link to="/resources" className="text-gray-300 hover:text-gray-100 font-medium">Resources</Link>
 
@@ -146,7 +146,7 @@ export default function Header() {
               href="tel:+12157108781"
               className="hidden md:inline-flex rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-gray-100 transition-colors hover:bg-blue-700"
             >
-              Free Inspection – Call (215) 710-8781
+              Call (215) 710-8781
             </a>
 
             {/* Hamburger Menu Button */}
@@ -316,7 +316,7 @@ export default function Header() {
               >
                 Service Areas
               </a>
-              <Link to="/free-inspection" className="text-gray-300 hover:text-gray-100 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>Free Inspection</Link>
+              <Link to="/free-inspection" className="text-gray-300 hover:text-gray-100 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>Air Duct Inspection</Link>
               <Link to="/reviews" className="text-gray-300 hover:text-gray-100 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>Reviews</Link>
               <Link to="/resources" className="text-gray-300 hover:text-gray-100 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>Resources</Link>
 
