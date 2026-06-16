@@ -1,6 +1,7 @@
 import { useState, FormEvent } from 'react';
 import { submitContactRequest } from '../lib/contactApi';
 import { useLocation } from 'react-router-dom';
+import { trackFormSubmitSuccess } from '../lib/analytics';
 
 export default function ContactForm() {
   const { pathname } = useLocation();
@@ -31,6 +32,11 @@ export default function ContactForm() {
     const form = e.currentTarget;
     try {
       await submitContactRequest(data);
+      trackFormSubmitSuccess({
+        service: data.service,
+        zip: data.zip,
+        sourcePage: data.page,
+      });
       setConfirmationMessage('Thanks - we received your request and will contact you shortly.');
       form.reset();
     } catch (error) {

@@ -34,11 +34,13 @@ import DryerVentCleaningFrequencyPage from './pages/DryerVentCleaningFrequencyPa
 import DryerVentRigidVsFlexPage from './pages/DryerVentRigidVsFlexPage';
 import NotFoundPage from './pages/NotFoundPage';
 import MobileContactBar from './components/MobileContactBar';
+import AnalyticsTracker from './components/AnalyticsTracker';
 
 function App() {
   return (
     <>
       <Seo />
+      <AnalyticsTracker />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />

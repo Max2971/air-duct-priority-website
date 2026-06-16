@@ -3,6 +3,9 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
 import './index.css';
+import { initializeDataLayer } from './lib/analytics.ts';
+
+initializeDataLayer();
 
 if (!sessionStorage.getItem('landingPage')) {
   sessionStorage.setItem('landingPage', window.location.href);
