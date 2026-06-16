@@ -1,159 +1,101 @@
 import { Facebook, Instagram, Mail, MessageSquareText, Phone, Star } from 'lucide-react';
 
+const services = [
+  ['Dryer Vent Cleaning', '/services/dryer-vent-cleaning'],
+  ['Dryer Vent Repair', '/services/dryer-vent-repair'],
+  ['Dryer Vent Installation', '/services/dryer-vent-installation'],
+  ['Air Duct Cleaning', '/services/air-duct-cleaning'],
+  ['Flexible Duct Replacement', '/services/flexible-duct-replacement'],
+  ['Bird Nest Removal', '/services/bird-nest-removal'],
+  ['Bathroom Exhaust Vent Cleaning', '/services/bathroom-exhaust-vent-cleaning'],
+  ['Kitchen Exhaust Vent Cleaning', '/services/kitchen-exhaust-vent-cleaning'],
+  ['Exterior Vent Cover Replacement', '/services/exterior-vent-cover-replacement'],
+];
+
+const quickLinks = [
+  ['Service Areas', '/service-area'],
+  ['Air Duct Inspection', '/free-inspection'],
+  ['Reviews', '/reviews'],
+  ['Gallery', '/gallery'],
+  ['Resources', '/resources'],
+  ['About', '/about'],
+  ['Contact', '/contact'],
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-16">
+    <footer className="bg-gray-900 py-10 text-white md:py-16">
       <div className="container mx-auto max-w-7xl px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-
-          {/* Column 1: Company Info */}
+        <div className="mb-8 grid gap-8 md:mb-12 md:grid-cols-2 md:gap-12 lg:grid-cols-4">
           <div>
-            <h3 className="text-xl font-bold mb-3">
-              Air Duct Priority
-            </h3>
-            <p className="text-gray-400 text-sm mb-4">
-              Owner-operated dryer vent & air duct services.
-            </p>
-            <p className="text-gray-400 text-sm">
-              Jamison, PA
-            </p>
-            <p className="text-gray-400 text-sm mt-2">
-              Licensed & Insured · PA154999
-            </p>
-            <p className="text-gray-400 text-sm mt-2">
-              Serving Bucks County and Montgomery County
-            </p>
+            <h3 className="mb-2 text-xl font-bold">Air Duct Priority</h3>
+            <p className="mb-3 text-sm text-gray-400">Owner-operated dryer vent &amp; air duct services.</p>
+            <p className="text-sm text-gray-400">Jamison, PA</p>
+            <p className="mt-2 text-sm text-gray-400">Licensed &amp; Insured · PA154999</p>
+            <p className="mt-2 text-sm text-gray-400">Serving Bucks County and Montgomery County</p>
           </div>
 
-          {/* Column 2: Key Services */}
           <div>
-            <h4 className="font-semibold mb-3 text-white text-sm md:text-base">
-              Services
-            </h4>
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 md:grid-cols-1 md:space-y-3 text-xs md:text-sm">
-              <li>
-                <a href="/services/dryer-vent-cleaning" className="text-gray-400 hover:text-white transition-colors">
-                  Dryer Vent Cleaning
-                </a>
-              </li>
-              <li>
-                <a href="/services/dryer-vent-repair" className="text-gray-400 hover:text-white transition-colors">
-                  Dryer Vent Repair
-                </a>
-              </li>
-              <li>
-                <a href="/services/dryer-vent-installation" className="text-gray-400 hover:text-white transition-colors">
-                  Dryer Vent Installation
-                </a>
-              </li>
-              <li>
-                <a href="/services/air-duct-cleaning" className="text-gray-400 hover:text-white transition-colors">
-                  Air Duct Cleaning
-                </a>
-              </li>
-              <li><a href="/services/flexible-duct-replacement" className="text-gray-400 hover:text-white transition-colors">Flexible Duct Replacement</a></li>
-              <li><a href="/services/bird-nest-removal" className="text-gray-400 hover:text-white transition-colors">Bird Nest Removal</a></li>
-              <li><a href="/services/bathroom-exhaust-vent-cleaning" className="text-gray-400 hover:text-white transition-colors">Bathroom Exhaust Vent Cleaning</a></li>
-              <li><a href="/services/kitchen-exhaust-vent-cleaning" className="text-gray-400 hover:text-white transition-colors">Kitchen Exhaust Vent Cleaning</a></li>
-              <li><a href="/services/exterior-vent-cover-replacement" className="text-gray-400 hover:text-white transition-colors">Exterior Vent Cover Replacement</a></li>
+            <h4 className="mb-3 text-sm font-semibold text-white md:text-base">Services</h4>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs md:grid-cols-1 md:text-sm">
+              {services.map(([label, href], index) => (
+                <li key={href} className={index > 3 ? 'hidden md:list-item' : undefined}>
+                  <a href={href} className="text-gray-400 transition-colors hover:text-white">
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Column 3: Quick Links */}
           <div>
-            <h4 className="font-semibold mb-3 text-white text-sm md:text-base">
-              Quick Links
-            </h4>
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 md:grid-cols-1 md:space-y-3 text-xs md:text-sm">
-              
-              <li>
-                <a href="/service-area" className="text-gray-400 hover:text-white transition-colors">
-                  Service Areas
-                </a>
-              </li>
-              <li><a href="/free-inspection" className="text-gray-400 hover:text-white transition-colors">Air Duct Inspection</a></li>
-              <li><a href="/reviews" className="text-gray-400 hover:text-white transition-colors">Reviews</a></li>
-              <li><a href="/resources" className="text-gray-400 hover:text-white transition-colors">Resources</a></li>
-              <li>
-                <a href="/gallery" className="text-gray-400 hover:text-white transition-colors">
-                  Gallery
-                </a>
-              </li>
-              <li>
-                <a href="/about" className="text-gray-400 hover:text-white transition-colors">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className="text-gray-400 hover:text-white transition-colors">
-                  Contact
-                </a>
-              </li>
+            <h4 className="mb-3 text-sm font-semibold text-white md:text-base">Quick Links</h4>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs md:grid-cols-1 md:text-sm">
+              {quickLinks.map(([label, href], index) => (
+                <li key={href} className={index > 3 ? 'hidden md:list-item' : undefined}>
+                  <a href={href} className="text-gray-400 transition-colors hover:text-white">
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Column 4: Contact */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">
-              Contact
-            </h4>
-            <ul className="space-y-4 text-sm">
+            <h4 className="mb-3 font-semibold text-white md:mb-4">Contact</h4>
+            <ul className="space-y-3 text-sm md:space-y-4">
               <li>
-                <a
-                  href="tel:+12157108781"
-                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                >
+                <a href="tel:+12157108781" className="flex items-center gap-2 text-gray-400 transition-colors hover:text-white">
                   <Phone className="h-4 w-4" />
                   <span>(215) 710-8781</span>
                 </a>
               </li>
               <li>
-                <a
-                  href="sms:+12157108781"
-                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                >
+                <a href="sms:+12157108781" className="flex items-center gap-2 text-gray-400 transition-colors hover:text-white">
                   <MessageSquareText className="h-4 w-4" />
                   <span>Text (215) 710-8781</span>
                 </a>
               </li>
               <li>
-                <a
-                  href="mailto:airductpriority@gmail.com"
-                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                >
+                <a href="mailto:airductpriority@gmail.com" className="flex items-center gap-2 text-gray-400 transition-colors hover:text-white">
                   <Mail className="h-4 w-4" />
                   <span>airductpriority@gmail.com</span>
                 </a>
               </li>
-              <li className="pt-2">
-                <a
-                  href="https://maps.app.goo.gl/c8kKh1yKKoHy9qNu6"
-                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+              <li>
+                <a href="https://maps.app.goo.gl/c8kKh1yKKoHy9qNu6" className="flex items-center gap-2 text-gray-400 transition-colors hover:text-white" target="_blank" rel="noopener noreferrer">
                   <Star className="h-4 w-4 fill-current" />
                   <span>Google Reviews</span>
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://www.facebook.com/airductunitedservice/"
-                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+              <li className="hidden md:list-item">
+                <a href="https://www.facebook.com/airductunitedservice/" className="flex items-center gap-2 text-gray-400 transition-colors hover:text-white" target="_blank" rel="noopener noreferrer">
                   <Facebook className="h-4 w-4" />
                   <span>Facebook</span>
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/airductpriority_pa/"
-                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+              <li className="hidden md:list-item">
+                <a href="https://www.instagram.com/airductpriority_pa/" className="flex items-center gap-2 text-gray-400 transition-colors hover:text-white" target="_blank" rel="noopener noreferrer">
                   <Instagram className="h-4 w-4" />
                   <span>Instagram</span>
                 </a>
@@ -162,11 +104,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-          <p>
-            © {new Date().getFullYear()} Air Duct Priority. All rights reserved.
-          </p>
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-gray-800 pt-6 text-sm text-gray-400 md:flex-row md:pt-8">
+          <p>© {new Date().getFullYear()} Air Duct Priority. All rights reserved.</p>
         </div>
       </div>
     </footer>

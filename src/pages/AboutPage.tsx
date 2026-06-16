@@ -181,14 +181,14 @@ export default function AboutPage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="bg-slate-900 py-16 lg:py-24">
+      <section className="bg-slate-900 py-12 lg:py-20" data-hide-mobile-contact-bar>
         <div className="container mx-auto max-w-4xl px-6 text-center">
-          <h2 className="mb-8 text-3xl font-bold text-white lg:text-4xl xl:text-5xl">
+          <h2 className="mb-6 text-3xl font-bold text-white lg:text-4xl xl:text-5xl">
             Protect Your Home Before There's a Problem
           </h2>
           <a
             href="tel:+12157108781"
-            className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-xl"
+            className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-5 py-3 text-base font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-xl md:px-8 md:py-4 md:text-lg"
           >
             <Phone className="h-5 w-5" />
             Call Air Duct Priority – (215) 710-8781

@@ -53,14 +53,14 @@ export default function CompletedJobsMap() {
   }
 
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-14 md:py-20">
       <div className="container mx-auto max-w-7xl px-6">
-        <div className="mx-auto mb-10 max-w-3xl text-center">
-          <MapPin className="mx-auto mb-4 h-10 w-10 text-[#F97316]" />
+        <div className="mx-auto mb-8 max-w-3xl text-center md:mb-10">
+          <MapPin className="mx-auto mb-3 h-8 w-8 text-[#F97316] md:mb-4 md:h-10 md:w-10" />
           <h2 className="mb-4 text-3xl font-bold text-slate-900 lg:text-4xl">
             Jobs Completed Near You
           </h2>
-          <p className="text-lg leading-relaxed text-slate-700">
+          <p className="text-base leading-relaxed text-slate-700 md:text-lg">
             Explore locations where Air Duct Priority has completed dryer vent, air duct,
             cleaning, repair, and installation services. Select a marker to view the address
             and service performed. The map shows selected completed jobs, not every project.
@@ -69,7 +69,7 @@ export default function CompletedJobsMap() {
 
         <form
           onSubmit={findZip}
-          className="mx-auto mb-8 max-w-3xl rounded-xl border border-slate-200 bg-slate-50 p-5 shadow-sm"
+          className="mx-auto mb-6 max-w-3xl rounded-xl border border-slate-200 bg-slate-50 p-4 shadow-sm md:mb-8 md:p-5"
         >
           <label htmlFor="completed-jobs-zip" className="mb-2 block font-bold text-slate-900">
             Find completed jobs near your ZIP code
@@ -116,7 +116,7 @@ export default function CompletedJobsMap() {
             <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm">
               <iframe
                 key={mapEmbedUrl}
-                className="h-[500px] w-full lg:h-[650px]"
+                className="h-[360px] w-full md:h-[500px] lg:h-[650px]"
                 src={mapEmbedUrl}
                 title="Air Duct Priority completed jobs map"
                 loading="lazy"
@@ -126,20 +126,20 @@ export default function CompletedJobsMap() {
             </div>
           )}
 
-          <aside className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm lg:sticky lg:top-6">
-            <h3 className="mb-2 text-xl font-bold text-slate-900">Map Legend</h3>
-            <p className="mb-5 text-sm leading-relaxed text-slate-600">
+          <aside className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm md:p-6 lg:sticky lg:top-6">
+            <h3 className="mb-2 text-base font-bold text-slate-900 md:text-xl">Map Legend</h3>
+            <p className="mb-5 hidden text-sm leading-relaxed text-slate-600 md:block">
               Marker colors show the service completed at each address.
             </p>
-            <ul className="space-y-4">
+            <ul className="grid grid-cols-2 gap-2 md:block md:space-y-4">
               {mapLegend.map(({ label, color }) => (
-                <li key={label} className="flex items-start gap-3">
+                <li key={label} className="flex items-start gap-2 md:gap-3">
                   <span
-                    className="mt-0.5 h-5 w-5 flex-shrink-0 rounded-full border-2 border-white shadow ring-1 ring-slate-300"
+                    className="mt-0.5 h-3 w-3 flex-shrink-0 rounded-full border border-white shadow ring-1 ring-slate-300 md:h-5 md:w-5 md:border-2"
                     style={{ backgroundColor: color }}
                     aria-hidden="true"
                   />
-                  <span className="text-sm font-semibold leading-5 text-slate-700">{label}</span>
+                  <span className="text-xs font-semibold leading-4 text-slate-700 md:text-sm md:leading-5">{label}</span>
                 </li>
               ))}
             </ul>

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Flame, Droplets, Wind, TrendingUp } from 'lucide-react';
 
 interface FlipCardProps {
@@ -9,12 +10,22 @@ interface FlipCardProps {
 }
 
 function FlipCard({ problem, hiddenCause, result, isPrimary, icon }: FlipCardProps) {
+  const [isFlipped, setIsFlipped] = useState(false);
+
   return (
-    <div className="group h-40 w-full cursor-pointer focus:outline-none md:h-52" style={{ perspective: '1000px' }} tabIndex={0} role="button" aria-label={`${problem}. Hover, focus, or tap to see the explanation.`}>
-      <div className="relative h-full w-full transition-transform duration-500 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus:[transform:rotateY(180deg)]">
+    <button
+      type="button"
+      className="group h-28 w-full cursor-pointer text-left focus:outline-none md:h-52"
+      style={{ perspective: '1000px' }}
+      aria-pressed={isFlipped}
+      aria-label={`${problem}. Tap to see the explanation.`}
+      onClick={() => setIsFlipped((value) => !value)}
+      onBlur={() => setIsFlipped(false)}
+    >
+      <div className={`relative h-full w-full transition-transform duration-500 ease-in-out [transform-style:preserve-3d] md:group-hover:[transform:rotateY(180deg)] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}>
 
         {/* Front Side - Problem */}
-        <div className={`absolute inset-0 flex items-center justify-center gap-3 rounded-md border-l-4 p-4 md:p-6 shadow-sm [backface-visibility:hidden] ${
+        <div className={`absolute inset-0 flex items-center justify-center gap-3 rounded-md border-l-4 p-4 shadow-sm [backface-visibility:hidden] md:p-6 ${
           isPrimary
             ? 'border-[#F97316] bg-slate-900 text-gray-100'
             : 'border-[#F97316] bg-gray-100 text-slate-900'
@@ -22,27 +33,27 @@ function FlipCard({ problem, hiddenCause, result, isPrimary, icon }: FlipCardPro
           <div className="text-[#F97316] flex-shrink-0">
             {icon}
           </div>
-          <h3 className={`text-center text-base md:text-lg font-bold lg:text-xl ${isPrimary ? '!text-white' : '!text-slate-900'}`}>
+          <h3 className={`text-center text-base font-bold md:text-lg lg:text-xl ${isPrimary ? '!text-white' : '!text-slate-900'}`}>
             {problem}
           </h3>
         </div>
 
         {/* Back Side - Explanation */}
-        <div className={`absolute inset-0 flex flex-col justify-center rounded-md border-l-4 p-4 md:p-6 shadow-sm [backface-visibility:hidden] [transform:rotateY(180deg)] ${
+        <div className={`absolute inset-0 flex flex-col justify-center rounded-md border-l-4 p-4 shadow-sm [backface-visibility:hidden] [transform:rotateY(180deg)] md:p-6 ${
           isPrimary
             ? 'border-[#F97316] bg-white'
             : 'border-[#F97316] bg-gray-50'
         }`}>
-          <p className="mb-2 md:mb-3 text-xs md:text-sm text-slate-700 lg:text-base">
+          <p className="mb-2 text-xs text-slate-700 md:mb-3 md:text-sm lg:text-base">
             {hiddenCause}
           </p>
-          <p className="text-xs md:text-sm text-slate-600">
+          <p className="text-xs text-slate-600 md:text-sm">
             {result}
           </p>
         </div>
 
       </div>
-    </div>
+    </button>
   );
 }
 
@@ -79,10 +90,10 @@ export default function ReasonSectionHome() {
   ];
 
   return (
-    <section className="bg-white py-24 lg:py-32">
+    <section className="bg-white pb-12 pt-14 md:py-24 lg:py-28">
       <div className="container mx-auto max-w-6xl px-6">
         {/* Section Header */}
-        <div className="mb-16 text-center">
+        <div className="mb-8 text-center md:mb-16">
           <h2 className="text-3xl font-bold text-slate-900 lg:text-4xl">
             Here's why this usually happens
           </h2>
@@ -93,7 +104,7 @@ export default function ReasonSectionHome() {
         </div>
 
         {/* Flip Cards Grid */}
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:gap-12">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-10 lg:gap-12">
           {cards.map((card, index) => (
             <FlipCard
               key={index}

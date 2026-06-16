@@ -38,21 +38,7 @@
 
   @media (max-width: 767px) {
     body {
-      padding-bottom: 4.25rem;
-    }
-  }
-
-  @media (hover: none) {
-    .group[style*="perspective"] > div {
-      transform: rotateY(180deg);
-    }
-
-    .group > [class*="group-hover:opacity-100"] {
-      opacity: 1;
-    }
-
-    .group > [class*="group-hover:opacity-0"] {
-      opacity: 0;
+      padding-bottom: 3.5rem;
     }
   }
 }

@@ -156,7 +156,7 @@ export default function CustomCompletedJobsMap({ focus }: CustomCompletedJobsMap
 
   return (
     <div className="relative overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm">
-      <div ref={containerRef} className="h-[500px] w-full lg:h-[650px]" aria-label="Completed jobs map" />
+      <div ref={containerRef} className="h-[360px] w-full md:h-[500px] lg:h-[650px]" aria-label="Completed jobs map" />
       {error && (
         <div className="absolute inset-0 flex items-center justify-center bg-slate-100 p-8 text-center text-slate-700">
           {error}

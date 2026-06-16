@@ -20,7 +20,7 @@ export default function ConversionCta({
   onlineLabel = 'Request Air Duct Inspection',
 }: ConversionCtaProps) {
   return (
-    <section className="bg-slate-900 py-10 text-white lg:py-12">
+    <section className="bg-slate-900 py-10 text-white lg:py-12" data-hide-mobile-contact-bar>
       <div className="container mx-auto max-w-6xl px-6">
         <div className="grid gap-7 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-12">
           <div>
