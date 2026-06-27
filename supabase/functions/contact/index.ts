@@ -198,6 +198,53 @@ Air Duct Priority
         .eq("id", submissionId);
     }
 
+    // Forward to calendar intake API (server-side only, key never exposed to client)
+    const calendarApiUrl = Deno.env.get("CONTACT_API_URL");
+    const calendarApiKey = Deno.env.get("CONTACT_API_KEY");
+
+    if (calendarApiUrl && calendarApiKey) {
+      try {
+        const calendarPayload: Record<string, string | undefined> = {
+          name,
+          phone,
+          email,
+          zip,
+          service,
+          message,
+          page,
+          landingPage,
+          referrer,
+        };
+        // Remove undefined keys
+        for (const key of Object.keys(calendarPayload)) {
+          if (calendarPayload[key] === undefined) {
+            delete calendarPayload[key];
+          }
+        }
+
+        const calendarRes = await fetch(calendarApiUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${calendarApiKey}`,
+          },
+          body: JSON.stringify(calendarPayload),
+        });
+
+        if (!calendarRes.ok) {
+          const body = await calendarRes.text().catch(() => "");
+          console.error(
+            `Calendar intake API error: status=${calendarRes.status} body=${body}`
+          );
+        }
+      } catch (error) {
+        console.error("Calendar intake API request failed:", error);
+      }
+    } else {
+      if (!calendarApiUrl) console.warn("CONTACT_API_URL secret is not set; skipping calendar forwarding.");
+      if (!calendarApiKey) console.warn("CONTACT_API_KEY secret is not set; skipping calendar forwarding.");
+    }
+
     if (!stored && !ownerNotified) {
       throw new Error("The lead could not be stored or delivered.");
     }
