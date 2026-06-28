@@ -1,13 +1,17 @@
-const CONTACT_API_URL = 'https://rfmdfgpfvnfdifxmtemk.supabase.co/functions/v1/contact';
-const CONTACT_API_KEY =
+const CONTACT_FUNCTION_URL =
+  import.meta.env.VITE_CONTACT_FUNCTION_URL ||
+  'https://rfmdfgpfvnfdifxmtemk.supabase.co/functions/v1/contact';
+
+const CONTACT_FUNCTION_ANON_KEY =
+  import.meta.env.VITE_CONTACT_FUNCTION_ANON_KEY ||
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJmbWRmZ3Bmdm5mZGlmeG10ZW1rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyNzI5NzcsImV4cCI6MjA5NTg0ODk3N30.Gd10eqdviB9QlqhhCgEO9nv_5SKWf0SrCZyfj1MA-Fc';
 
 export async function submitContactRequest(data: Record<string, string>) {
-  const response = await fetch(CONTACT_API_URL, {
+  const response = await fetch(CONTACT_FUNCTION_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${CONTACT_API_KEY}`,
+      Authorization: `Bearer ${CONTACT_FUNCTION_ANON_KEY}`,
     },
     body: JSON.stringify(data),
   });

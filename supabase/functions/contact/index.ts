@@ -122,7 +122,7 @@ Deno.serve(async (req: Request) => {
     });
 
     const mailFrom = Deno.env.get("MAIL_FROM") || Deno.env.get("SMTP_USER");
-    const mailTo = "max@airductpriority.com";
+    const mailTo = Deno.env.get("MAIL_TO") || "max@airductpriority.com";
 
     // Send email to business owner
     const businessEmailContent = `
@@ -199,8 +199,10 @@ Air Duct Priority
     }
 
     // Forward to calendar intake API (server-side only, key never exposed to client)
-    const calendarApiUrl = Deno.env.get("CONTACT_API_URL");
-    const calendarApiKey = Deno.env.get("CONTACT_API_KEY");
+    const calendarApiUrl = Deno.env.get("CONTACT_API_URL")?.trim();
+    const calendarApiKey = Deno.env.get("CONTACT_API_KEY")?.trim();
+    let calendarForwarded = false;
+    let calendarForwardError = "";
 
     if (calendarApiUrl && calendarApiKey) {
       try {
@@ -233,16 +235,25 @@ Air Duct Priority
 
         if (!calendarRes.ok) {
           const body = await calendarRes.text().catch(() => "");
-          console.error(
-            `Calendar intake API error: status=${calendarRes.status} body=${body}`
-          );
+          calendarForwardError = `Calendar intake API error: status=${calendarRes.status} body=${body}`;
+          console.error(calendarForwardError);
+        } else {
+          calendarForwarded = true;
+          console.log("Calendar intake API accepted website lead.");
         }
       } catch (error) {
+        calendarForwardError = error instanceof Error ? error.message : "Calendar intake API request failed";
         console.error("Calendar intake API request failed:", error);
       }
     } else {
-      if (!calendarApiUrl) console.warn("CONTACT_API_URL secret is not set; skipping calendar forwarding.");
-      if (!calendarApiKey) console.warn("CONTACT_API_KEY secret is not set; skipping calendar forwarding.");
+      if (!calendarApiUrl) {
+        calendarForwardError = "CONTACT_API_URL secret is not set; skipping calendar forwarding.";
+        console.warn(calendarForwardError);
+      }
+      if (!calendarApiKey) {
+        calendarForwardError = "CONTACT_API_KEY secret is not set; skipping calendar forwarding.";
+        console.warn(calendarForwardError);
+      }
     }
 
     if (!stored && !ownerNotified) {
@@ -250,7 +261,11 @@ Air Duct Priority
     }
 
     return new Response(
-      JSON.stringify({ ok: true }),
+      JSON.stringify({
+        ok: true,
+        calendarForwarded,
+        calendarForwardError: calendarForwardError || undefined,
+      }),
       {
         status: 200,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
