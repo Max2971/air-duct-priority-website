@@ -27,8 +27,16 @@ export default function CompletedJobsMap() {
   function findZip(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const query = zipInput.trim();
+    const isZipOnly = /^\d{5}$/.test(query);
     const zip = query.match(/\b\d{5}\b/)?.[0] ?? '';
     const center = completedJobsZipCenters[zip];
+
+    if (customMapEnabled && !isZipOnly && query.length >= 6) {
+      setSelectedZip(query);
+      setMapFocus({ address: query });
+      setMessage(`Showing completed jobs near "${query}".`);
+      return;
+    }
 
     if (center) {
       const [latitude, longitude, jobs] = center;
@@ -36,13 +44,6 @@ export default function CompletedJobsMap() {
       setMapEmbedUrl(`${baseMapEmbedUrl}&ll=${latitude}%2C${longitude}&z=13`);
       setMapFocus({ latitude, longitude });
       setMessage(`Showing ${jobs} completed ${jobs === 1 ? 'job' : 'jobs'} mapped in ZIP code ${zip}.`);
-      return;
-    }
-
-    if (customMapEnabled && query.length >= 6) {
-      setSelectedZip(query);
-      setMapFocus({ address: query });
-      setMessage(`Showing completed jobs near "${query}".`);
       return;
     }
 
