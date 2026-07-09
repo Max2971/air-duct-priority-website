@@ -17,7 +17,7 @@ const serviceColors: Record<CompletedJobService, string> = {
 let loaderConfigured = false;
 
 interface CustomCompletedJobsMapProps {
-  focus?: { latitude: number; longitude: number } | { address: string };
+  focus?: { latitude: number; longitude: number; label?: string } | { address: string };
 }
 
 const clusterRenderer: Renderer = {
@@ -61,6 +61,7 @@ export default function CustomCompletedJobsMap({ focus }: CustomCompletedJobsMap
   const searchMarkerRef = useRef<google.maps.marker.AdvancedMarkerElement | null>(null);
   const geocoderRef = useRef<google.maps.Geocoder | null>(null);
   const [error, setError] = useState('');
+  const [searchError, setSearchError] = useState('');
 
   useEffect(() => {
     if (!apiKey || !containerRef.current) return;
@@ -146,14 +147,48 @@ export default function CustomCompletedJobsMap({ focus }: CustomCompletedJobsMap
 
   useEffect(() => {
     if (!mapRef.current) return;
-    if (focus && 'latitude' in focus) {
+
+    function clearSearchMarker() {
       if (searchMarkerRef.current) {
         searchMarkerRef.current.map = null;
         searchMarkerRef.current = null;
       }
+    }
+
+    function showSearchMarker(position: google.maps.LatLng | google.maps.LatLngLiteral, label = 'Your location') {
+      clearSearchMarker();
+      const markerContent = document.createElement('div');
+      markerContent.textContent = label;
+      Object.assign(markerContent.style, {
+        background: '#0F172A',
+        border: '2px solid white',
+        borderRadius: '9999px',
+        boxShadow: '0 2px 8px rgba(15, 23, 42, 0.35)',
+        color: 'white',
+        fontSize: '12px',
+        fontWeight: '700',
+        padding: '7px 10px',
+        whiteSpace: 'nowrap',
+      });
+
+      searchMarkerRef.current = new google.maps.marker.AdvancedMarkerElement({
+        map: mapRef.current,
+        position,
+        content: markerContent,
+        title: label,
+        zIndex: 5000,
+      });
+    }
+
+    if (focus && 'latitude' in focus) {
+      clearSearchMarker();
       setError('');
+      setSearchError('');
       mapRef.current.panTo({ lat: focus.latitude, lng: focus.longitude });
       mapRef.current.setZoom(13);
+      if (focus.label) {
+        showSearchMarker({ lat: focus.latitude, lng: focus.longitude }, focus.label);
+      }
     } else if (focus && 'address' in focus && geocoderRef.current) {
       geocoderRef.current.geocode(
         {
@@ -162,48 +197,22 @@ export default function CustomCompletedJobsMap({ focus }: CustomCompletedJobsMap
         },
         (results, status) => {
           if (status !== 'OK' || !results?.[0]?.geometry.location || !mapRef.current) {
-            setError('We could not find that address. Please try a nearby ZIP code or a more complete address.');
+            setSearchError('We could not find that address. Please try a nearby ZIP code or a more complete address.');
             return;
           }
 
           setError('');
+          setSearchError('');
           const position = results[0].geometry.location;
           mapRef.current.panTo(position);
           mapRef.current.setZoom(14);
-
-          if (searchMarkerRef.current) {
-            searchMarkerRef.current.map = null;
-          }
-
-          const markerContent = document.createElement('div');
-          markerContent.textContent = 'Your location';
-          Object.assign(markerContent.style, {
-            background: '#0F172A',
-            border: '2px solid white',
-            borderRadius: '9999px',
-            boxShadow: '0 2px 8px rgba(15, 23, 42, 0.35)',
-            color: 'white',
-            fontSize: '12px',
-            fontWeight: '700',
-            padding: '7px 10px',
-            whiteSpace: 'nowrap',
-          });
-
-          searchMarkerRef.current = new google.maps.marker.AdvancedMarkerElement({
-            map: mapRef.current,
-            position,
-            content: markerContent,
-            title: 'Searched location',
-            zIndex: 5000,
-          });
+          showSearchMarker(position);
         },
       );
     } else {
-      if (searchMarkerRef.current) {
-        searchMarkerRef.current.map = null;
-        searchMarkerRef.current = null;
-      }
+      clearSearchMarker();
       setError('');
+      setSearchError('');
       mapRef.current.panTo(doylestown);
       mapRef.current.setZoom(11);
     }
@@ -217,6 +226,11 @@ export default function CustomCompletedJobsMap({ focus }: CustomCompletedJobsMap
       {error && (
         <div className="absolute inset-0 flex items-center justify-center bg-slate-100 p-8 text-center text-slate-700">
           {error}
+        </div>
+      )}
+      {searchError && !error && (
+        <div className="absolute left-4 right-4 top-4 rounded-lg border border-amber-200 bg-white px-4 py-3 text-sm text-slate-700 shadow-sm">
+          {searchError}
         </div>
       )}
     </div>

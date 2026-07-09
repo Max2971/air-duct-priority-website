@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { MapPin, RotateCcw, Search } from 'lucide-react';
+import { completedJobs } from '../data/completedJobs';
 import { completedJobsZipCenters } from '../data/completedJobsZipCenters';
 import CustomCompletedJobsMap from './CustomCompletedJobsMap';
 
@@ -17,11 +18,26 @@ const mapLegend = [
   { label: 'Dryer Vent Installation', color: '#E65100' },
 ];
 
+function normalizeAddress(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/\broad\b/g, 'rd')
+    .replace(/\bdrive\b/g, 'dr')
+    .replace(/\bstreet\b/g, 'st')
+    .replace(/\bavenue\b/g, 'ave')
+    .replace(/\bcircle\b/g, 'cir')
+    .replace(/\blane\b/g, 'ln')
+    .replace(/\bcourt\b/g, 'ct')
+    .replace(/\bpennsylvania\b/g, 'pa')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
 export default function CompletedJobsMap() {
   const [zipInput, setZipInput] = useState('');
   const [selectedZip, setSelectedZip] = useState('');
   const [mapEmbedUrl, setMapEmbedUrl] = useState(defaultMapEmbedUrl);
-  const [mapFocus, setMapFocus] = useState<{ latitude: number; longitude: number } | { address: string }>();
+  const [mapFocus, setMapFocus] = useState<{ latitude: number; longitude: number; label?: string } | { address: string }>();
   const [message, setMessage] = useState('Enter a ZIP code or full address to focus the map on completed jobs nearby.');
 
   function findZip(event: FormEvent<HTMLFormElement>) {
@@ -32,6 +48,20 @@ export default function CompletedJobsMap() {
     const center = completedJobsZipCenters[zip];
 
     if (customMapEnabled && !isZipOnly && query.length >= 6) {
+      const normalizedQuery = normalizeAddress(query);
+      const matchedJob = completedJobs.find((job) => normalizeAddress(job.address) === normalizedQuery);
+
+      if (matchedJob) {
+        setSelectedZip(query);
+        setMapFocus({
+          latitude: matchedJob.latitude,
+          longitude: matchedJob.longitude,
+          label: 'Your location',
+        });
+        setMessage(`Showing completed jobs near "${matchedJob.address}".`);
+        return;
+      }
+
       setSelectedZip(query);
       setMapFocus({ address: query });
       setMessage(`Showing completed jobs near "${query}".`);
