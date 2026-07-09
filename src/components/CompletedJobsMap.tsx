@@ -21,27 +21,38 @@ export default function CompletedJobsMap() {
   const [zipInput, setZipInput] = useState('');
   const [selectedZip, setSelectedZip] = useState('');
   const [mapEmbedUrl, setMapEmbedUrl] = useState(defaultMapEmbedUrl);
-  const [mapFocus, setMapFocus] = useState<{ latitude: number; longitude: number }>();
-  const [message, setMessage] = useState('Enter a ZIP code to focus the map on completed jobs nearby.');
+  const [mapFocus, setMapFocus] = useState<{ latitude: number; longitude: number } | { address: string }>();
+  const [message, setMessage] = useState('Enter a ZIP code or full address to focus the map on completed jobs nearby.');
 
   function findZip(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const zip = zipInput.match(/\d{5}/)?.[0] ?? '';
+    const query = zipInput.trim();
+    const zip = query.match(/\b\d{5}\b/)?.[0] ?? '';
     const center = completedJobsZipCenters[zip];
+
+    if (center) {
+      const [latitude, longitude, jobs] = center;
+      setSelectedZip(zip);
+      setMapEmbedUrl(`${baseMapEmbedUrl}&ll=${latitude}%2C${longitude}&z=13`);
+      setMapFocus({ latitude, longitude });
+      setMessage(`Showing ${jobs} completed ${jobs === 1 ? 'job' : 'jobs'} mapped in ZIP code ${zip}.`);
+      return;
+    }
+
+    if (customMapEnabled && query.length >= 6) {
+      setSelectedZip(query);
+      setMapFocus({ address: query });
+      setMessage(`Showing completed jobs near "${query}".`);
+      return;
+    }
 
     if (!center) {
       setSelectedZip('');
       setMapEmbedUrl(defaultMapEmbedUrl);
       setMapFocus(undefined);
-      setMessage('No completed jobs are currently mapped for that ZIP code. Try a nearby ZIP code.');
+      setMessage('Enter a valid ZIP code or full address near the service area.');
       return;
     }
-
-    const [latitude, longitude, jobs] = center;
-    setSelectedZip(zip);
-    setMapEmbedUrl(`${baseMapEmbedUrl}&ll=${latitude}%2C${longitude}&z=13`);
-    setMapFocus({ latitude, longitude });
-    setMessage(`Showing ${jobs} completed ${jobs === 1 ? 'job' : 'jobs'} mapped in ZIP code ${zip}.`);
   }
 
   function resetMap() {
@@ -49,7 +60,7 @@ export default function CompletedJobsMap() {
     setSelectedZip('');
     setMapEmbedUrl(defaultMapEmbedUrl);
     setMapFocus(undefined);
-    setMessage('Enter a ZIP code to focus the map on completed jobs nearby.');
+    setMessage('Enter a ZIP code or full address to focus the map on completed jobs nearby.');
   }
 
   return (
@@ -72,16 +83,16 @@ export default function CompletedJobsMap() {
           className="mx-auto mb-6 max-w-3xl rounded-xl border border-slate-200 bg-slate-50 p-4 shadow-sm md:mb-8 md:p-5"
         >
           <label htmlFor="completed-jobs-zip" className="mb-2 block font-bold text-slate-900">
-            Find completed jobs near your ZIP code
+            Find completed jobs near your address or ZIP code
           </label>
           <div className="flex flex-col gap-3 sm:flex-row">
             <input
               id="completed-jobs-zip"
               value={zipInput}
-              onChange={(event) => setZipInput(event.target.value.replace(/\D/g, '').slice(0, 5))}
-              inputMode="numeric"
-              autoComplete="postal-code"
-              placeholder="Enter ZIP code"
+              onChange={(event) => setZipInput(event.target.value)}
+              inputMode="text"
+              autoComplete="street-address"
+              placeholder="Enter ZIP code or full address"
               className="min-w-0 flex-1 rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
               aria-describedby="completed-jobs-zip-message"
               required

@@ -17,7 +17,7 @@ const serviceColors: Record<CompletedJobService, string> = {
 let loaderConfigured = false;
 
 interface CustomCompletedJobsMapProps {
-  focus?: { latitude: number; longitude: number };
+  focus?: { latitude: number; longitude: number } | { address: string };
 }
 
 const clusterRenderer: Renderer = {
@@ -58,6 +58,8 @@ const clusterRenderer: Renderer = {
 export default function CustomCompletedJobsMap({ focus }: CustomCompletedJobsMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<google.maps.Map | null>(null);
+  const searchMarkerRef = useRef<google.maps.marker.AdvancedMarkerElement | null>(null);
+  const geocoderRef = useRef<google.maps.Geocoder | null>(null);
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -86,6 +88,7 @@ export default function CustomCompletedJobsMap({ focus }: CustomCompletedJobsMap
           gestureHandling: 'cooperative',
         });
         mapRef.current = map;
+        geocoderRef.current = new google.maps.Geocoder();
         const infoWindow = new InfoWindow();
 
         const markers = completedJobs.map((job) => {
@@ -143,10 +146,64 @@ export default function CustomCompletedJobsMap({ focus }: CustomCompletedJobsMap
 
   useEffect(() => {
     if (!mapRef.current) return;
-    if (focus) {
+    if (focus && 'latitude' in focus) {
+      if (searchMarkerRef.current) {
+        searchMarkerRef.current.map = null;
+        searchMarkerRef.current = null;
+      }
+      setError('');
       mapRef.current.panTo({ lat: focus.latitude, lng: focus.longitude });
       mapRef.current.setZoom(13);
+    } else if (focus && 'address' in focus && geocoderRef.current) {
+      geocoderRef.current.geocode(
+        {
+          address: focus.address,
+          componentRestrictions: { country: 'US' },
+        },
+        (results, status) => {
+          if (status !== 'OK' || !results?.[0]?.geometry.location || !mapRef.current) {
+            setError('We could not find that address. Please try a nearby ZIP code or a more complete address.');
+            return;
+          }
+
+          setError('');
+          const position = results[0].geometry.location;
+          mapRef.current.panTo(position);
+          mapRef.current.setZoom(14);
+
+          if (searchMarkerRef.current) {
+            searchMarkerRef.current.map = null;
+          }
+
+          const markerContent = document.createElement('div');
+          markerContent.textContent = 'Your location';
+          Object.assign(markerContent.style, {
+            background: '#0F172A',
+            border: '2px solid white',
+            borderRadius: '9999px',
+            boxShadow: '0 2px 8px rgba(15, 23, 42, 0.35)',
+            color: 'white',
+            fontSize: '12px',
+            fontWeight: '700',
+            padding: '7px 10px',
+            whiteSpace: 'nowrap',
+          });
+
+          searchMarkerRef.current = new google.maps.marker.AdvancedMarkerElement({
+            map: mapRef.current,
+            position,
+            content: markerContent,
+            title: 'Searched location',
+            zIndex: 5000,
+          });
+        },
+      );
     } else {
+      if (searchMarkerRef.current) {
+        searchMarkerRef.current.map = null;
+        searchMarkerRef.current = null;
+      }
+      setError('');
       mapRef.current.panTo(doylestown);
       mapRef.current.setZoom(11);
     }
