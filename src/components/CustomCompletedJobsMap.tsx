@@ -16,6 +16,26 @@ const serviceColors: Record<CompletedJobService, string> = {
 
 let loaderConfigured = false;
 
+function getAddressSearchCandidates(address: string) {
+  const trimmedAddress = address.trim();
+  const hasZip = /\b\d{5}(?:-\d{4})?\b/.test(trimmedAddress);
+  const hasState = /\b(pa|pennsylvania|nj|new jersey)\b/i.test(trimmedAddress);
+  const hasCityLikeComma = trimmedAddress.includes(',');
+
+  return Array.from(
+    new Set(
+      [
+        trimmedAddress,
+        !hasState ? `${trimmedAddress}, PA` : '',
+        !hasState ? `${trimmedAddress}, Pennsylvania` : '',
+        !hasZip && !hasCityLikeComma ? `${trimmedAddress}, Bucks County, PA` : '',
+        !hasZip && !hasCityLikeComma ? `${trimmedAddress}, Montgomery County, PA` : '',
+        !hasZip && !hasCityLikeComma ? `${trimmedAddress}, Doylestown, PA` : '',
+      ].filter(Boolean),
+    ),
+  );
+}
+
 interface CustomCompletedJobsMapProps {
   focus?: { latitude: number; longitude: number; label?: string; zoom?: number } | { address: string };
 }
@@ -194,31 +214,46 @@ export default function CustomCompletedJobsMap({ focus }: CustomCompletedJobsMap
         { lat: 39.2, lng: -76.2 },
         { lat: 41.1, lng: -73.8 },
       );
-      geocoderRef.current.geocode(
-        {
-          address: focus.address,
-          bounds: serviceAreaBounds,
-          componentRestrictions: { country: 'US' },
-          region: 'US',
-        },
-        (results, status) => {
-          if (status !== 'OK' || !results?.[0]?.geometry.location || !mapRef.current) {
-            const message =
-              status === 'ZERO_RESULTS'
-                ? 'We could not find that address. Please add city, state, or ZIP code, or use your current location.'
-                : 'Address search could not run right now. Please try your current location or a nearby ZIP code.';
-            setSearchError(message);
-            return;
-          }
+      const candidates = getAddressSearchCandidates(focus.address);
 
-          setError('');
-          setSearchError('');
-          const position = results[0].geometry.location;
-          mapRef.current.panTo(position);
-          mapRef.current.setZoom(14);
-          showSearchMarker(position);
-        },
-      );
+      function geocodeCandidate(index: number) {
+        const candidate = candidates[index];
+        if (!candidate || !geocoderRef.current) {
+          setSearchError(
+            'We could not find that address. Please add city, state, or ZIP code, or use your current location.',
+          );
+          return;
+        }
+
+        geocoderRef.current.geocode(
+          {
+            address: candidate,
+            bounds: serviceAreaBounds,
+            componentRestrictions: { country: 'US' },
+            region: 'US',
+          },
+          (results, status) => {
+            if (status === 'OK' && results?.[0]?.geometry.location && mapRef.current) {
+              setError('');
+              setSearchError('');
+              const position = results[0].geometry.location;
+              mapRef.current.panTo(position);
+              mapRef.current.setZoom(14);
+              showSearchMarker(position);
+              return;
+            }
+
+            if (status === 'ZERO_RESULTS') {
+              geocodeCandidate(index + 1);
+              return;
+            }
+
+            setSearchError('Address search could not run right now. Please try your current location or a nearby ZIP code.');
+          },
+        );
+      }
+
+      geocodeCandidate(0);
     } else {
       clearSearchMarker();
       setError('');
