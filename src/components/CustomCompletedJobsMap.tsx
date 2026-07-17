@@ -17,7 +17,7 @@ const serviceColors: Record<CompletedJobService, string> = {
 let loaderConfigured = false;
 
 interface CustomCompletedJobsMapProps {
-  focus?: { latitude: number; longitude: number; label?: string } | { address: string };
+  focus?: { latitude: number; longitude: number; label?: string; zoom?: number } | { address: string };
 }
 
 const clusterRenderer: Renderer = {
@@ -185,19 +185,29 @@ export default function CustomCompletedJobsMap({ focus }: CustomCompletedJobsMap
       setError('');
       setSearchError('');
       mapRef.current.panTo({ lat: focus.latitude, lng: focus.longitude });
-      mapRef.current.setZoom(13);
+      mapRef.current.setZoom(focus.zoom ?? 13);
       if (focus.label) {
         showSearchMarker({ lat: focus.latitude, lng: focus.longitude }, focus.label);
       }
     } else if (focus && 'address' in focus && geocoderRef.current) {
+      const serviceAreaBounds = new google.maps.LatLngBounds(
+        { lat: 39.2, lng: -76.2 },
+        { lat: 41.1, lng: -73.8 },
+      );
       geocoderRef.current.geocode(
         {
           address: focus.address,
+          bounds: serviceAreaBounds,
           componentRestrictions: { country: 'US' },
+          region: 'US',
         },
         (results, status) => {
           if (status !== 'OK' || !results?.[0]?.geometry.location || !mapRef.current) {
-            setSearchError('We could not find that address. Please try a nearby ZIP code or a more complete address.');
+            const message =
+              status === 'ZERO_RESULTS'
+                ? 'We could not find that address. Please add city, state, or ZIP code, or use your current location.'
+                : 'Address search could not run right now. Please try your current location or a nearby ZIP code.';
+            setSearchError(message);
             return;
           }
 

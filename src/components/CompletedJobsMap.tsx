@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { MapPin, RotateCcw, Search } from 'lucide-react';
+import { MapPin, Navigation, RotateCcw, Search } from 'lucide-react';
 import { completedJobs } from '../data/completedJobs';
 import { completedJobsZipCenters } from '../data/completedJobsZipCenters';
 import CustomCompletedJobsMap from './CustomCompletedJobsMap';
@@ -17,6 +17,10 @@ const mapLegend = [
   { label: 'Air Duct & Dryer Vent Cleaning', color: '#C2185B' },
   { label: 'Dryer Vent Installation', color: '#E65100' },
 ];
+
+type MapFocus =
+  | { latitude: number; longitude: number; label?: string; zoom?: number }
+  | { address: string };
 
 function normalizeAddress(value: string) {
   return value
@@ -37,8 +41,11 @@ export default function CompletedJobsMap() {
   const [zipInput, setZipInput] = useState('');
   const [selectedZip, setSelectedZip] = useState('');
   const [mapEmbedUrl, setMapEmbedUrl] = useState(defaultMapEmbedUrl);
-  const [mapFocus, setMapFocus] = useState<{ latitude: number; longitude: number; label?: string } | { address: string }>();
-  const [message, setMessage] = useState('Enter a ZIP code or full address to focus the map on completed jobs nearby.');
+  const [mapFocus, setMapFocus] = useState<MapFocus>();
+  const [locationLoading, setLocationLoading] = useState(false);
+  const [message, setMessage] = useState(
+    'Enter a ZIP code or full address, or use your current location, to focus the map on completed jobs nearby.',
+  );
 
   function findZip(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -57,6 +64,7 @@ export default function CompletedJobsMap() {
           latitude: matchedJob.latitude,
           longitude: matchedJob.longitude,
           label: 'Your location',
+          zoom: 14,
         });
         setMessage(`Showing completed jobs near "${matchedJob.address}".`);
         return;
@@ -91,7 +99,49 @@ export default function CompletedJobsMap() {
     setSelectedZip('');
     setMapEmbedUrl(defaultMapEmbedUrl);
     setMapFocus(undefined);
-    setMessage('Enter a ZIP code or full address to focus the map on completed jobs nearby.');
+    setLocationLoading(false);
+    setMessage('Enter a ZIP code or full address, or use your current location, to focus the map on completed jobs nearby.');
+  }
+
+  function useCurrentLocation() {
+    if (!customMapEnabled) {
+      setMessage('Current location search is available on the interactive map.');
+      return;
+    }
+
+    if (typeof navigator === 'undefined' || !navigator.geolocation) {
+      setMessage('Your browser does not support current location search. Enter an address or ZIP code instead.');
+      return;
+    }
+
+    setLocationLoading(true);
+    setMessage('Finding your current location...');
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        setSelectedZip('current-location');
+        setZipInput('');
+        setMapFocus({
+          latitude,
+          longitude,
+          label: 'Your location',
+          zoom: 14,
+        });
+        setMessage('Showing completed jobs near your current location.');
+        setLocationLoading(false);
+      },
+      (error) => {
+        setLocationLoading(false);
+        if (error.code === error.PERMISSION_DENIED) {
+          setMessage('Location permission was not allowed. Enter your address or ZIP code instead.');
+          return;
+        }
+
+        setMessage('We could not get your current location. Enter your address or ZIP code instead.');
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 },
+    );
   }
 
   return (
@@ -134,6 +184,15 @@ export default function CompletedJobsMap() {
             >
               <Search className="h-4 w-4" />
               Find Nearby Jobs
+            </button>
+            <button
+              type="button"
+              onClick={useCurrentLocation}
+              disabled={locationLoading}
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-70"
+            >
+              <Navigation className="h-4 w-4" />
+              {locationLoading ? 'Finding...' : 'Use My Location'}
             </button>
             {selectedZip && (
               <button
