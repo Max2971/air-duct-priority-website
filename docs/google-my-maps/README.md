@@ -42,9 +42,10 @@ The website switches from My Maps to the custom clustered map when
 address in marker cards. Keep the API key in the deployment environment; never commit it.
 
 For the current website map, `src/data/completedJobs.ts` is sent to every visitor's browser.
-Its public `address` values must omit house numbers and apartment/unit identifiers. Keep the
-existing latitude and longitude values unchanged so markers stay in place. The production build
-validates this rule and stops if a future row includes a house or unit number.
+Its public `address` values must replace a leading house number with `••••` and omit
+apartment/unit identifiers. Keep the existing latitude and longitude values unchanged so markers
+stay in place. The production build validates this rule and stops if a future row includes an
+unmasked house number or unit identifier.
 
 ## Data Rules
 
