@@ -32,6 +32,21 @@ function normalizeAddress(value: string) {
     .trim();
 }
 
+function getStreetName(value: string) {
+  const hasComma = value.includes(',');
+  const firstPart = value.split(',')[0]?.trim() ?? '';
+  const withoutMask = firstPart.replace(/^•+\s*/, '');
+  const isOrdinalStreet = /^\d+(?:st|nd|rd|th)\s/i.test(withoutMask);
+  const withoutHouseNumber = isOrdinalStreet ? withoutMask : withoutMask.replace(/^\d+(?:-\d+)?[a-z]?\s+/i, '');
+  const streetSuffixes = new Set(['st', 'street', 'rd', 'road', 'dr', 'drive', 'ave', 'avenue', 'ln', 'lane', 'ct', 'court', 'cir', 'circle', 'pike', 'pkwy', 'parkway', 'blvd', 'boulevard', 'way', 'trl', 'trail', 'ter', 'terrace', 'pl', 'place', 'hwy', 'highway']);
+  const tokens = withoutHouseNumber.split(/\s+/);
+  const suffixIndex = tokens.findIndex((token) => streetSuffixes.has(token.toLowerCase().replace(/[^a-z]/g, '')));
+  const street = !hasComma && suffixIndex >= 0
+    ? tokens.slice(0, suffixIndex + (tokens[suffixIndex + 1]?.toLowerCase() === 'pike' ? 2 : 1)).join(' ')
+    : withoutHouseNumber;
+  return normalizeAddress(street);
+}
+
 export default function CompletedJobsMap() {
   const [zipInput, setZipInput] = useState('');
   const [selectedZip, setSelectedZip] = useState('');
@@ -49,18 +64,39 @@ export default function CompletedJobsMap() {
     const center = completedJobsZipCenters[zip];
 
     if (customMapEnabled && !isZipOnly && query.length >= 6) {
-      const normalizedQuery = normalizeAddress(query);
-      const matchedJob = completedJobs.find((job) => normalizeAddress(job.address) === normalizedQuery);
+      const queryParts = query.split(',').map((part) => part.trim());
+      const streetName = getStreetName(query);
+      const city = queryParts[1]
+        ? normalizeAddress(queryParts[1]
+          .replace(/\b\d{5}(?:-\d{4})?\b/, '')
+          .replace(/\b(pa|nj|pennsylvania|new jersey)\b/gi, ''))
+        : '';
+      const matchingJobs = completedJobs.filter((job) => {
+        if (getStreetName(job.address) !== streetName) return false;
+        if (zip && !job.address.includes(zip)) return false;
+        const jobCity = normalizeAddress(job.address.split(',')[1] ?? '');
+        return !city || jobCity === city;
+      });
 
-      if (matchedJob) {
+      if (matchingJobs.length > 0) {
+        const latitude = matchingJobs.reduce((sum, job) => sum + job.latitude, 0) / matchingJobs.length;
+        const longitude = matchingJobs.reduce((sum, job) => sum + job.longitude, 0) / matchingJobs.length;
         setSelectedZip(query);
         setMapFocus({
-          latitude: matchedJob.latitude,
-          longitude: matchedJob.longitude,
-          label: 'Your location',
+          latitude,
+          longitude,
+          label: 'Jobs on this street',
           zoom: 14,
         });
-        setMessage(`Showing completed jobs near "${matchedJob.address}".`);
+        setMessage(`Found ${matchingJobs.length} completed ${matchingJobs.length === 1 ? 'job' : 'jobs'} on this street. The map centers on those jobs, not your exact address.`);
+        return;
+      }
+
+      if (center) {
+        const [latitude, longitude] = center;
+        setSelectedZip(query);
+        setMapFocus({ latitude, longitude, zoom: 12 });
+        setMessage(`No matching completed jobs were found on that street. Showing the ZIP code ${zip} area instead; this is not the exact address location.`);
         return;
       }
 
