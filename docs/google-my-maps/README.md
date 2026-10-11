@@ -41,6 +41,11 @@ The website switches from My Maps to the custom clustered map when
 `ade5203658e70a1246d407bc`, displays clusters as `Jobs Nearby`, and shows only service and
 address in marker cards. Keep the API key in the deployment environment; never commit it.
 
+For the current website map, `src/data/completedJobs.ts` is sent to every visitor's browser.
+Its public `address` values must omit house numbers and apartment/unit identifiers. Keep the
+existing latitude and longitude values unchanged so markers stay in place. The production build
+validates this rule and stops if a future row includes a house or unit number.
+
 ## Data Rules
 
 - The public import sheet contains only `Address` and `Service`.

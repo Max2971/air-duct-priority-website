@@ -4,11 +4,6 @@ import { completedJobs } from '../data/completedJobs';
 import { completedJobsZipCenters } from '../data/completedJobsZipCenters';
 import CustomCompletedJobsMap from './CustomCompletedJobsMap';
 
-const mapId = '17e2G6HyXf1vVVdsOuz11zj_Z-efqRBU';
-const baseMapEmbedUrl =
-  import.meta.env.VITE_GOOGLE_MY_MAPS_EMBED_URL?.trim() ||
-  `https://www.google.com/maps/d/embed?mid=${mapId}&ehbc=2E312F`;
-const defaultMapEmbedUrl = `${baseMapEmbedUrl}&ll=40.304788%2C-75.139213&z=11`;
 const customMapEnabled = Boolean(import.meta.env.VITE_GOOGLE_MAPS_API_KEY?.trim());
 
 const mapLegend = [
@@ -40,7 +35,6 @@ function normalizeAddress(value: string) {
 export default function CompletedJobsMap() {
   const [zipInput, setZipInput] = useState('');
   const [selectedZip, setSelectedZip] = useState('');
-  const [mapEmbedUrl, setMapEmbedUrl] = useState(defaultMapEmbedUrl);
   const [mapFocus, setMapFocus] = useState<MapFocus>();
   const [locationLoading, setLocationLoading] = useState(false);
   const [message, setMessage] = useState(
@@ -79,7 +73,6 @@ export default function CompletedJobsMap() {
     if (center) {
       const [latitude, longitude, jobs] = center;
       setSelectedZip(zip);
-      setMapEmbedUrl(`${baseMapEmbedUrl}&ll=${latitude}%2C${longitude}&z=13`);
       setMapFocus({ latitude, longitude });
       setMessage(`Showing ${jobs} completed ${jobs === 1 ? 'job' : 'jobs'} mapped in ZIP code ${zip}.`);
       return;
@@ -87,7 +80,6 @@ export default function CompletedJobsMap() {
 
     if (!center) {
       setSelectedZip('');
-      setMapEmbedUrl(defaultMapEmbedUrl);
       setMapFocus(undefined);
       setMessage('Enter a valid ZIP code or full address near the service area.');
       return;
@@ -97,7 +89,6 @@ export default function CompletedJobsMap() {
   function resetMap() {
     setZipInput('');
     setSelectedZip('');
-    setMapEmbedUrl(defaultMapEmbedUrl);
     setMapFocus(undefined);
     setLocationLoading(false);
     setMessage('Enter a ZIP code or full address, or use your current location, to focus the map on completed jobs nearby.');
@@ -217,16 +208,8 @@ export default function CompletedJobsMap() {
           {customMapEnabled ? (
             <CustomCompletedJobsMap focus={mapFocus} />
           ) : (
-            <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm">
-              <iframe
-                key={mapEmbedUrl}
-                className="h-[360px] w-full md:h-[500px] lg:h-[650px]"
-                src={mapEmbedUrl}
-                title="Air Duct Priority completed jobs map"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
+            <div className="flex h-[360px] items-center justify-center rounded-xl border border-slate-200 bg-slate-100 p-8 text-center text-slate-700 shadow-sm md:h-[500px] lg:h-[650px]">
+              The interactive map is temporarily unavailable. Please try again later.
             </div>
           )}
 
