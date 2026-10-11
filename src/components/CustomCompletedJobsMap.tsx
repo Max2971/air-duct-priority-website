@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { importLibrary, setOptions } from '@googlemaps/js-api-loader';
 import { MarkerClusterer, Renderer, SuperClusterAlgorithm } from '@googlemaps/markerclusterer';
 import { completedJobs, CompletedJobService } from '../data/completedJobs';
+import { importedCompletedJobs } from '../data/importedCompletedJobs';
 
 const mapId = 'ade5203658e70a1246d407bc';
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY?.trim();
@@ -112,7 +113,7 @@ export default function CustomCompletedJobsMap({ focus }: CustomCompletedJobsMap
         geocoderRef.current = new google.maps.Geocoder();
         const infoWindow = new InfoWindow();
 
-        const markers = completedJobs.map((job) => {
+        const markers = [...completedJobs, ...importedCompletedJobs].map((job) => {
           const pin = new PinElement({
             background: serviceColors[job.service],
             borderColor: '#FFFFFF',

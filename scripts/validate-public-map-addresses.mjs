@@ -11,6 +11,14 @@ if (start < 0 || end < start) {
 }
 
 const jobs = JSON.parse(source.slice(start + declaration.length, end));
+const importedSource = readFileSync(new URL('../src/data/importedCompletedJobs.ts', import.meta.url), 'utf8');
+const importedDeclaration = 'export const importedCompletedJobs: CompletedJob[] = ';
+const importedStart = importedSource.indexOf(importedDeclaration);
+const importedEnd = importedSource.lastIndexOf(';');
+if (importedStart < 0 || importedEnd < importedStart) {
+  throw new Error('Could not read the imported completed jobs map data.');
+}
+jobs.push(...JSON.parse(importedSource.slice(importedStart + importedDeclaration.length, importedEnd)));
 const houseNumberPattern = /^[0-9]+(?:-[0-9]+)?[A-Za-z]?\s/;
 const unitPattern = /^(?:apt|apartment|unit|suite|ste)(?:\s|$)/i;
 
@@ -23,7 +31,7 @@ const invalidAddressCount = jobs.filter(({ address }) => {
 
 if (invalidAddressCount > 0) {
   throw new Error(
-    `Found ${invalidAddressCount} public map address(es) containing house or unit numbers. Remove those numbers from src/data/completedJobs.ts before building.`,
+    `Found ${invalidAddressCount} public map address(es) containing house or unit numbers. Remove those numbers before building.`,
   );
 }
 

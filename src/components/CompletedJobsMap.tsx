@@ -1,6 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { MapPin, Navigation, RotateCcw, Search } from 'lucide-react';
 import { completedJobs } from '../data/completedJobs';
+import { importedCompletedJobs } from '../data/importedCompletedJobs';
 import { completedJobsZipCenters } from '../data/completedJobsZipCenters';
 import CustomCompletedJobsMap from './CustomCompletedJobsMap';
 
@@ -71,7 +72,7 @@ export default function CompletedJobsMap() {
           .replace(/\b\d{5}(?:-\d{4})?\b/, '')
           .replace(/\b(pa|nj|pennsylvania|new jersey)\b/gi, ''))
         : '';
-      const matchingJobs = completedJobs.filter((job) => {
+      const matchingJobs = [...completedJobs, ...importedCompletedJobs].filter((job) => {
         if (getStreetName(job.address) !== streetName) return false;
         if (zip && !job.address.includes(zip)) return false;
         const jobCity = normalizeAddress(job.address.split(',')[1] ?? '');
